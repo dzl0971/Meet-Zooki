@@ -7,7 +7,7 @@
 #include <cmath>
 #include <ctime>
 #include <cstdlib>
-
+#include "move.h"
 
 ////////////////////////////////////////////////////////////
 /// Entry point of application
@@ -82,7 +82,7 @@ int main()
 					clock.restart();
 
 					// Reset the position of the paddles and ball
-					leftPaddle.setPosition(10 + paddleSize.x / 2, gameHeight / 2);
+					leftPaddle.setPosition(10 + paddleSize.x / 2, gameHeight - 50.f);
 				}
 			}
 		}
@@ -95,12 +95,12 @@ int main()
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) &&
 				(leftPaddle.getPosition().y - paddleSize.y / 2 > 7.f))
 			{
-				leftPaddle.move(0.f, -paddleSpeed * deltaTime);
+				//jump
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) &&
 				(leftPaddle.getPosition().y + paddleSize.y / 2 < gameHeight - 5.f))
 			{
-				leftPaddle.move(0.f, paddleSpeed * deltaTime);
+				//slide
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) &&
 				(leftPaddle.getPosition().x < (gameWidth - 20.f)))
