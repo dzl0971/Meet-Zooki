@@ -196,10 +196,13 @@ void Editor::SaveLevel()
 				levelData << "\n";
 				levelData << level[i][j].getYOffset_R();
 				levelData << "\n";
+				levelData << "0";
 				levelData << level[i][j].getIsSolid();
 				levelData << "\n";
+				levelData << "0";
 				levelData << level[i][j].getIsDeadly();
 				levelData << "\n";
+				levelData << "0";
 				levelData << level[i][j].getIsCollectible();
 				levelData << "\n";
 			}

@@ -1,18 +1,40 @@
-﻿Build started 10/20/2014 1:47:02 PM.
-     1>Project "C:\Users\Benjamin\Documents\Visual Studio 2013\Projects\Meet-Zooki\SFML1\SFML1\SFML1.vcxproj" on node 2 (Build target(s)).
+﻿Build started 10/20/2014 2:34:13 PM.
+     1>Project "C:\Users\Brandon\Desktop\School\Fall 2014\CS 420\Zookie\SFML1\SFML1\SFML1.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (SFML1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+     1>InitializeBuildStatus:
+         Creating "Debug\Zooki.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Cone.cpp Igloo.cpp main.cpp TitleScreen.cpp Zooki.cpp
+         Zooki.cpp
+     1>c:\users\brandon\desktop\school\fall 2014\cs 420\zookie\sfml1\sfml1\zooki.cpp(7): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\brandon\desktop\school\fall 2014\cs 420\zookie\sfml1\sfml1\zooki.cpp(12): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\brandon\desktop\school\fall 2014\cs 420\zookie\sfml1\sfml1\zooki.cpp(13): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\brandon\desktop\school\fall 2014\cs 420\zookie\sfml1\sfml1\zooki.cpp(19): warning C4244: '=' : conversion from 'const float' to 'int', possible loss of data
+     1>c:\users\brandon\desktop\school\fall 2014\cs 420\zookie\sfml1\sfml1\zooki.cpp(24): warning C4244: '=' : conversion from 'const float' to 'int', possible loss of data
+     1>c:\users\brandon\desktop\school\fall 2014\cs 420\zookie\sfml1\sfml1\zooki.cpp(50): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         TitleScreen.cpp
          main.cpp
+         Igloo.cpp
+     1>c:\users\brandon\desktop\school\fall 2014\cs 420\zookie\sfml1\sfml1\igloo.cpp(13): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\brandon\desktop\school\fall 2014\cs 420\zookie\sfml1\sfml1\igloo.cpp(14): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\brandon\desktop\school\fall 2014\cs 420\zookie\sfml1\sfml1\igloo.cpp(21): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         Cone.cpp
+     1>c:\users\brandon\desktop\school\fall 2014\cs 420\zookie\sfml1\sfml1\cone.cpp(13): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\brandon\desktop\school\fall 2014\cs 420\zookie\sfml1\sfml1\cone.cpp(14): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\brandon\desktop\school\fall 2014\cs 420\zookie\sfml1\sfml1\cone.cpp(21): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Benjamin\Documents\Visual Studio 2013\Projects\Meet-Zooki\SFML1\Debug\Zooki.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\SFML\lib "sfml-audio-d.lib" "sfml-graphics-d.lib" "sfml-network-d.lib" "sfml-window-d.lib" "sfml-system-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Benjamin\Documents\Visual Studio 2013\Projects\Meet-Zooki\SFML1\Debug\Zooki.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Benjamin\Documents\Visual Studio 2013\Projects\Meet-Zooki\SFML1\Debug\Zooki.lib" /MACHINE:X86 Debug\Cone.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Brandon\Desktop\School\Fall 2014\CS 420\Zookie\SFML1\Debug\Zooki.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\SFML\lib "sfml-audio-d.lib" "sfml-graphics-d.lib" "sfml-network-d.lib" "sfml-window-d.lib" "sfml-system-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Brandon\Desktop\School\Fall 2014\CS 420\Zookie\SFML1\Debug\Zooki.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Brandon\Desktop\School\Fall 2014\CS 420\Zookie\SFML1\Debug\Zooki.lib" /MACHINE:X86 Debug\Cone.obj
          Debug\Igloo.obj
          Debug\main.obj
          Debug\TitleScreen.obj
          Debug\Zooki.obj
-         SFML1.vcxproj -> C:\Users\Benjamin\Documents\Visual Studio 2013\Projects\Meet-Zooki\SFML1\Debug\Zooki.exe
-     1>Done Building Project "C:\Users\Benjamin\Documents\Visual Studio 2013\Projects\Meet-Zooki\SFML1\SFML1\SFML1.vcxproj" (Build target(s)).
+         SFML1.vcxproj -> C:\Users\Brandon\Desktop\School\Fall 2014\CS 420\Zookie\SFML1\Debug\Zooki.exe
+       FinalizeBuildStatus:
+         Deleting file "Debug\Zooki.tlog\unsuccessfulbuild".
+         Touching "Debug\Zooki.tlog\Zooki.lastbuildstate".
+     1>Done Building Project "C:\Users\Brandon\Desktop\School\Fall 2014\CS 420\Zookie\SFML1\SFML1\SFML1.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.06
+Time Elapsed 00:00:04.44
