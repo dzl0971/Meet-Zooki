@@ -7,7 +7,11 @@ class Zooki
 public:
 	Zooki(); //create a player Zooki
 
-	sf::RectangleShape zookiShape;
+
+	// Loading player texture
+	sf::Texture zookiTexture;
+	sf::Sprite zookiSprite;
+
 
 
 	int size_x; // width of Zooki

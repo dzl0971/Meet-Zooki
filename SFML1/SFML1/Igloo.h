@@ -7,7 +7,9 @@ class Igloo
 public:
 	Igloo(); //create an igloo
 
-	sf::RectangleShape iglooShape;
+	// Loading player texture
+	sf::Texture iglooTexture;
+	sf::Sprite iglooSprite;
 
 
 	int size_x; // width of Zooki

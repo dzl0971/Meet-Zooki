@@ -85,12 +85,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Cone.cpp" />
     <ClCompile Include="Igloo.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TitleScreen.cpp" />
     <ClCompile Include="Zooki.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Cone.h" />
     <ClInclude Include="Igloo.h" />
     <ClInclude Include="TitleScreen.h" />
     <ClInclude Include="Zooki.h" />

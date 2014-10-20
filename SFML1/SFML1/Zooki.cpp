@@ -8,9 +8,10 @@ Zooki::Zooki()
 	pos_x = 22.5f;
 	pos_y = 550;
 
-	zookiShape.setSize(sf::Vector2f(size_x, size_y));
-	zookiShape.setPosition(sf::Vector2f(pos_x, pos_y));
-	zookiShape.setOrigin(sf::Vector2f(size_x / 2, size_y / 2));
+	zookiTexture.loadFromFile("penguin.png");
+	zookiSprite.setTexture(zookiTexture);
+	zookiSprite.setPosition(sf::Vector2f(pos_x, pos_y));
+	zookiSprite.setOrigin(sf::Vector2f(size_x / 2, size_y / 2));
 }
 
 
@@ -47,7 +48,7 @@ void Zooki::resetPos(int x, int y)
 
 void Zooki::Update()
 {
-	zookiShape.setPosition(sf::Vector2f(pos_x, pos_y));
+	zookiSprite.setPosition(sf::Vector2f(pos_x, pos_y));
 }
 
 

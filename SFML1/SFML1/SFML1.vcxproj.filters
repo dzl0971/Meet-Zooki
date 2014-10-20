@@ -27,6 +27,9 @@
     <ClCompile Include="Igloo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Cone.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TitleScreen.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Igloo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cone.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

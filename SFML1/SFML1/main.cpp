@@ -9,6 +9,7 @@
 #include <cstdlib>
 #include "Zooki.h"
 #include "Igloo.h"
+#include "Cone.h"
 #include "TitleScreen.h"
 
 ////////////////////////////////////////////////////////////
@@ -36,6 +37,7 @@ int main()
 	// Create Zooki
 	Zooki zooki;
 	Igloo igloo;
+	Cone cone;
 	TitleScreen titleScreen;
 
 	titleScreen.setText();
@@ -85,6 +87,7 @@ int main()
 
 			zooki.Update();
 			igloo.Update();
+			cone.Update();
 
 
 
@@ -104,8 +107,9 @@ int main()
 		if (isPlaying)
 		{
 			// Draw the paddles and the ball
-			window.draw(zooki.zookiShape);
-			window.draw(igloo.iglooShape);
+			window.draw(zooki.zookiSprite);
+			window.draw(igloo.iglooSprite);
+			window.draw(cone.coneSprite);
 		}
 		else{
 			window.clear(sf::Color::Green);
