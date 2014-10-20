@@ -48,6 +48,11 @@ sf::Sprite Tile::getTileSprite()
 	return tileSprite;
 }
 
+void Tile::Delete()
+{
+	ID = -1;
+}
+
 int Tile::getID()
 {
 	return ID;

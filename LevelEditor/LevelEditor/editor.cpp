@@ -63,6 +63,11 @@ void Editor::setTileInLevel(Tile t, int x, int y)
 	level[x][y] = t;
 }
 
+void Editor::removeTileInLevel(int x, int y)
+{
+	level[x][y].Delete();
+}
+
 void Editor::incrementCurrentTile()
 {
 	currentTile++;
@@ -175,7 +180,7 @@ void Editor::SaveLevel()
 	{
 		for (int j = 0; j < size_y; j++)
 		{
-			if (level[i][j].getTileSprite().getTexture() != NULL)
+			if (level[i][j].getID() != -1 && level[i][j].getTileSprite().getTexture() != NULL)
 			{
 				levelData << level[i][j].getID();
 				levelData << "\n";

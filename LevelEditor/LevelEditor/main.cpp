@@ -3,12 +3,15 @@
 
 int main()
 {
-	Editor edit;
-
-	edit.LoadTiles();
+	
 
 	int size_x = 1280;
 	int size_y = 768;
+
+	Editor edit(1280/32, 768/32);
+
+	edit.LoadTiles();
+
 	sf::RenderWindow window(sf::VideoMode(size_x, size_y), "SFML works!");
 	sf::Clock time;
 	
@@ -40,6 +43,12 @@ int main()
 				int x = sf::Mouse::getPosition().x;
 				int y = sf::Mouse::getPosition().y;
 				edit.setTileInLevel(edit.getCurrentTile(), sf::Mouse::getPosition(window).x / 32, sf::Mouse::getPosition(window).y / 32);
+			}
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Right))
+			{
+				int x = sf::Mouse::getPosition().x;
+				int y = sf::Mouse::getPosition().y;
+				edit.removeTileInLevel(sf::Mouse::getPosition(window).x / 32, sf::Mouse::getPosition(window).y / 32);
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 			{
@@ -75,7 +84,9 @@ int main()
 		{
 			for (int j = 0; j < edit.getSizeY(); j++)
 			{
-				window.draw(edit.getLevelTile(i, j).getTileSprite());
+				if (edit.getLevelTile(i,j).getID() != -1){
+					window.draw(edit.getLevelTile(i, j).getTileSprite());
+				}
 			}
 		}
 		
