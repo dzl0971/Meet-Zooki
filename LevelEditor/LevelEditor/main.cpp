@@ -37,18 +37,26 @@ int main()
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
-
+			
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 			{
-				int x = sf::Mouse::getPosition().x;
-				int y = sf::Mouse::getPosition().y;
-				edit.setTileInLevel(edit.getCurrentTile(), sf::Mouse::getPosition(window).x / 32, sf::Mouse::getPosition(window).y / 32);
+				int posX = sf::Mouse::getPosition(window).x;
+				int posY = sf::Mouse::getPosition(window).y;
+
+				if (posX >= 0 && posY >= 0)
+				{
+					edit.setTileInLevel(edit.getCurrentTile(), sf::Mouse::getPosition(window).x / 32, sf::Mouse::getPosition(window).y / 32);
+				}
 			}
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Right))
 			{
-				int x = sf::Mouse::getPosition().x;
-				int y = sf::Mouse::getPosition().y;
-				edit.removeTileInLevel(sf::Mouse::getPosition(window).x / 32, sf::Mouse::getPosition(window).y / 32);
+				int posX = sf::Mouse::getPosition(window).x;
+				int posY = sf::Mouse::getPosition(window).y;
+
+				if (posX >= 0 && posY >= 0)
+				{
+					edit.removeTileInLevel(sf::Mouse::getPosition(window).x / 32, sf::Mouse::getPosition(window).y / 32);
+				}
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 			{
