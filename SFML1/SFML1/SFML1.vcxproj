@@ -85,11 +85,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Igloo.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="move.cpp" />
+    <ClCompile Include="TitleScreen.cpp" />
+    <ClCompile Include="Zooki.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="move.h" />
+    <ClInclude Include="Igloo.h" />
+    <ClInclude Include="TitleScreen.h" />
+    <ClInclude Include="Zooki.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

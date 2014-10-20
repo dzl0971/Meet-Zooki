@@ -7,7 +7,9 @@
 #include <cmath>
 #include <ctime>
 #include <cstdlib>
-#include "move.h"
+#include "Zooki.h"
+#include "Igloo.h"
+#include "TitleScreen.h"
 
 ////////////////////////////////////////////////////////////
 /// Entry point of application
@@ -20,34 +22,23 @@ int main()
 	std::srand(static_cast<unsigned int>(std::time(NULL)));
 
 	// Define some constants
-	const float pi = 3.14159f;
+
 	const int gameWidth = 800;
 	const int gameHeight = 600;
 	sf::Vector2f paddleSize(25, 100);
-	float ballRadius = 10.f;
+
 
 	// Create the window of the application
 	sf::RenderWindow window(sf::VideoMode(gameWidth, gameHeight, 32), "Zooki");
 	window.setVerticalSyncEnabled(true);
 
 
-	// Create the left paddle
-	sf::RectangleShape leftPaddle;
-	leftPaddle.setSize(paddleSize - sf::Vector2f(3, 3));
-	leftPaddle.setOutlineThickness(3);
-	leftPaddle.setOutlineColor(sf::Color::Black);
-	leftPaddle.setFillColor(sf::Color(100, 100, 200));
-	leftPaddle.setOrigin(paddleSize / 2.f);
+	// Create Zooki
+	Zooki zooki;
+	Igloo igloo;
+	TitleScreen titleScreen;
 
-	//Finish Area
-	sf::RectangleShape endZone;
-	endZone.setSize(sf::Vector2f(30.f, 30.f));
-	endZone.setFillColor(sf::Color::Red);
-	endZone.setOrigin(sf::Vector2f(15.f, 15.f));
-	endZone.setPosition(gameWidth - 15.f, gameHeight - 15.f);
-
-
-
+	titleScreen.setText();
 
 	// Define the paddles properties
 	sf::Clock AITimer;
@@ -81,8 +72,7 @@ int main()
 					isPlaying = true;
 					clock.restart();
 
-					// Reset the position of the paddles and ball
-					leftPaddle.setPosition(10 + paddleSize.x / 2, gameHeight - 50.f);
+					// Reset position of zooki
 				}
 			}
 		}
@@ -91,32 +81,17 @@ int main()
 		{
 			float deltaTime = clock.restart().asSeconds();
 
-			// Move the player's paddle
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) &&
-				(leftPaddle.getPosition().y - paddleSize.y / 2 > 7.f))
-			{
-				//jump
-			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) &&
-				(leftPaddle.getPosition().y + paddleSize.y / 2 < gameHeight - 5.f))
-			{
-				//slide
-			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) &&
-				(leftPaddle.getPosition().x < (gameWidth - 20.f)))
-			{
-				leftPaddle.move(paddleSpeed * deltaTime, 0.f);
-			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) &&
-				(leftPaddle.getPosition().x > (20.f)))
-			{
-				leftPaddle.move(-paddleSpeed * deltaTime, 0.f);
-			}
+			// Move Zooki
+
+			zooki.Update();
+			igloo.Update();
+
+
 
 			//check if in zone
-			if ((leftPaddle.getPosition().x > (gameWidth - 37.5)) && (leftPaddle.getPosition().y > (gameHeight - 80))){
-				isPlaying = false;
-			}
+			//if ((leftPaddle.getPosition().x > (gameWidth - 37.5)) && (leftPaddle.getPosition().y > (gameHeight - 80))){
+				//isPlaying = false;
+			//}
 
 
 
@@ -127,19 +102,22 @@ int main()
 		window.clear(sf::Color::Blue);
 
 		if (isPlaying)
-		{	
+		{
 			// Draw the paddles and the ball
-			window.draw(leftPaddle);
-			window.draw(endZone);
+			window.draw(zooki.zookiShape);
+			window.draw(igloo.iglooShape);
 		}
 		else{
 			window.clear(sf::Color::Green);
+			window.draw(titleScreen.title);
+			window.draw(titleScreen.play);
+
 		}
-		
+
 
 		// Display things on screen
 		window.display();
-		
+
 	}
 
 	return EXIT_SUCCESS;
