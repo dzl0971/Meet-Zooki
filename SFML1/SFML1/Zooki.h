@@ -19,8 +19,8 @@ public:
 	int pos_x;  // x position of Zooki (constant)
 	int pos_y;  // y position of Zooki
 
-	void moveLeft();  //move Zooki left
-	void moveRight();  // move Zooki right
+	void moveLeft(float deltaTime, int runSpeed);  //move Zooki left
+	void moveRight(float deltaTime, int runSpeed);  // move Zooki right
 	void jump();
 	void slide();
 

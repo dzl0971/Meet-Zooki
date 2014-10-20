@@ -2,7 +2,6 @@
 
 Zooki::Zooki()
 {
-
 	size_x = 25;
 	size_y = 100;
 	pos_x = 22.5f;
@@ -15,14 +14,14 @@ Zooki::Zooki()
 }
 
 
-void Zooki::moveRight()
+void Zooki::moveRight(float deltaTime, int runSpeed)
 {
-	//move right
+	pos_x = (zookiSprite.getPosition().x + runSpeed * deltaTime);
 }
 
-void Zooki::moveLeft()
+void Zooki::moveLeft(float deltaTime, int runSpeed)
 {
-	//move left
+	pos_x = (zookiSprite.getPosition().x + (-runSpeed) * deltaTime);
 
 }
 
