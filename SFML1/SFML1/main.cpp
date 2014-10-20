@@ -26,7 +26,9 @@ int main()
 
 	const int gameWidth = 800;
 	const int gameHeight = 600;
-	sf::Vector2f paddleSize(25, 100);
+	const int runSpeed = 200;
+	const int gravity = 500;
+
 
 
 	// Create the window of the application
@@ -34,7 +36,7 @@ int main()
 	window.setVerticalSyncEnabled(true);
 
 
-	// Create Zooki
+	// Create items
 	Zooki zooki;
 	Igloo igloo;
 	Cone cone;
@@ -75,6 +77,7 @@ int main()
 					clock.restart();
 
 					// Reset position of zooki
+
 				}
 			}
 		}
@@ -85,6 +88,23 @@ int main()
 
 			// Move Zooki
 
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+			{
+				zooki.moveLeft(deltaTime,runSpeed);
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+			{
+				zooki.moveRight(deltaTime,runSpeed);
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+			{
+				zooki.jump();
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+			{
+				zooki.slide();
+			}
+
 			zooki.Update();
 			igloo.Update();
 			cone.Update();
@@ -92,9 +112,11 @@ int main()
 
 
 			//check if in zone
-			//if ((leftPaddle.getPosition().x > (gameWidth - 37.5)) && (leftPaddle.getPosition().y > (gameHeight - 80))){
-				//isPlaying = false;
-			//}
+			sf::FloatRect area;
+			if (zooki.zookiSprite.getGlobalBounds().intersects(igloo.iglooSprite.getGlobalBounds(), area))
+			{
+				isPlaying = false;
+			}
 
 
 
