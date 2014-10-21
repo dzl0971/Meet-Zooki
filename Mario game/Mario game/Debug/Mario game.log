@@ -1,0 +1,35 @@
+﻿Build started 5/23/2013 10:33:35 AM.
+     1>Project "C:\Users\User\documents\visual studio 2010\Projects\Mario game\Mario game\Mario game.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\Mario game.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
+         Main.cpp
+     1>c:\users\user\documents\visual studio 2010\projects\mario game\mario game\object.h(44): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\user\documents\visual studio 2010\projects\mario game\mario game\object.h(44): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\user\documents\visual studio 2010\projects\mario game\mario game\object.h(160): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\user\documents\visual studio 2010\projects\mario game\mario game\object.h(160): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\user\documents\visual studio 2010\projects\mario game\mario game\npc.h(50): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\user\documents\visual studio 2010\projects\mario game\mario game\npc.h(50): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\user\documents\visual studio 2010\projects\mario game\mario game\fonts.h(40): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\user\documents\visual studio 2010\projects\mario game\mario game\fonts.h(40): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\user\documents\visual studio 2010\projects\mario game\mario game\sounds.h(66): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\user\documents\visual studio 2010\projects\mario game\mario game\main.cpp(439): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\user\documents\visual studio 2010\projects\mario game\mario game\main.cpp(497): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\user\documents\visual studio 2010\projects\mario game\mario game\main.cpp(532): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\user\documents\visual studio 2010\projects\mario game\mario game\object.h(88): warning C4715: 'block_1::jump' : not all control paths return a value
+     1>c:\users\user\documents\visual studio 2010\projects\mario game\mario game\npc.h(116): warning C4715: 'monster_1::collisionPlayer' : not all control paths return a value
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\User\documents\visual studio 2010\Projects\Mario game\Debug\Mario game.exe" /NOLOGO "sfml-graphics-d.lib" "sfml-window-d.lib" "sfml-system-d.lib" "sfml-audio-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Mario game.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\User\documents\visual studio 2010\Projects\Mario game\Debug\Mario game.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\User\documents\visual studio 2010\Projects\Mario game\Debug\Mario game.lib" /MACHINE:X86 Debug\Main.obj
+         LINK : C:\Users\User\documents\visual studio 2010\Projects\Mario game\Debug\Mario game.exe not found or not built by the last incremental link; performing full link
+         Mario game.vcxproj -> C:\Users\User\documents\visual studio 2010\Projects\Mario game\Debug\Mario game.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\User\documents\visual studio 2010\Projects\Mario game\Debug\Mario game.exe;#1" /manifest "Debug\Mario game.exe.intermediate.manifest"
+       FinalizeBuildStatus:
+         Deleting file "Debug\Mario game.unsuccessfulbuild".
+         Touching "Debug\Mario game.lastbuildstate".
+     1>Done Building Project "C:\Users\User\documents\visual studio 2010\Projects\Mario game\Mario game\Mario game.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.28
