@@ -12,6 +12,7 @@ Editor::Editor()
 	size_x = 40;
 	size_y = 29;
 	tileSize = 32;
+	currentTile = 0;
 }
 
 Editor::Editor(int x, int y)
@@ -25,6 +26,7 @@ Editor::Editor(int x, int y)
 	size_x = x;
 	size_y = y;
 	tileSize = 32;
+	currentTile = 0;
 }
 
 Tile Editor::getTile(int x)
