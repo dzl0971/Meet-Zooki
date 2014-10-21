@@ -78,7 +78,7 @@ void Editor::incrementCurrentTile()
 			currentTile++;
 		}
 	}
-	if (currentTile > tiles.size()-1)
+	else
 	{
 		currentTile = 0;
 	}
