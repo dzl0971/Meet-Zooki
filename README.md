@@ -25,4 +25,5 @@ Use
 - Left mouse click places tiles
 - Right mouse click deletes tiles
 - Arrow keys cycle through tiles imported from spritesheet
-- space bar saves level file
+- Space bar saves level file
+- Escape button clears board
