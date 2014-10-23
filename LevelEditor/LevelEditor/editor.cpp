@@ -13,6 +13,10 @@ Editor::Editor()
 	size_y = 29;
 	tileSize = 32;
 	currentTile = 0;
+	background.loadFromFile("background1.png");
+	backgroundSprite.setTexture(background);
+	backgroundSprite.setTextureRect(sf::IntRect(0, 0, 800, 600));
+	backgroundSprite.setScale(sf::Vector2f(2, 2));
 }
 
 Editor::Editor(int x, int y)
@@ -27,11 +31,20 @@ Editor::Editor(int x, int y)
 	size_y = y;
 	tileSize = 32;
 	currentTile = 0;
+	background.loadFromFile("background1.png");
+	backgroundSprite.setTexture(background);
+	backgroundSprite.setTextureRect(sf::IntRect(0, 0, 800, 600));
+	backgroundSprite.setScale(sf::Vector2f(2, 2));
 }
 
 Tile Editor::getTile(int x)
 {
 	return tiles.at(x);
+}
+
+sf::Sprite Editor::getBackground()
+{
+	return backgroundSprite;
 }
 
 Tile Editor::getCurrentTile()
@@ -77,12 +90,16 @@ void Editor::incrementCurrentTile()
 	{
 		if (getTile(currentTile).getTileSprite().getTexture() == NULL)
 		{
-			currentTile++;
+			incrementCurrentTile();
 		}
 	}
 	else
 	{
 		currentTile = 0;
+		if (getTile(currentTile).getTileSprite().getTexture() == NULL)
+		{
+			incrementCurrentTile();
+		}
 	}
 }
 
@@ -94,12 +111,16 @@ void Editor::decrementCurrentTile()
 	{
 		if (getTile(currentTile).getTileSprite().getTexture() == NULL)
 		{
-			currentTile--;
+			decrementCurrentTile();
 		}
 	}
 	if (currentTile < 0)
 	{
 		currentTile = tiles.size() - 1;
+		if (getTile(currentTile).getTileSprite().getTexture() == NULL)
+		{
+			decrementCurrentTile();
+		}
 	}
 }
 
@@ -113,6 +134,8 @@ void Editor::LoadTiles()
 
 		std::getline(stream, spriteSheetName);
 		LoadSpriteSheet(spriteSheetName);
+
+		//add in background
 		
 		std::string temp; // tempX used to fill in Tile objects
 		std::string temp2;

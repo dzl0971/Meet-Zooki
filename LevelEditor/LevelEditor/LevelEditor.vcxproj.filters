@@ -43,9 +43,18 @@
     <Text Include="SpriteInfo.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="ZookieSpriteInfo.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <Image Include="SpriteSheet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="background1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="ZookieTiles.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

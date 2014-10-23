@@ -8,26 +8,13 @@ int main()
 	int size_x = 1280;
 	int size_y = 768;
 
-	Editor edit(1280/32, 768/32);
+	Editor edit(size_x/32, size_y/32);
 
 	edit.LoadTiles();
 
 	sf::RenderWindow window(sf::VideoMode(size_x, size_y), "SFML works!");
 	sf::Clock time;
 	
-	sf::RectangleShape shape;
-	shape.setSize(sf::Vector2f(32, 32));
-	sf::RectangleShape shape2;
-	shape2.setSize(sf::Vector2f(32, 96));
-
-	/*edit.setTileInLevel(edit.getTile(1), 0, 1);
-	edit.setTileInLevel(edit.getTile(1), 0, 3);
-	edit.setTileInLevel(edit.getTile(1), 39, 20);
-	edit.setTileInLevel(edit.getTile(1), 0, 0);*/
-
-	shape2.setFillColor(sf::Color::Green);
-	shape.setFillColor(sf::Color::Red);
-
 	bool lastPressed = false;
 
 	while (window.isOpen())
@@ -87,7 +74,8 @@ int main()
 
 		
 		window.clear();
-
+		window.draw(edit.getBackground());
+		
 		for (int i = 0; i < edit.getSizeX(); i++)
 		{
 			for (int j = 0; j < edit.getSizeY(); j++)

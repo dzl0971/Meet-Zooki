@@ -99,10 +99,13 @@
     <ClInclude Include="Tile.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="background1.png" />
     <Image Include="SpriteSheet.png" />
+    <Image Include="ZookieTiles.png" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="SpriteInfo.txt" />
+    <Text Include="ZookieSpriteInfo.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

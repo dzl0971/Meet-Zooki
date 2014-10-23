@@ -28,7 +28,7 @@ public:
 	void incrementCurrentTile(); // curTile++
 	void decrementCurrentTile(); // curTile--
 	
-	sf::Texture* getBackground(); // get background texture
+	sf::Sprite getBackground(); // get background texture
 	std::vector < std::vector<Tile>> getLevel(); // return level array
 
 	Tile getLevelTile(int x, int y); // get tile pointer from level array
@@ -45,6 +45,7 @@ private:
 	sf::Texture spriteSheet; // sprite sheet texture
 	std::vector<Tile> tiles; // array of tiles loaded from sprite sheet
 	sf::Sprite playerSprite; // player sprite
+	sf::Sprite backgroundSprite;
 
 	std::string spriteSheetName;
 
@@ -59,6 +60,7 @@ private:
 	int currentTile; // current tile being placed
 
 	void LoadSpriteSheet(std::string filename);
+	void LoadBackground(std::string filename);
 	void getSpriteFromFile(Tile t, int posx, int posy, int lenx, int leny);
 	int convertStringToInt(std::string s);
 
