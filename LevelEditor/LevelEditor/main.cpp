@@ -70,6 +70,10 @@ int main()
 				
 				edit.SaveLevel();
 			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+			{
+				edit.clearLevel();
+			}
 		}
 
 		

@@ -83,6 +83,17 @@ void Editor::removeTileInLevel(int x, int y)
 	level[x][y].Delete();
 }
 
+void Editor::clearLevel()
+{
+	for (int i = 0; i < size_x; i++)
+	{
+		for (int j = 0; j < size_y; j++)
+		{
+			level[i][j].Delete();
+		}
+	}
+}
+
 void Editor::incrementCurrentTile()
 {
 	currentTile++;
@@ -128,7 +139,7 @@ void Editor::decrementCurrentTile()
 void Editor::LoadTiles()
 {
 	std::filebuf infoFile;
-	if (infoFile.open("SpriteInfo.txt", std::ios::in))
+	if (infoFile.open("ZookieSpriteInfo.txt", std::ios::in))
 	{
 		std::istream stream(&infoFile);
 

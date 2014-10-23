@@ -18,12 +18,13 @@ public:
 	void LoadLevel();
 	void SaveLevel();
 
-	//TODO setbackground, setPlayerSprite
+	//TODO setPlayerSprite
 	void setBackground(std::string filename); // load the background
 	void setTileSet(std::string filename, std::string tileInfo); // load tiles being used in level
 	void setPlayerSprite(std::string filename, std::string spriteInfo);
 	void setTileInLevel(Tile t, int x, int y); // place tile in level array
 	void removeTileInLevel(int x, int y); // remove tile from level array
+	void clearLevel();
 		
 	void incrementCurrentTile(); // curTile++
 	void decrementCurrentTile(); // curTile--
