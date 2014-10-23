@@ -3,10 +3,11 @@
 Cone::Cone()
 {
 
-	size_x = 20;
-	size_y = 30;
-	pos_x = 400;
-	pos_y = 200;
+	size_x = 30;
+	size_y = 40;
+	pos_x = 200;
+	pos_y = 400;
+	collected = false;
 
 	coneTexture.loadFromFile("cone.png");
 	coneSprite.setTexture(coneTexture);

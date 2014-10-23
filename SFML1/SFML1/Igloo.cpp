@@ -6,7 +6,7 @@ Igloo::Igloo()
 	size_x = 30;
 	size_y = 30;
 	pos_x = 685;
-	pos_y = 485;
+	pos_y = 405;
 
 	iglooTexture.loadFromFile("igloo.png");
 	iglooSprite.setTexture(iglooTexture);

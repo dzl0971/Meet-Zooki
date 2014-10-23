@@ -5,12 +5,15 @@ Zooki::Zooki()
 	size_x = 25;
 	size_y = 100;
 	pos_x = 22.5f;
-	pos_y = 550;
+	pos_y = 300;
 
 	zookiTexture.loadFromFile("penguin.png");
 	zookiSprite.setTexture(zookiTexture);
 	zookiSprite.setPosition(sf::Vector2f(pos_x, pos_y));
 	zookiSprite.setOrigin(sf::Vector2f(size_x / 2, size_y / 2));
+
+	has_cones = false;
+	onGround = false;
 }
 
 
@@ -25,6 +28,12 @@ void Zooki::moveLeft(float deltaTime, int runSpeed)
 
 }
 
+void Zooki::fall(float deltaTime, int gravity)
+{
+	pos_y = (zookiSprite.getPosition().y + (gravity) * deltaTime);
+
+}
+
 void Zooki::jump()
 {
 	//jump
@@ -33,6 +42,11 @@ void Zooki::jump()
 void Zooki::slide()
 {
 	//slide
+}
+
+void Zooki::gotCone()
+{
+	has_cones = true;
 }
 
 

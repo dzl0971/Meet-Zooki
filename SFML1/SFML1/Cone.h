@@ -19,5 +19,7 @@ public:
 
 	void Update();  // handles update
 
+	bool collected;
+
 	~Cone();
 };

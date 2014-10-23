@@ -18,11 +18,15 @@ public:
 	int size_y; // length of Zooki
 	int pos_x;  // x position of Zooki (constant)
 	int pos_y;  // y position of Zooki
+	bool has_cones;
+	bool onGround;
 
 	void moveLeft(float deltaTime, int runSpeed);  //move Zooki left
 	void moveRight(float deltaTime, int runSpeed);  // move Zooki right
 	void jump();
 	void slide();
+	void gotCone();
+	void fall(float deltaTime, int gravity);
 
 	void resetPos(int x, int y);  //move Zooki to some default position
 
