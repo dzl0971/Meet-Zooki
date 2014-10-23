@@ -77,7 +77,7 @@ int main()
 					clock.restart();
 
 					// Reset position of zooki
-
+					zooki.resetPos(22.5, 550);
 				}
 			}
 		}
