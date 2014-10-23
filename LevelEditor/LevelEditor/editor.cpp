@@ -125,7 +125,7 @@ void Editor::decrementCurrentTile()
 			decrementCurrentTile();
 		}
 	}
-	if (currentTile < 0)
+	else
 	{
 		currentTile = tiles.size() - 1;
 		if (getTile(currentTile).getTileSprite().getTexture() == NULL)
@@ -156,6 +156,10 @@ void Editor::LoadTiles()
 		while (stream)
 		{
 			std::getline(stream, temp); //ID
+			if (temp == "+--+")
+			{
+				break;
+			}
 			Tile t(convertStringToInt(temp));
 
 			std::getline(stream, temp); //xpos
