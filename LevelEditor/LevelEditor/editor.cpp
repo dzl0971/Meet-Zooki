@@ -37,7 +37,7 @@ Editor::Editor(int x, int y)
 	backgroundSprite.setScale(sf::Vector2f(2, 2));
 }
 
-Tile Editor::getTile(int x)
+TileSprite Editor::getTile(int x)
 {
 	return tiles.at(x);
 }
@@ -47,7 +47,7 @@ sf::Sprite Editor::getBackground()
 	return backgroundSprite;
 }
 
-Tile Editor::getCurrentTile()
+TileSprite Editor::getCurrentTile()
 {
 	return tiles.at(currentTile);
 }
@@ -73,13 +73,26 @@ std::vector<std::vector<Tile>> Editor::getLevel()
 	return level;
 }
 
-void Editor::setTileInLevel(Tile t, int x, int y)
+void Editor::setTileInLevel(TileSprite t, int x, int y)
 {
-	level[x][y] = t;
+	if (!t.maxPlaced())
+	{
+		level[x][y] = Tile(x,y,t.getIsStart(),t.getIsFinish(),&t);
+		
+		t.incrementNumberPlaced();
+	}
 }
 
 void Editor::removeTileInLevel(int x, int y)
 {
+	for (int i = 0; i < tiles.size(); i++)
+	{
+		if (level[x][y].getID() == tiles[i].getID())
+		{
+			tiles[i].decrementNumberPlaced();
+			break;
+		}
+	}
 	level[x][y].Delete();
 }
 
@@ -97,20 +110,9 @@ void Editor::clearLevel()
 void Editor::incrementCurrentTile()
 {
 	currentTile++;
-	if (currentTile < tiles.size() - 1)
-	{
-		if (getTile(currentTile).getTileSprite().getTexture() == NULL)
-		{
-			incrementCurrentTile();
-		}
-	}
-	else
+	if (currentTile > tiles.size() - 1)
 	{
 		currentTile = 0;
-		if (getTile(currentTile).getTileSprite().getTexture() == NULL)
-		{
-			incrementCurrentTile();
-		}
 	}
 }
 
@@ -118,20 +120,10 @@ void Editor::decrementCurrentTile()
 {
 	
 	currentTile--;
-	if (currentTile > 0)
-	{
-		if (getTile(currentTile).getTileSprite().getTexture() == NULL)
-		{
-			decrementCurrentTile();
-		}
-	}
-	else
+
+	if (currentTile < 0)
 	{
 		currentTile = tiles.size() - 1;
-		if (getTile(currentTile).getTileSprite().getTexture() == NULL)
-		{
-			decrementCurrentTile();
-		}
 	}
 }
 
@@ -160,7 +152,7 @@ void Editor::LoadTiles()
 			{
 				break;
 			}
-			Tile t(convertStringToInt(temp));
+			TileSprite t(convertStringToInt(temp));
 
 			std::getline(stream, temp); //xpos
 			std::getline(stream, temp2); //ypos
@@ -178,18 +170,26 @@ void Editor::LoadTiles()
 			sprite.setTextureRect(sf::IntRect(xpos, ypos, lenx, leny));
 			t.setTileSprite(sprite, xpos, ypos, lenx, leny);
 
+			std::getline(stream, temp); // max_num
+			t.setMaxNumber(convertStringToInt(temp));
+
 			std::getline(stream, temp); //xoffL
 			std::getline(stream, temp2); //xoffR
 			std::getline(stream, temp3); //yoffL
 			std::getline(stream, temp4); //yoffR
 
-			t.setTileInfo(convertStringToInt(temp), convertStringToInt(temp2), convertStringToInt(temp3), convertStringToInt(temp4));
+			t.setTileSpriteInfo(convertStringToInt(temp), convertStringToInt(temp2), convertStringToInt(temp3), convertStringToInt(temp4));
 
 			std::getline(stream, temp); //isSolid
 			std::getline(stream, temp2); //isdeadly
 			std::getline(stream, temp3); //iscollectible
 
-			t.setTileInteraction(convertStringToInt(temp), convertStringToInt(temp2), convertStringToInt(temp3));
+			t.setTileSpriteInteraction(convertStringToInt(temp), convertStringToInt(temp2), convertStringToInt(temp3));
+
+			std::getline(stream, temp); //isStart
+			std::getline(stream, temp2); //isFinish
+
+			t.setFinishData(convertStringToInt(temp), convertStringToInt(temp2));
 
 			tiles.push_back(t);
 		}
@@ -220,30 +220,34 @@ void Editor::SaveLevel()
 	{
 		for (int j = 0; j < size_y; j++)
 		{
-			if (level[i][j].getID() != -1 && level[i][j].getTileSprite().getTexture() != NULL)
+			if (level[i][j].isDrawn())
 			{
 				levelData << level[i][j].getID();
 				levelData << "\n";
-				levelData << level[i][j].getPosX();
+				levelData << level[i][j].getWindowY();
 				levelData << "\n";
-				levelData << level[i][j].getPosY();
+				levelData << level[i][j].getWindowY();
 				levelData << "\n";
-				levelData << level[i][j].getXOffset_L();
+				levelData << level[i][j].getTileSprite().getPosX();
 				levelData << "\n";
-				levelData << level[i][j].getXOffset_R();
+				levelData << level[i][j].getTileSprite().getPosY();
 				levelData << "\n";
-				levelData << level[i][j].getYOffset_L();
+				levelData << level[i][j].getTileSprite().getXOffset_L();
 				levelData << "\n";
-				levelData << level[i][j].getYOffset_R();
+				levelData << level[i][j].getTileSprite().getXOffset_R();
 				levelData << "\n";
-				levelData << "0";
-				levelData << level[i][j].getIsSolid();
+				levelData << level[i][j].getTileSprite().getYOffset_L();
 				levelData << "\n";
-				levelData << "0";
-				levelData << level[i][j].getIsDeadly();
+				levelData << level[i][j].getTileSprite().getYOffset_R();
 				levelData << "\n";
 				levelData << "0";
-				levelData << level[i][j].getIsCollectible();
+				levelData << level[i][j].getTileSprite().getIsSolid();
+				levelData << "\n";
+				levelData << "0";
+				levelData << level[i][j].getTileSprite().getIsDeadly();
+				levelData << "\n";
+				levelData << "0";
+				levelData << level[i][j].getTileSprite().getIsCollectible();
 				levelData << "\n";
 			}
 		}
@@ -259,7 +263,7 @@ void Editor::LoadSpriteSheet(std::string filename)
 }
 
 // create sprites from spritesheet
-void Editor::getSpriteFromFile(Tile t, int posx, int posy, int lenx, int leny)
+void Editor::getSpriteFromFile(TileSprite t, int posx, int posy, int lenx, int leny)
 {
 	t.getTileSprite().setTexture(spriteSheet);
 	
