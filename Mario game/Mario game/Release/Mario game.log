@@ -1,0 +1,36 @@
+﻿Build started 10/21/2014 9:23:16 AM.
+     1>Project "D:\campus life\course\Fall 2014\game design\project\reference\Mario game\Mario game\Mario game.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Release\Mario game.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:\SFML\Include /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
+         Main.cpp
+     1>d:\campus life\course\fall 2014\game design\project\reference\mario game\mario game\Object.h(44): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>d:\campus life\course\fall 2014\game design\project\reference\mario game\mario game\Object.h(44): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>d:\campus life\course\fall 2014\game design\project\reference\mario game\mario game\Object.h(160): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>d:\campus life\course\fall 2014\game design\project\reference\mario game\mario game\Object.h(160): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>d:\campus life\course\fall 2014\game design\project\reference\mario game\mario game\Npc.h(50): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>d:\campus life\course\fall 2014\game design\project\reference\mario game\mario game\Npc.h(50): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>d:\campus life\course\fall 2014\game design\project\reference\mario game\mario game\Fonts.h(40): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>d:\campus life\course\fall 2014\game design\project\reference\mario game\mario game\Fonts.h(40): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>d:\campus life\course\fall 2014\game design\project\reference\mario game\mario game\Sounds.h(66): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>Main.cpp(455): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>Main.cpp(519): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>Main.cpp(566): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\campus life\course\Fall 2014\game design\project\reference\Mario game\Release\Mario game.exe" /NOLOGO /LIBPATH:C:\SFML\lib "sfml-graphics.lib" "sfml-window.lib" "sfml-system.lib" "sfml-audio.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\Mario game.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\campus life\course\Fall 2014\game design\project\reference\Mario game\Release\Mario game.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\campus life\course\Fall 2014\game design\project\reference\Mario game\Release\Mario game.lib" /MACHINE:X86 Release\Main.obj
+         Generating code
+     1>d:\campus life\course\fall 2014\game design\project\reference\mario game\mario game\npc.h(116): warning C4715: 'monster_1::collisionPlayer' : not all control paths return a value
+     1>d:\campus life\course\fall 2014\game design\project\reference\mario game\mario game\object.h(88): warning C4715: 'block_1::jump' : not all control paths return a value
+         Finished generating code
+         Mario game.vcxproj -> D:\campus life\course\Fall 2014\game design\project\reference\Mario game\Release\Mario game.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\campus life\course\Fall 2014\game design\project\reference\Mario game\Release\Mario game.exe;#1" /manifest "Release\Mario game.exe.intermediate.manifest"
+       FinalizeBuildStatus:
+         Deleting file "Release\Mario game.unsuccessfulbuild".
+         Touching "Release\Mario game.lastbuildstate".
+     1>Done Building Project "D:\campus life\course\Fall 2014\game design\project\reference\Mario game\Mario game\Mario game.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.41
