@@ -27,3 +27,4 @@ Use
 - Arrow keys cycle through tiles imported from spritesheet
 - Space bar saves level file
 - Escape button clears board
+- Right Shift button loads a saved level
