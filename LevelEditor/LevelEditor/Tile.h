@@ -10,13 +10,15 @@ public:
 
 	// set the sprite
 	void setTileSprite(sf::Sprite sprite, int posX, int posY, int lenX, int lenY);
+	void setMaxNumber(int max); //sets the max number of sprites allowed
 	// set tile data
 	void setTileInfo(int L_Xoffset, int R_Xoffset, int L_Yoffset, int R_Yoffset);
 	// set tile interaction data
 	void setTileInteraction(int solid, int deadly, int collectible);
+	void setFinishData(int start, int finish);
 
 	void setWindowPos(int x, int y, int tilesize);
-	
+
 	sf::Sprite getTileSprite();
 
 	int getID();
@@ -30,8 +32,16 @@ public:
 	bool getIsSolid();
 	bool getIsDeadly();
 	bool getIsCollectible();
+	bool getIsStart();
+	bool getIsFinish();
+
+	bool maxPlaced(); // has the maximum number of tiles been placed
+	bool isDrawn(); // whether or not this tile is drawn on the screen
 
 	void Delete();
+
+	void incrementNumberPlaced();
+	void decrementNumberPlaced();
 
 private:
 
@@ -55,5 +65,11 @@ private:
 	bool isDeadly; // does tile make you lose a life
 	bool isCollectible; // should item disappear if player enters tile
 
+	bool isStart;
+	bool isFinish;
+	bool isOccupied;
+
+	int numberPlaced; //number of this tile placed
+	int max_Number; // how many of these tiles can be placed
 };
 

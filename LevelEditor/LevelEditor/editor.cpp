@@ -47,9 +47,9 @@ sf::Sprite Editor::getBackground()
 	return backgroundSprite;
 }
 
-Tile Editor::getCurrentTile()
+Tile* Editor::getCurrentTile()
 {
-	return tiles.at(currentTile);
+	return &tiles.at(currentTile);
 }
 
 Tile Editor::getLevelTile(int x, int y)
@@ -116,7 +116,7 @@ void Editor::incrementCurrentTile()
 
 void Editor::decrementCurrentTile()
 {
-	
+
 	currentTile--;
 	if (currentTile > 0)
 	{
@@ -136,10 +136,12 @@ void Editor::decrementCurrentTile()
 }
 
 // creates a vector of tiles for use in the game
-void Editor::LoadTiles()
+void Editor::LoadTiles(std::string filename)
 {
 	std::filebuf infoFile;
-	if (infoFile.open("ZookieSpriteInfo.txt", std::ios::in))
+	spriteInfoSheetName = filename;
+
+	if (infoFile.open(filename, std::ios::in))
 	{
 		std::istream stream(&infoFile);
 
@@ -147,7 +149,7 @@ void Editor::LoadTiles()
 		LoadSpriteSheet(spriteSheetName);
 
 		//add in background
-		
+
 		std::string temp; // tempX used to fill in Tile objects
 		std::string temp2;
 		std::string temp3;
@@ -178,6 +180,9 @@ void Editor::LoadTiles()
 			sprite.setTextureRect(sf::IntRect(xpos, ypos, lenx, leny));
 			t.setTileSprite(sprite, xpos, ypos, lenx, leny);
 
+			std::getline(stream, temp); // max_num
+			t.setMaxNumber(convertStringToInt(temp));
+
 			std::getline(stream, temp); //xoffL
 			std::getline(stream, temp2); //xoffR
 			std::getline(stream, temp3); //yoffL
@@ -191,19 +196,68 @@ void Editor::LoadTiles()
 
 			t.setTileInteraction(convertStringToInt(temp), convertStringToInt(temp2), convertStringToInt(temp3));
 
+			std::getline(stream, temp); //isStart
+			std::getline(stream, temp2); //isFinish
+
+			t.setFinishData(convertStringToInt(temp), convertStringToInt(temp2));
+
 			tiles.push_back(t);
 		}
-		
+
 		infoFile.close();
 	}
+}
+
+void Editor::LoadLevel(std::string filename)
+{
+	std::string temp;
+	int tempID;
+	int tempX;
+	int tempY;
+
+	std::ifstream levelFile(filename);
+
+	std::getline(levelFile, spriteInfoSheetName);
+
+	std::getline(levelFile, temp);
+	size_x = convertStringToInt(temp);
+
+	std::getline(levelFile, temp);
+	size_y = convertStringToInt(temp);
+	std::getline(levelFile, temp);
+	tileSize = convertStringToInt(temp);
+	std::getline(levelFile, temp);
+	startX = convertStringToInt(temp);
+	std::getline(levelFile, temp);
+	startY = convertStringToInt(temp);
+
+	while (levelFile)
+	{
+		std::getline(levelFile, temp);
+		if (temp == "+--+")
+		{
+			break;
+		}
+
+		tempID = convertStringToInt(temp);
+
+		std::getline(levelFile, temp);
+		tempX = convertStringToInt(temp);
+		std::getline(levelFile, temp);
+		tempY = convertStringToInt(temp);
+
+		setTileInLevel(tiles[tempID - 1], tempX, tempY);
+	}
+
+	levelFile.close();
 }
 
 void Editor::SaveLevel()
 {
 	std::ofstream levelData;
 	levelData.open("level.txt");
-	
-	levelData << spriteSheetName;
+
+	levelData << spriteInfoSheetName;
 	levelData << "\n";
 	levelData << size_x;
 	levelData << "\n";
@@ -224,30 +278,14 @@ void Editor::SaveLevel()
 			{
 				levelData << level[i][j].getID();
 				levelData << "\n";
-				levelData << level[i][j].getPosX();
+				levelData << i;
 				levelData << "\n";
-				levelData << level[i][j].getPosY();
-				levelData << "\n";
-				levelData << level[i][j].getXOffset_L();
-				levelData << "\n";
-				levelData << level[i][j].getXOffset_R();
-				levelData << "\n";
-				levelData << level[i][j].getYOffset_L();
-				levelData << "\n";
-				levelData << level[i][j].getYOffset_R();
-				levelData << "\n";
-				levelData << "0";
-				levelData << level[i][j].getIsSolid();
-				levelData << "\n";
-				levelData << "0";
-				levelData << level[i][j].getIsDeadly();
-				levelData << "\n";
-				levelData << "0";
-				levelData << level[i][j].getIsCollectible();
+				levelData << j;
 				levelData << "\n";
 			}
 		}
 	}
+	levelData << "+--+";
 
 	levelData.close();
 }
@@ -262,7 +300,7 @@ void Editor::LoadSpriteSheet(std::string filename)
 void Editor::getSpriteFromFile(Tile t, int posx, int posy, int lenx, int leny)
 {
 	t.getTileSprite().setTexture(spriteSheet);
-	
+
 }
 
 //converts a string to an int

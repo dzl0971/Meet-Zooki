@@ -4,11 +4,13 @@
 Tile::Tile()
 {
 	ID = -1;
+	numberPlaced = 0;
 }
 
 Tile::Tile(int id)
 {
 	ID = id;
+	numberPlaced = 0;
 }
 
 void Tile::setTileSprite(sf::Sprite sprite, int posX, int posY, int lenX, int lenY)
@@ -26,7 +28,7 @@ void Tile::setTileInfo(int L_Xoffset, int R_Xoffset, int L_Yoffset, int R_Yoffse
 	xOffset_R = R_Xoffset;
 	yOffset_L = L_Yoffset;
 	yOffset_R = R_Yoffset;
-	
+
 }
 
 void Tile::setTileInteraction(int solid, int deadly, int collectible)
@@ -36,10 +38,21 @@ void Tile::setTileInteraction(int solid, int deadly, int collectible)
 	isCollectible = collectible;
 }
 
+void Tile::setFinishData(int start, int finish)
+{
+	isStart = start;
+	isFinish = finish;
+}
+
 void Tile::setWindowPos(int x, int y, int tilesize)
 {
 	window_x = x * tilesize;
 	window_y = y * tilesize;
+}
+
+void Tile::setMaxNumber(int max)
+{
+	max_Number = max;
 }
 
 sf::Sprite Tile::getTileSprite()
@@ -101,6 +114,48 @@ bool Tile::getIsDeadly()
 bool Tile::getIsCollectible()
 {
 	return isCollectible;
+}
+
+void Tile::incrementNumberPlaced()
+{
+	numberPlaced++;
+}
+
+void Tile::decrementNumberPlaced()
+{
+	numberPlaced--;
+}
+
+bool Tile::maxPlaced()
+{
+	if (max_Number == -1)  // infinite # of tiles can be placed
+	{
+		return false;
+	}
+
+	else
+	{
+		if (numberPlaced < max_Number)
+		{
+			return false;
+		}
+	}
+
+	return true;
+}
+
+bool Tile::getIsStart()
+{
+	return isStart;
+}
+bool Tile::getIsFinish()
+{
+	return isFinish;
+}
+
+bool Tile::isDrawn()
+{
+	return isOccupied;
 }
 
 Tile::~Tile()

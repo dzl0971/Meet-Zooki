@@ -14,8 +14,8 @@ public:
 	Editor(std::string levelFile);
 	~Editor();
 
-	void LoadTiles();
-	void LoadLevel();
+	void LoadTiles(std::string filename);
+	void LoadLevel(std::string filename);
 	void SaveLevel();
 
 	//TODO setPlayerSprite
@@ -25,22 +25,22 @@ public:
 	void setTileInLevel(Tile t, int x, int y); // place tile in level array
 	void removeTileInLevel(int x, int y); // remove tile from level array
 	void clearLevel();
-		
+
 	void incrementCurrentTile(); // curTile++
 	void decrementCurrentTile(); // curTile--
-	
+
 	sf::Sprite getBackground(); // get background texture
 	std::vector < std::vector<Tile>> getLevel(); // return level array
 
 	Tile getLevelTile(int x, int y); // get tile pointer from level array
 	Tile getTile(int x); // get tile from sprite array
-	Tile getCurrentTile(); // get current tile selected
+	Tile* getCurrentTile(); // get current tile selected
 
 	int getSizeX();
 	int getSizeY();
 
 	sf::Sprite* getplayerSprite();
-	
+
 private:
 	sf::Texture background;
 	sf::Texture spriteSheet; // sprite sheet texture
@@ -49,6 +49,7 @@ private:
 	sf::Sprite backgroundSprite;
 
 	std::string spriteSheetName;
+	std::string spriteInfoSheetName;
 
 	std::vector<std::vector<Tile>> level; // 2d level array
 
