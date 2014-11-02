@@ -28,3 +28,5 @@ Use
 - Space bar saves level file
 - Escape button clears board
 - Right Shift button loads a saved level
+- Hold S and click to set Zooki's Spawn point
+- Press Enter to turn on test mode (no fully implemented)
