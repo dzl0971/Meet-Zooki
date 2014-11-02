@@ -37,9 +37,9 @@ Editor::Editor(int x, int y)
 	backgroundSprite.setScale(sf::Vector2f(2, 2));
 }
 
-Tile Editor::getTile(int x)
+Tile* Editor::getTile(int x)
 {
-	return tiles.at(x);
+	return &tiles.at(x);
 }
 
 sf::Sprite Editor::getBackground()
@@ -52,10 +52,10 @@ Tile* Editor::getCurrentTile()
 	return &tiles.at(currentTile);
 }
 
-Tile Editor::getLevelTile(int x, int y)
+Tile* Editor::getLevelTile(int x, int y)
 {
 	level[x][y].setWindowPos(x, y, tileSize);
-	return level[x][y];
+	return &level[x][y];
 }
 
 int Editor::getSizeX()
@@ -99,7 +99,7 @@ void Editor::incrementCurrentTile()
 	currentTile++;
 	if (currentTile < tiles.size() - 1)
 	{
-		if (getTile(currentTile).getTileSprite().getTexture() == NULL)
+		if (getTile(currentTile)->getTileSprite().getTexture() == NULL)
 		{
 			incrementCurrentTile();
 		}
@@ -107,7 +107,7 @@ void Editor::incrementCurrentTile()
 	else
 	{
 		currentTile = 0;
-		if (getTile(currentTile).getTileSprite().getTexture() == NULL)
+		if (getTile(currentTile)->getTileSprite().getTexture() == NULL)
 		{
 			incrementCurrentTile();
 		}
@@ -120,7 +120,7 @@ void Editor::decrementCurrentTile()
 	currentTile--;
 	if (currentTile > 0)
 	{
-		if (getTile(currentTile).getTileSprite().getTexture() == NULL)
+		if (getTile(currentTile)->getTileSprite().getTexture() == NULL)
 		{
 			decrementCurrentTile();
 		}
@@ -128,7 +128,7 @@ void Editor::decrementCurrentTile()
 	else
 	{
 		currentTile = tiles.size() - 1;
-		if (getTile(currentTile).getTileSprite().getTexture() == NULL)
+		if (getTile(currentTile)->getTileSprite().getTexture() == NULL)
 		{
 			decrementCurrentTile();
 		}

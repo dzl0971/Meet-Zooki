@@ -92,11 +92,13 @@
     <ClCompile Include="LoadSprites.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="Zooki.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="editor.h" />
     <ClInclude Include="LoadSprites.h" />
     <ClInclude Include="Tile.h" />
+    <ClInclude Include="Zooki.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="background1.png" />

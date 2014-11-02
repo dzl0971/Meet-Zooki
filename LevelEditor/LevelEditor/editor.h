@@ -5,6 +5,7 @@
 #include <string>
 #include<SFML/Graphics.hpp>
 #include "Tile.h"
+#include "Zooki.h"
 
 class Editor
 {
@@ -20,8 +21,6 @@ public:
 
 	//TODO setPlayerSprite
 	void setBackground(std::string filename); // load the background
-	void setTileSet(std::string filename, std::string tileInfo); // load tiles being used in level
-	void setPlayerSprite(std::string filename, std::string spriteInfo);
 	void setTileInLevel(Tile t, int x, int y); // place tile in level array
 	void removeTileInLevel(int x, int y); // remove tile from level array
 	void clearLevel();
@@ -32,8 +31,8 @@ public:
 	sf::Sprite getBackground(); // get background texture
 	std::vector < std::vector<Tile>> getLevel(); // return level array
 
-	Tile getLevelTile(int x, int y); // get tile pointer from level array
-	Tile getTile(int x); // get tile from sprite array
+	Tile* getLevelTile(int x, int y); // get tile pointer from level array
+	Tile* getTile(int x); // get tile from sprite array
 	Tile* getCurrentTile(); // get current tile selected
 
 	int getSizeX();
