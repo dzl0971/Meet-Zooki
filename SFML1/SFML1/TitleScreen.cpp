@@ -8,18 +8,21 @@ TitleScreen::TitleScreen()
 
 void TitleScreen::setText()
 {
-	title.setFont(font);
-	title.setString("ZOOKI");
-	title.setCharacterSize(75);
-	title.setPosition(250, 50);
-
-
 	play.setFont(font);
 	play.setString("Press Spacebar to Play!");
 	play.setCharacterSize(25);
-	play.setPosition(275, 250);
+	play.setColor(sf::Color(223, 116, 1));
+	play.setPosition(275, 500);
+}
+
+void TitleScreen::setImage()
+{
+  image.loadFromFile("resource/Zooki.png");
+  zookieLogo.setTexture(image);
+  zookieLogo.setPosition(50, 50);
 }
 
 TitleScreen::~TitleScreen()
 {
 }
+
