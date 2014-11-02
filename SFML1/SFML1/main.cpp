@@ -48,6 +48,7 @@ int main()
 	TitleScreen titleScreen;
 
 	titleScreen.setText();
+	titleScreen.setImage();
 
 
 	//HardCode Level. Will be replaced with loading a level////////////////////////////////////////////////////////////////
@@ -230,8 +231,8 @@ int main()
 			
 		}
 		else{
-			window.clear(sf::Color::Green);
-			window.draw(titleScreen.title);
+			window.clear(sf::Color(164, 250, 200));
+			window.draw(titleScreen.zookieLogo);
 			window.draw(titleScreen.play);
 
 
