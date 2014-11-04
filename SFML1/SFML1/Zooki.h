@@ -23,6 +23,7 @@ public:
 	bool has_cones;
 	bool onGround;
 	bool isSliding;
+	int conesRemaining;
 
 	void moveLeft(float deltaTime, int runSpeed);  //move Zooki left
 	void moveRight(float deltaTime, int runSpeed);  // move Zooki right

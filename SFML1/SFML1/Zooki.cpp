@@ -17,6 +17,8 @@ Zooki::Zooki()
 
 	x_velocity = 0;
 	y_velocity = 0;
+
+	conesRemaining = 3;
 }
 
 void Zooki::reset(){

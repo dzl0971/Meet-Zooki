@@ -187,6 +187,16 @@ int main()
 									isPlaying = false;
 									zooki.reset();
 								}
+								if (edit.getLevelTile(i, j)->getIsFinish() == true){
+									if (zooki.conesRemaining < 1){
+										isPlaying = false;
+										zooki.reset();
+									}
+								}
+								if (edit.getLevelTile(i, j)->getIsCollectible() == true){
+									zooki.conesRemaining -= 1;
+									edit.removeTileInLevel(i, j);
+								}
 								// Verifying if we need to apply collision to the vertical axis, else we apply to horizontal axis
 								if (area.width > area.height)
 								{
@@ -238,7 +248,6 @@ int main()
 		{
 			window.clear();
 			window.draw(edit.getBackground());
-
 			for (int i = 0; i < edit.getSizeX(); i++)
 			{
 				for (int j = 0; j < edit.getSizeY(); j++)
