@@ -59,6 +59,7 @@ int main()
 
 
 	sf::Clock clock;
+	sf::Clock levelStart;
 	bool isPlaying = false;
 	while (window.isOpen())
 	{
@@ -82,6 +83,7 @@ int main()
 					// (re)start the game
 					isPlaying = true;
 					clock.restart();
+					levelStart.restart();
 
 					//load first level
 					edit.LoadLevel("1.txt");
@@ -171,6 +173,10 @@ int main()
 
 			if (isPlaying)
 			{
+				if (levelStart.getElapsedTime().asSeconds() > 10.f){
+					isPlaying = false;
+					zooki.reset();
+				}
 				for (int i = 0; i < edit.getSizeX(); i++)
 				{
 					for (int j = 0; j < edit.getSizeY(); j++)
@@ -253,7 +259,14 @@ int main()
 				for (int j = 0; j < edit.getSizeY(); j++)
 				{
 					if (edit.getLevelTile(i, j)->getID() != -1){
-						window.draw(edit.getLevelTile(i, j)->getTileSprite());
+						if (edit.getLevelTile(i, j)->getIsCollectible() && levelStart.getElapsedTime().asSeconds() > 7){
+							if (levelStart.getElapsedTime().asMilliseconds() % 200 < 100){
+								window.draw(edit.getLevelTile(i, j)->getTileSprite());
+							}
+						}
+						else{
+							window.draw(edit.getLevelTile(i, j)->getTileSprite());
+						}
 					}
 				}
 			}
