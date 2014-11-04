@@ -175,11 +175,18 @@ int main()
 				{
 					for (int j = 0; j < edit.getSizeY(); j++)
 					{
-						if (edit.getLevelTile(i, j)->getID() != -1){
+						
+						if ((edit.getLevelTile(i, j)->getID() != -1)){
+
+							
 							// Affected area
 							sf::FloatRect area;
 							if (zooki.zookiSprite.getGlobalBounds().intersects(edit.getLevelTile(i, j)->getTileSprite().getGlobalBounds(),area))
 							{
+								if (edit.getLevelTile(i, j)->getIsDeadly() == true){
+									isPlaying = false;
+									zooki.reset();
+								}
 								// Verifying if we need to apply collision to the vertical axis, else we apply to horizontal axis
 								if (area.width > area.height)
 								{
@@ -214,6 +221,7 @@ int main()
 								}
 							}
 						}
+						
 					}
 				}
 

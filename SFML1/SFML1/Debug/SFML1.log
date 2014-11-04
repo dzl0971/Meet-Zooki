@@ -1,10 +1,24 @@
-﻿Build started 11/4/2014 12:03:41 AM.
+﻿Build started 11/4/2014 12:59:30 PM.
      1>Project "C:\Users\Benjamin\Desktop\Meet-Zooki\SFML1\SFML1\SFML1.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (SFML1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Zooki.cpp editor.cpp main.cpp
          main.cpp
      1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\main.cpp(90): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+         Zooki.cpp
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(7): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(12): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(13): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(25): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(29): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(30): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(58): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(59): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(71): warning C4244: '*=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(107): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         editor.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Benjamin\Desktop\Meet-Zooki\SFML1\Debug\Zooki.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\SFML\lib "sfml-audio-d.lib" "sfml-graphics-d.lib" "sfml-network-d.lib" "sfml-window-d.lib" "sfml-system-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Benjamin\Desktop\Meet-Zooki\SFML1\Debug\Zooki.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Benjamin\Desktop\Meet-Zooki\SFML1\Debug\Zooki.lib" /MACHINE:X86 Debug\Cone.obj
          Debug\editor.obj
@@ -18,4 +32,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.18
+Time Elapsed 00:00:01.61

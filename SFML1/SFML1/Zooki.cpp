@@ -19,6 +19,17 @@ Zooki::Zooki()
 	y_velocity = 0;
 }
 
+void Zooki::reset(){
+	x_velocity = 0;
+	y_velocity = 0;
+	pos_x = 22.5f;
+	pos_y = 300;
+	has_cones = false;
+	onGround = false;
+	zookiSprite.setPosition(sf::Vector2f(pos_x, pos_y));
+	zookiSprite.setOrigin(sf::Vector2f(size_x / 2, size_y / 2));
+
+}
 
 void Zooki::moveRight(float deltaTime, int runSpeed)
 {

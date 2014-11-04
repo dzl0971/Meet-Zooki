@@ -35,7 +35,7 @@ public:
 	void upright();
 
 	void resetPos(int x, int y);  //move Zooki to some default position
-
+	void reset();
 	void Update();  // handles update
 
 	~Zooki();
