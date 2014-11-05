@@ -17,9 +17,9 @@ void TitleScreen::setText()
 
 void TitleScreen::setImage()
 {
-  image.loadFromFile("resource/Zooki.png");
+  image.loadFromFile("Zooki.png");
   zookieLogo.setTexture(image);
-  zookieLogo.setPosition(50, 50);
+  zookieLogo.setPosition(150, 50);
 }
 
 TitleScreen::~TitleScreen()

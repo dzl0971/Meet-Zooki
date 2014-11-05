@@ -18,7 +18,7 @@ Zooki::Zooki()
 	x_velocity = 0;
 	y_velocity = 0;
 
-	conesRemaining = 3;
+	conesRemaining = 4;
 }
 
 void Zooki::reset(){
@@ -30,7 +30,7 @@ void Zooki::reset(){
 	onGround = false;
 	zookiSprite.setPosition(sf::Vector2f(pos_x, pos_y));
 	zookiSprite.setOrigin(sf::Vector2f(size_x / 2, size_y / 2));
-
+	zookiSprite.setRotation(0);
 }
 
 void Zooki::moveRight(float deltaTime, int runSpeed)
