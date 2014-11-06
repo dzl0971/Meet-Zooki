@@ -7,6 +7,7 @@
 #include <cmath>
 #include <ctime>
 #include <cstdlib>
+#include <string>
 #include "Zooki.h"
 #include "Igloo.h"
 #include "Cone.h"
@@ -30,6 +31,11 @@ int main()
 	const int gameWidth = 1280;
 	const int gameHeight = 768;
 	const int gravity = 200;
+	const std::string levels[] = { "1.txt", "2.txt"};
+	const int cones[] = { 4, 2 };
+	int screenMessage = 1;
+
+	
 
 	Editor edit(gameWidth/32, gameHeight/32);
 	edit.LoadTiles("ZookieSpriteInfo.txt");
@@ -47,7 +53,7 @@ int main()
 	Zooki zooki;
 	TitleScreen titleScreen;
 
-	titleScreen.setText();
+	titleScreen.setText(1);
 	titleScreen.setImage();
 
 
@@ -80,19 +86,26 @@ int main()
 			{
 				if (!isPlaying)
 				{
+					if (zooki.lives == 0){
+						zooki.level = 0;
+						zooki.lives = 3;
+						screenMessage = 1;
+					}
 					// (re)start the game
 					isPlaying = true;
 					clock.restart();
 					levelStart.restart();
 
 					//load first level
-					edit.LoadLevel("1.txt");
+					edit.clearLevel();
+					edit.LoadLevel(levels[zooki.level]);
 
 					// Reset zooki attr's
 					zooki.resetPos(22.5, 200);
 					zooki.Update();
 					zooki.has_cones = false;
-					zooki.onGround = false;				
+					zooki.onGround = false;	
+					zooki.conesRemaining = cones[zooki.level];
 				}
 			}
 		}
@@ -175,7 +188,9 @@ int main()
 			{
 				if (levelStart.getElapsedTime().asSeconds() > 10.f){
 					isPlaying = false;
+					zooki.lives -= 1;
 					zooki.reset();
+					screenMessage = 4;
 				}
 				for (int i = 0; i < edit.getSizeX(); i++)
 				{
@@ -191,12 +206,16 @@ int main()
 							{
 								if (edit.getLevelTile(i, j)->getIsDeadly() == true){
 									isPlaying = false;
+									zooki.lives -= 1;
 									zooki.reset();
+									screenMessage = 3;
 								}
 								if (edit.getLevelTile(i, j)->getIsFinish() == true){
 									if (zooki.conesRemaining < 1){
 										isPlaying = false;
+										zooki.level += 1;
 										zooki.reset();
+										screenMessage = 2;
 									}
 								}
 								if (edit.getLevelTile(i, j)->getIsCollectible() == true){
@@ -276,6 +295,7 @@ int main()
 		}
 		else{
 			window.clear(sf::Color(164, 250, 200));
+			titleScreen.setText(screenMessage);
 			window.draw(titleScreen.zookieLogo);
 			window.draw(titleScreen.play);
 

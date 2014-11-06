@@ -19,6 +19,9 @@ Zooki::Zooki()
 	y_velocity = 0;
 
 	conesRemaining = 4;
+
+	level = 0;
+	lives = 3;
 }
 
 void Zooki::reset(){
