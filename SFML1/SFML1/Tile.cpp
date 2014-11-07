@@ -7,8 +7,9 @@ Tile::Tile()
 	numberPlaced = 0;
 }
 
-Tile::Tile(int id)
+Tile::Tile(int id, std::string tileName)
 {
+	name = tileName;
 	ID = id;
 	numberPlaced = 0;
 }

@@ -36,6 +36,12 @@
     <ClCompile Include="Tile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Sound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadSprites.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TitleScreen.h">
@@ -56,9 +62,18 @@
     <ClInclude Include="Tile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadSprites.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="background1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="penguin.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="SpriteSheet.png">
@@ -70,6 +85,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="SpriteInfo.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="testsprites.txt">
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="ZookieSpriteInfo.txt">

@@ -11,8 +11,8 @@ class Editor
 {
 public:
 	Editor();
-	Editor(int x, int y);
-	Editor(std::string levelFile);
+	Editor(int x, int y, int tilesize);
+	Editor(std::string levelFile, int windowSizeX, int windowSizeY);
 	~Editor();
 
 	void LoadTiles(std::string filename);
@@ -37,6 +37,10 @@ public:
 
 	int getSizeX();
 	int getSizeY();
+	int getStartX();
+	int getStartY();
+
+	void setStart(int x, int y);
 
 	sf::Sprite* getplayerSprite();
 

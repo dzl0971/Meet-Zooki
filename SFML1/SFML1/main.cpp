@@ -44,7 +44,7 @@ int main()
 	int zooki_texture_right=0;
 	int zooki_texture_left=0;
 
-	Editor edit(gameWidth/32, gameHeight/32);
+	Editor edit(gameWidth/16, gameHeight/16, 16);
 	edit.LoadTiles("Data/ZookieSpriteInfo.txt");
 
 
@@ -111,7 +111,7 @@ int main()
 					edit.LoadLevel("Data/"+levels[zooki.level]);
 
 					// Reset zooki attr's
-					zooki.resetPos(22.5, 200);
+					zooki.resetPos(0,692);
 					zooki.Update();
 					zooki.has_cones = false;
 					zooki.onGround = false;	
@@ -380,7 +380,7 @@ int main()
 
 		}
 
-
+		sf::Sprite xyz;
 		if (isPlaying)
 		{
 			window.clear();
@@ -392,11 +392,13 @@ int main()
 					if (edit.getLevelTile(i, j)->getID() != -1){
 						if (edit.getLevelTile(i, j)->getIsCollectible() && levelStart.getElapsedTime().asSeconds() > 7){
 							if (levelStart.getElapsedTime().asMilliseconds() % 200 < 100){
-								window.draw(edit.getLevelTile(i, j)->getTileSprite());
+								xyz = edit.getLevelTile(i, j)->getTileSprite();
+								window.draw(xyz);
 							}
 						}
 						else{
-							window.draw(edit.getLevelTile(i, j)->getTileSprite());
+							xyz = edit.getLevelTile(i, j)->getTileSprite();
+							window.draw(xyz);
 						}
 					}
 				}

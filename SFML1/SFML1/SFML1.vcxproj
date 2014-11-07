@@ -88,7 +88,9 @@
     <ClCompile Include="Cone.cpp" />
     <ClCompile Include="editor.cpp" />
     <ClCompile Include="Igloo.cpp" />
+    <ClCompile Include="LoadSprites.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TitleScreen.cpp" />
     <ClCompile Include="Zooki.cpp" />
@@ -97,17 +99,21 @@
     <ClInclude Include="Cone.h" />
     <ClInclude Include="editor.h" />
     <ClInclude Include="Igloo.h" />
+    <ClInclude Include="LoadSprites.h" />
+    <ClInclude Include="Sound.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TitleScreen.h" />
     <ClInclude Include="Zooki.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="background1.png" />
+    <Image Include="penguin.png" />
     <Image Include="SpriteSheet.png" />
     <Image Include="ZookieTiles.png" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="SpriteInfo.txt" />
+    <Text Include="testsprites.txt" />
     <Text Include="ZookieSpriteInfo.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
