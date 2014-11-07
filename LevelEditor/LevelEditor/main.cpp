@@ -14,9 +14,11 @@ int main()
 
 	int size_x = 1280;
 	int size_y = 768;
+	int tileSize = 16;
 
-	Editor edit(size_x / 32, size_y / 32);
+	//Editor edit("level.txt", size_x, size_y);
 
+	Editor edit(size_x / tileSize, size_y / tileSize, tileSize);
 	edit.LoadTiles("ZookieSpriteInfo.txt");
 
 	sf::RenderWindow window(sf::VideoMode(size_x, size_y), "SFML works!");
@@ -57,18 +59,19 @@ int main()
 
 						if (setStartPos)
 						{
-							posX = posX / 32;
-							posY = posY / 32;
+							posX = posX / tileSize;
+							posY = posY / tileSize;
+							edit.setStart(posX, posY);
 							zooki.setStart(posX, posY);
 						}
 
 						else if (!edit.getCurrentTile()->maxPlaced())
 						{
-							if (edit.getLevelTile(posX / 32, posY / 32)->getID() != -1 && edit.getLevelTile(posX / 32, posY / 32)->getID() != edit.getCurrentTile()->getID())
+							if (edit.getLevelTile(posX / tileSize, posY / tileSize)->getID() != -1 && edit.getLevelTile(posX / tileSize, posY / tileSize)->getID() != edit.getCurrentTile()->getID())
 							{
-								edit.getTile(edit.getLevelTile(posX / 32, posY / 32)->getID() - 1)->decrementNumberPlaced();
+								edit.getTile(edit.getLevelTile(posX / tileSize, posY / tileSize)->getID() - 1)->decrementNumberPlaced();
 							}
-							edit.setTileInLevel(*(edit.getCurrentTile()), posX / 32, posY / 32);
+							edit.setTileInLevel(*(edit.getCurrentTile()), posX / tileSize, posY / tileSize);
 							edit.getCurrentTile()->incrementNumberPlaced();
 						}
 					}
@@ -83,7 +86,7 @@ int main()
 
 					if (posX >= 0 && posX <= size_x &&  posY >= 0 && posY <= size_y)
 					{
-						edit.removeTileInLevel(posX / 32, posY / 32);
+						edit.removeTileInLevel(posX / tileSize, posY / tileSize);
 						edit.getCurrentTile()->decrementNumberPlaced();
 					}
 				}
@@ -109,7 +112,7 @@ int main()
 			{
 				if (state == Edit)
 				{
-					if (lastPressed && timeBetweenCommands.getElapsedTime().asSeconds() < 100)
+					if (lastPressed && timeBetweenCommands.getElapsedTime().asMilliseconds() < 100)
 					{
 						continue;
 					}
@@ -150,6 +153,7 @@ int main()
 				if (state == Edit)
 				{
 					edit.LoadLevel("level.txt");
+					zooki.setStart(edit.getStartX(), edit.getStartY());
 				}
 			}
 

@@ -1,6 +1,5 @@
 #include "editor.h"
 
-
 Editor::Editor()
 {
 	// 1280 x 928 
@@ -19,9 +18,9 @@ Editor::Editor()
 	backgroundSprite.setScale(sf::Vector2f(2, 2));
 }
 
-Editor::Editor(int x, int y)
+Editor::Editor(int x, int y, int tilesize)
 {
-	// (X*32) x Y*32) 
+	// (X*tilesize) x Y*tilesize) 
 	level.resize(x);
 	for (int i = 0; i < x; i++)
 	{
@@ -29,12 +28,24 @@ Editor::Editor(int x, int y)
 	}
 	size_x = x;
 	size_y = y;
-	tileSize = 32;
+	tileSize = tilesize;
 	currentTile = 0;
 	background.loadFromFile("background1.png");
 	backgroundSprite.setTexture(background);
 	backgroundSprite.setTextureRect(sf::IntRect(0, 0, 800, 600));
 	backgroundSprite.setScale(sf::Vector2f(2, 2));
+}
+
+Editor::Editor(std::string filename, int sizeX, int sizeY)
+{
+	LoadLevel(filename);
+	
+	
+	background.loadFromFile("background1.png");
+	backgroundSprite.setTexture(background);
+	backgroundSprite.setTextureRect(sf::IntRect(0, 0, 800, 600));
+	backgroundSprite.setScale(sf::Vector2f(2, 2));
+	
 }
 
 Tile* Editor::getTile(int x)
@@ -68,6 +79,22 @@ int Editor::getSizeY()
 	return size_y;
 }
 
+int Editor::getStartX()
+{
+	return startX;
+}
+
+int Editor::getStartY()
+{
+	return startY;
+}
+
+void Editor::setStart(int x, int y)
+{
+	startX = x;
+	startY = y;
+}
+
 std::vector<std::vector<Tile>> Editor::getLevel()
 {
 	return level;
@@ -97,7 +124,7 @@ void Editor::clearLevel()
 void Editor::incrementCurrentTile()
 {
 	currentTile++;
-	if (currentTile < tiles.size() - 1)
+	if (currentTile < tiles.size())
 	{
 		if (getTile(currentTile)->getTileSprite().getTexture() == NULL)
 		{
@@ -157,12 +184,15 @@ void Editor::LoadTiles(std::string filename)
 
 		while (stream)
 		{
-			std::getline(stream, temp); //ID
+			
+			std::getline(stream, temp); //name
 			if (temp == "+--+")
 			{
 				break;
 			}
-			Tile t(convertStringToInt(temp));
+			std::getline(stream, temp2); //ID
+
+			Tile t(convertStringToInt(temp2),temp);
 
 			std::getline(stream, temp); //xpos
 			std::getline(stream, temp2); //ypos
@@ -178,6 +208,7 @@ void Editor::LoadTiles(std::string filename)
 			sf::Sprite sprite;
 			sprite.setTexture(spriteSheet);
 			sprite.setTextureRect(sf::IntRect(xpos, ypos, lenx, leny));
+			sprite.scale(sf::Vector2f(.5, .5));
 			t.setTileSprite(sprite, xpos, ypos, lenx, leny);
 
 			std::getline(stream, temp); // max_num
@@ -218,6 +249,10 @@ void Editor::LoadLevel(std::string filename)
 	std::ifstream levelFile(filename);
 
 	std::getline(levelFile, spriteInfoSheetName);
+	if (tiles.size() == 0)
+	{
+		LoadTiles(filename);
+	}
 
 	std::getline(levelFile, temp);
 	size_x = convertStringToInt(temp);
@@ -226,6 +261,18 @@ void Editor::LoadLevel(std::string filename)
 	size_y = convertStringToInt(temp);
 	std::getline(levelFile, temp);
 	tileSize = convertStringToInt(temp);
+
+	for (int i = 0; i < size_x; i++)
+	{
+		level[i].clear();
+	}
+
+	level.resize(size_x);
+	for (int i = 0; i < size_x; i++)
+	{
+		level[i].resize(size_y);
+	}
+
 	std::getline(levelFile, temp);
 	startX = convertStringToInt(temp);
 	std::getline(levelFile, temp);

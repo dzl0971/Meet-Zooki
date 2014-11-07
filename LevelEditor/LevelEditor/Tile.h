@@ -5,7 +5,7 @@ class Tile
 {
 public:
 	Tile();
-	Tile(int id);
+	Tile(int id, std::string);
 	~Tile();
 
 	// set the sprite
@@ -29,6 +29,8 @@ public:
 	int getYOffset_L();
 	int getYOffset_R();
 
+	std::string getName();
+
 	bool getIsSolid();
 	bool getIsDeadly();
 	bool getIsCollectible();
@@ -47,6 +49,7 @@ private:
 
 	sf::Sprite tileSprite;
 	int ID; // ID of sprite
+	std::string name;
 
 	int x_pos; // x position of sprite in sprite sheet
 	int y_pos; // y position of sprite in sprite sheet

@@ -10,6 +10,7 @@ Zooki::Zooki()
 	zookiTexture.loadFromFile("penguin.png");
 	zookiSprite.setTexture(zookiTexture);
 	zookiSprite.setPosition(sf::Vector2f(pos_x, pos_y));
+	zookiSprite.scale(sf::Vector2f(.5,.5));
 	zookiSprite.setOrigin(sf::Vector2f(size_x / 2, size_y / 2));
 
 	num_Cones = 0;
@@ -67,8 +68,8 @@ void Zooki::resetPos(int x, int y)
 
 void Zooki::setStart(int x, int y)
 {
-	x = x * 32; //makes sure zooki starts at the corner of a tile
-	y = y * 32;
+	x = x * 16; //makes sure zooki starts at the corner of a tile
+	y = y * 16;
 
 	startX = x;
 	startY = y;
