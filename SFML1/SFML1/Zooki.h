@@ -28,6 +28,8 @@ public:
 	int size_y; // length of Zooki
 	int pos_x;  // x position of Zooki (constant)
 	int pos_y;  // y position of Zooki
+	int startX; // start X position of Zooki
+	int startY; // start Y position of Zooki
 	int texture_size_x;
 	int texture_size_y;
 	int x_velocity;
@@ -51,6 +53,8 @@ public:
 	void upright();
 
 	void resetPos(int x, int y);  //move Zooki to some default position
+	void resetPos();  //move Zooki to level start position
+	void setStart(int x, int y);
 	void reset();
 	void Update();  // handles update
 	

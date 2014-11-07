@@ -107,14 +107,14 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="background1.png" />
+    <Image Include="Data\ZookieTiles.png" />
     <Image Include="penguin.png" />
     <Image Include="SpriteSheet.png" />
-    <Image Include="ZookieTiles.png" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Data\ZookieSpriteInfo.txt" />
     <Text Include="SpriteInfo.txt" />
     <Text Include="testsprites.txt" />
-    <Text Include="ZookieSpriteInfo.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

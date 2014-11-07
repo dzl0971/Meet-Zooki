@@ -79,7 +79,7 @@
     <Image Include="SpriteSheet.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="ZookieTiles.png">
+    <Image Include="Data\ZookieTiles.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
@@ -90,7 +90,7 @@
     <Text Include="testsprites.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="ZookieSpriteInfo.txt">
+    <Text Include="Data\ZookieSpriteInfo.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

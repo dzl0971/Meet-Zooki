@@ -109,6 +109,7 @@ int main()
 					//load first level
 					edit.clearLevel();
 					edit.LoadLevel("Data/"+levels[zooki.level]);
+					zooki.setStart(edit.getStartX(), edit.getStartY());
 
 					// Reset zooki attr's
 					zooki.resetPos(0,692);

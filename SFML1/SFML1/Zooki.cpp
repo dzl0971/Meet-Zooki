@@ -151,6 +151,26 @@ void Zooki::resetPos(int x, int y)
 
 }
 
+void Zooki::resetPos()
+{
+	pos_x = startX;
+	pos_y = startY;
+
+}
+
+void Zooki::setStart(int x, int y)
+{
+	x = x * 16; //makes sure zooki starts at the corner of a tile
+	y = y * 16;
+
+	startX = x;
+	startY = y;
+	pos_x = x;
+	pos_y = y;
+
+
+}
+
 
 void Zooki::Update()
 {

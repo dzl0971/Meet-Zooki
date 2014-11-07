@@ -1,4 +1,5 @@
 Data/ZookieTiles.png
+ice_cream
 1
 2
 2
@@ -14,6 +15,7 @@ Data/ZookieTiles.png
 01
 00
 00
+ice_block
 2
 36
 2
@@ -29,6 +31,7 @@ Data/ZookieTiles.png
 00
 00
 00
+igloo
 3
 70
 2
@@ -44,6 +47,7 @@ Data/ZookieTiles.png
 00
 00
 01
+lava_block
 4
 199
 2
