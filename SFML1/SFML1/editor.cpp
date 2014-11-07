@@ -13,7 +13,7 @@ Editor::Editor()
 	size_y = 29;
 	tileSize = 32;
 	currentTile = 0;
-	background.loadFromFile("background1.png");
+	background.loadFromFile("Data/background.png");
 	backgroundSprite.setTexture(background);
 	backgroundSprite.setTextureRect(sf::IntRect(0, 0, 800, 600));
 	backgroundSprite.setScale(sf::Vector2f(2, 2));
@@ -31,7 +31,7 @@ Editor::Editor(int x, int y)
 	size_y = y;
 	tileSize = 32;
 	currentTile = 0;
-	background.loadFromFile("background1.png");
+	background.loadFromFile("Data/background.png");
 	backgroundSprite.setTexture(background);
 	backgroundSprite.setTextureRect(sf::IntRect(0, 0, 800, 600));
 	backgroundSprite.setScale(sf::Vector2f(2, 2));
@@ -255,7 +255,7 @@ void Editor::LoadLevel(std::string filename)
 void Editor::SaveLevel()
 {
 	std::ofstream levelData;
-	levelData.open("level.txt");
+	levelData.open("Data/level.txt");
 
 	levelData << spriteInfoSheetName;
 	levelData << "\n";

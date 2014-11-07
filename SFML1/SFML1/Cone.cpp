@@ -9,7 +9,7 @@ Cone::Cone()
 	pos_y = 400;
 	collected = false;
 
-	coneTexture.loadFromFile("cone.png");
+	coneTexture.loadFromFile("Data/cone.png");
 	coneSprite.setTexture(coneTexture);
 	coneSprite.setPosition(sf::Vector2f(pos_x, pos_y));
 	coneSprite.setOrigin(sf::Vector2f(size_x / 2, size_y / 2));

@@ -7,13 +7,16 @@
 #include <cmath>
 #include <ctime>
 #include <cstdlib>
-#include <string>
 #include "Zooki.h"
 #include "Igloo.h"
 #include "Cone.h"
 #include "TitleScreen.h"
 #include "Editor.h"
 #include "Tile.h"
+#include "Sound.h"
+#include <iostream>
+#include <cstring>
+using namespace std;
 
 
 ////////////////////////////////////////////////////////////
@@ -31,14 +34,18 @@ int main()
 	const int gameWidth = 1280;
 	const int gameHeight = 768;
 	const int gravity = 200;
-	const std::string levels[] = { "1.txt", "2.txt"};
+	
+	string levels[] = { "1.txt", "2.txt"};
 	const int cones[] = { 4, 2 };
 	int screenMessage = 1;
-
-	
+	bool up=false;
+	bool left=false;
+	bool right=false;
+	int zooki_texture_right=0;
+	int zooki_texture_left=0;
 
 	Editor edit(gameWidth/32, gameHeight/32);
-	edit.LoadTiles("ZookieSpriteInfo.txt");
+	edit.LoadTiles("Data/ZookieSpriteInfo.txt");
 
 
 
@@ -51,6 +58,10 @@ int main()
 
 	// Create items
 	Zooki zooki;
+	Sound sound;
+
+	sound.loadSounds();
+	zooki.loadTexture();
 	TitleScreen titleScreen;
 
 	titleScreen.setText(1);
@@ -60,8 +71,7 @@ int main()
 	// Define the paddles properties
 	sf::Clock AITimer;
 	const sf::Time AITime = sf::seconds(0.1f);
-	const float paddleSpeed = 400.f;
-	float rightPaddleSpeed = 0.f;
+	
 
 
 	sf::Clock clock;
@@ -98,16 +108,75 @@ int main()
 
 					//load first level
 					edit.clearLevel();
-					edit.LoadLevel(levels[zooki.level]);
+					edit.LoadLevel("Data/"+levels[zooki.level]);
 
 					// Reset zooki attr's
 					zooki.resetPos(22.5, 200);
 					zooki.Update();
 					zooki.has_cones = false;
 					zooki.onGround = false;	
+					zooki.isSliding = false;
 					zooki.conesRemaining = cones[zooki.level];
 				}
 			}
+
+			if(event.type==sf::Event::KeyPressed)
+			{
+				if(event.key.code==sf::Keyboard::Up)
+				{
+					up=true;
+				}
+				if(event.key.code==sf::Keyboard::Down)
+				{
+					zooki.isSliding=true;
+								
+				}
+
+                if(event.key.code==sf::Keyboard::Left)
+				{
+					left=true;
+				}
+
+				if(event.key.code==sf::Keyboard::Right)
+				{
+					right=true;
+			
+				}
+            
+			 }
+
+			if(event.type==sf::Event::KeyReleased)
+			{
+				if(event.key.code==sf::Keyboard::Up)
+				{
+					up=false;
+					zooki.y_velocity=0;
+					zooki.onGround=false;
+				}
+				if(event.key.code==sf::Keyboard::Down)
+				{
+					//down=false;	
+					zooki.isSliding=false;
+					zooki.upright();
+				}
+
+                if(event.key.code==sf::Keyboard::Left)
+				{
+					left=false;
+					sound.time_till_end=0;
+					sound.stopSound("walk");
+					zooki.zookiSprite.setTextureRect(zooki.zooki_stay_l);
+				}
+
+				if(event.key.code==sf::Keyboard::Right)
+				{
+					right=false;
+					sound.time_till_end=0;
+					sound.stopSound("walk");
+					zooki.zookiSprite.setTextureRect(zooki.zooki_stay_r);
+				}
+            
+			 }
 		}
 
 		if (isPlaying)
@@ -120,56 +189,96 @@ int main()
 			
 			
 			if (zooki.onGround && !zooki.isSliding){
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-				{
-					zooki.jump();					
-				}
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-				{
-					zooki.slide();
-					zooki.isSliding = true;
-				}
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-				{
-					zooki.moveLeft(deltaTime, gravity);
-				}
-				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-				{
-					zooki.moveRight(deltaTime, gravity);
-				}
-			}
-
-			else if (zooki.onGround && zooki.isSliding){
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+				if (up==true)
 				{
 					zooki.jump();
-					zooki.isSliding = false;
-					zooki.upright();
+					sound.playSound("jump");
+					
 				}
-					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-					{
-						zooki.isSliding = false;
-						zooki.upright();
-						zooki.moveLeft(deltaTime, gravity);
-					}
-					else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-					{
-						zooki.isSliding = false;
-						zooki.upright();
-						zooki.moveRight(deltaTime, gravity);
-					}
 				
+				if (left==true)
+				{
+					zooki_texture_left++;
+					zooki.moveLeft(deltaTime, gravity);
+					if(zooki_texture_left==1)
+					{
+						zooki.zookiSprite.setTextureRect(zooki.zooki_run1_l);
+					}
+					if(zooki_texture_left==2)
+					{
+						zooki.zookiSprite.setTextureRect(zooki.zooki_run2_l);
+					}
+					if(zooki_texture_left==3)
+					{
+						zooki.zookiSprite.setTextureRect(zooki.zooki_run3_l);
+					}
+					sound.playSound("walk");
+					if(zooki_texture_left>3)
+						zooki_texture_left=0;
+
+				}
+				if (right==true)
+				{
+					zooki_texture_right++;
+					zooki.moveRight(deltaTime, gravity);
+					if(zooki_texture_right==1)
+					{
+						zooki.zookiSprite.setTextureRect(zooki.zooki_run1_r);
+					}
+					if(zooki_texture_right==2)
+					{
+						zooki.zookiSprite.setTextureRect(zooki.zooki_run2_r);
+					}
+					if(zooki_texture_right==3)
+					{
+						zooki.zookiSprite.setTextureRect(zooki.zooki_run3_r);
+					}
+					sound.playSound("walk");
+					if(zooki_texture_right>3)
+						zooki_texture_right=0;
+				}
 			}
 
+			if (zooki.onGround && zooki.isSliding){
 
-			else{
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+					zooki.y_velocity=0;
+					zooki.slide();
+			//	if (up==true)
+			//	{
+			//		zooki.jump();
+			//		zooki.isSliding = false;
+			//		zooki.upright();
+			//	}
+			//	
+				if (left==true)
 				{
 					zooki.moveLeft(deltaTime, gravity);
 				}
-				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+				if (right==true)
 				{
 					zooki.moveRight(deltaTime, gravity);
+				}
+			//	
+			//	
+			//	
+			}
+
+			if (!zooki.onGround)
+			{
+				
+				if (left==true)
+				{
+					zooki.moveLeft(deltaTime, gravity);
+					zooki.zookiSprite.setTextureRect(zooki.zooki_jump_l);
+					sound.time_till_end=0;
+					sound.stopSound("walk");
+				}
+				if (right==true)
+				{
+					zooki.moveRight(deltaTime, gravity);
+					zooki.zookiSprite.setTextureRect(zooki.zooki_jump_r);
+					sound.time_till_end=0;
+					sound.stopSound("walk");
 				}
 				zooki.fall();
 
@@ -206,6 +315,7 @@ int main()
 							{
 								if (edit.getLevelTile(i, j)->getIsDeadly() == true){
 									isPlaying = false;
+									sound.deathSound.play();
 									zooki.lives -= 1;
 									zooki.reset();
 									screenMessage = 3;
@@ -213,6 +323,7 @@ int main()
 								if (edit.getLevelTile(i, j)->getIsFinish() == true){
 									if (zooki.conesRemaining < 1){
 										isPlaying = false;
+										//sound.deathSound.play();
 										zooki.level += 1;
 										zooki.reset();
 										screenMessage = 2;
@@ -221,21 +332,22 @@ int main()
 								if (edit.getLevelTile(i, j)->getIsCollectible() == true){
 									zooki.conesRemaining -= 1;
 									edit.removeTileInLevel(i, j);
+									sound.iglooSound.play();
 								}
 								// Verifying if we need to apply collision to the vertical axis, else we apply to horizontal axis
 								if (area.width > area.height)
 								{
-									if (area.contains({ area.left, zooki.zookiSprite.getPosition().y }))
+									if (area.contains(area.left, zooki.zookiSprite.getPosition().y ))
 									{
 										// Up side crash
-										zooki.zookiSprite.setPosition({ zooki.zookiSprite.getPosition().x, zooki.zookiSprite.getPosition().y + area.height });
+										zooki.zookiSprite.setPosition(zooki.zookiSprite.getPosition().x, zooki.zookiSprite.getPosition().y + area.height );
 										zooki.y_velocity = 0;
 									}
 									else
 									{
 										// Down side crash
 										zooki.onGround = true;
-										zooki.zookiSprite.setPosition({ zooki.zookiSprite.getPosition().x, zooki.zookiSprite.getPosition().y - area.height });
+										zooki.zookiSprite.setPosition(zooki.zookiSprite.getPosition().x, zooki.zookiSprite.getPosition().y - area.height );
 										zooki.y_velocity = 0;
 									}
 								}

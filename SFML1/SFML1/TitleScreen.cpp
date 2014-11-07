@@ -3,7 +3,11 @@
 
 TitleScreen::TitleScreen()
 {
-	font.loadFromFile("arial.ttf");
+	font.loadFromFile("Data/arial.ttf");
+	gameStart = "Welcome! Press Space to Play!";
+	levelClear = "Level Clear! Press Space to Continue";
+	lavaDeath = "Don't Touch the Lava! Press Space to Retry";
+	timerDeath = "Out of Time! Press Space to Retry";
 }
 
 void TitleScreen::setText(int message)
@@ -29,7 +33,7 @@ void TitleScreen::setText(int message)
 
 void TitleScreen::setImage()
 {
-  image.loadFromFile("Zooki.png");
+  image.loadFromFile("Data/Zooki.png");
   zookieLogo.setTexture(image);
   zookieLogo.setPosition(150, 50);
 }
@@ -37,4 +41,3 @@ void TitleScreen::setImage()
 TitleScreen::~TitleScreen()
 {
 }
-
