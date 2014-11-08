@@ -73,13 +73,13 @@
     <Image Include="background1.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="penguin.png">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="SpriteSheet.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Data\ZookieTiles.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Data\penguin.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

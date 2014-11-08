@@ -36,11 +36,9 @@ int main()
 	const int gravity = 200;
 	
 	string levels[] = { "1.txt", "2.txt"};
-	const int cones[] = { 4, 2 };
+	const int cones[] = { 0, 2 };
 	int screenMessage = 1;
-	bool up=false;
-	bool left=false;
-	bool right=false;
+
 	int zooki_texture_right=0;
 	int zooki_texture_left=0;
 
@@ -111,8 +109,7 @@ int main()
 					edit.LoadLevel("Data/"+levels[zooki.level]);
 					zooki.setStart(edit.getStartX(), edit.getStartY());
 
-					// Reset zooki attr's
-					zooki.resetPos(0,692);
+
 					zooki.Update();
 					zooki.has_cones = false;
 					zooki.onGround = false;	
@@ -120,64 +117,7 @@ int main()
 					zooki.conesRemaining = cones[zooki.level];
 				}
 			}
-
-			if(event.type==sf::Event::KeyPressed)
-			{
-				if(event.key.code==sf::Keyboard::Up)
-				{
-					up=true;
-				}
-				if(event.key.code==sf::Keyboard::Down)
-				{
-					zooki.isSliding=true;
-								
-				}
-
-                if(event.key.code==sf::Keyboard::Left)
-				{
-					left=true;
-				}
-
-				if(event.key.code==sf::Keyboard::Right)
-				{
-					right=true;
 			
-				}
-            
-			 }
-
-			if(event.type==sf::Event::KeyReleased)
-			{
-				if(event.key.code==sf::Keyboard::Up)
-				{
-					up=false;
-					zooki.y_velocity=0;
-					zooki.onGround=false;
-				}
-				if(event.key.code==sf::Keyboard::Down)
-				{
-					//down=false;	
-					zooki.isSliding=false;
-					zooki.upright();
-				}
-
-                if(event.key.code==sf::Keyboard::Left)
-				{
-					left=false;
-					sound.time_till_end=0;
-					sound.stopSound("walk");
-					zooki.zookiSprite.setTextureRect(zooki.zooki_stay_l);
-				}
-
-				if(event.key.code==sf::Keyboard::Right)
-				{
-					right=false;
-					sound.time_till_end=0;
-					sound.stopSound("walk");
-					zooki.zookiSprite.setTextureRect(zooki.zooki_stay_r);
-				}
-            
-			 }
 		}
 
 		if (isPlaying)
@@ -187,103 +127,30 @@ int main()
 			// get movement input
 
 			
-			
-			
-			if (zooki.onGround && !zooki.isSliding){
-				if (up==true)
-				{
-					zooki.jump();
-					sound.playSound("jump");
-					
-				}
-				
-				if (left==true)
-				{
-					zooki_texture_left++;
-					zooki.moveLeft(deltaTime, gravity);
-					if(zooki_texture_left==1)
-					{
-						zooki.zookiSprite.setTextureRect(zooki.zooki_run1_l);
-					}
-					if(zooki_texture_left==2)
-					{
-						zooki.zookiSprite.setTextureRect(zooki.zooki_run2_l);
-					}
-					if(zooki_texture_left==3)
-					{
-						zooki.zookiSprite.setTextureRect(zooki.zooki_run3_l);
-					}
-					sound.playSound("walk");
-					if(zooki_texture_left>3)
-						zooki_texture_left=0;
-
-				}
-				if (right==true)
-				{
-					zooki_texture_right++;
-					zooki.moveRight(deltaTime, gravity);
-					if(zooki_texture_right==1)
-					{
-						zooki.zookiSprite.setTextureRect(zooki.zooki_run1_r);
-					}
-					if(zooki_texture_right==2)
-					{
-						zooki.zookiSprite.setTextureRect(zooki.zooki_run2_r);
-					}
-					if(zooki_texture_right==3)
-					{
-						zooki.zookiSprite.setTextureRect(zooki.zooki_run3_r);
-					}
-					sound.playSound("walk");
-					if(zooki_texture_right>3)
-						zooki_texture_right=0;
-				}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
+				zooki.moveLeft(deltaTime, gravity);
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
+				zooki.moveRight(deltaTime, gravity);
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && zooki.onGround){
+				zooki.jump();
+			}
+			if (!(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) && !(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))){
+				zooki.stop();				
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
+				zooki.slide();
+				zooki.onGround = false;
+			}
+			if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
+				zooki.upright();
 			}
 
-			if (zooki.onGround && zooki.isSliding){
-
-					zooki.y_velocity=0;
-					zooki.slide();
-			//	if (up==true)
-			//	{
-			//		zooki.jump();
-			//		zooki.isSliding = false;
-			//		zooki.upright();
-			//	}
-			//	
-				if (left==true)
-				{
-					zooki.moveLeft(deltaTime, gravity);
-				}
-				if (right==true)
-				{
-					zooki.moveRight(deltaTime, gravity);
-				}
-			//	
-			//	
-			//	
-			}
-
-			if (!zooki.onGround)
-			{
-				
-				if (left==true)
-				{
-					zooki.moveLeft(deltaTime, gravity);
-					zooki.zookiSprite.setTextureRect(zooki.zooki_jump_l);
-					sound.time_till_end=0;
-					sound.stopSound("walk");
-				}
-				if (right==true)
-				{
-					zooki.moveRight(deltaTime, gravity);
-					zooki.zookiSprite.setTextureRect(zooki.zooki_jump_r);
-					sound.time_till_end=0;
-					sound.stopSound("walk");
-				}
+			if (!zooki.onGround){
 				zooki.fall();
-
 			}
+			
 
 			zooki.processMovement(deltaTime);
 
@@ -302,6 +169,9 @@ int main()
 					zooki.reset();
 					screenMessage = 4;
 				}
+
+				
+				zooki.onGround = false;
 				for (int i = 0; i < edit.getSizeX(); i++)
 				{
 					for (int j = 0; j < edit.getSizeY(); j++)
@@ -311,6 +181,7 @@ int main()
 
 							
 							// Affected area
+							
 							sf::FloatRect area;
 							if (zooki.zookiSprite.getGlobalBounds().intersects(edit.getLevelTile(i, j)->getTileSprite().getGlobalBounds(),area))
 							{
@@ -352,24 +223,63 @@ int main()
 										zooki.y_velocity = 0;
 									}
 								}
-								else if (area.width < area.height)
-								{
-									//if (area.contains({ zooki.zookiSprite.getPosition().x + zooki.zookiSprite.getGlobalBounds().width - 1.f, area.top + 1.f }))
-									//{
-									//	//Right side crash
-									//	zooki.zookiSprite.setPosition({ zooki.zookiSprite.getPosition().x - area.width, zooki.zookiSprite.getPosition().y });
-									//	zooki.x_velocity = 0;
-									//}
-									//else
-									//{
-									//	//Left side crash
-									//	zooki.zookiSprite.setPosition({ zooki.zookiSprite.getPosition().x + area.width, zooki.zookiSprite.getPosition().y });
-									//	zooki.x_velocity = 0;
-									//}
-								}
+								
+								//else if (area.width < area.height)
+								//{
+								//	if (area.contains({ zooki.zookiSprite.getPosition().x + zooki.zookiSprite.getGlobalBounds().width - 1.f, area.top + 1.f }))
+								//	{
+								//		//Right side crash
+								//		zooki.zookiSprite.setPosition({ zooki.zookiSprite.getPosition().x - area.width, zooki.zookiSprite.getPosition().y });
+								//		zooki.x_velocity = 0;
+								//	}
+								//	else
+								//	{
+								//		//Left side crash
+								//		zooki.zookiSprite.setPosition({ zooki.zookiSprite.getPosition().x + area.width, zooki.zookiSprite.getPosition().y });
+								//		zooki.x_velocity = 0;
+								//	}
+								//}
 							}
 						}
 						
+					}
+					if (zooki.x_velocity < 0 && zooki.onGround)
+					{
+						zooki_texture_left++;
+
+						if (zooki_texture_left == 1)
+						{
+							zooki.zookiSprite.setTextureRect(zooki.zooki_run1_l);
+						}
+						if (zooki_texture_left == 2)
+						{
+							zooki.zookiSprite.setTextureRect(zooki.zooki_run2_l);
+						}
+						if (zooki_texture_left == 3)
+						{
+							zooki.zookiSprite.setTextureRect(zooki.zooki_run3_l);
+						}
+						if (zooki_texture_left>3)
+							zooki_texture_left = 0;
+					}
+					if (zooki.x_velocity > 0 && zooki.onGround)
+					{
+						zooki_texture_right++;
+
+						if (zooki_texture_right == 1)
+						{
+							zooki.zookiSprite.setTextureRect(zooki.zooki_run1_r);
+						}
+						if (zooki_texture_right == 2)
+						{
+							zooki.zookiSprite.setTextureRect(zooki.zooki_run2_r);
+						}
+						if (zooki_texture_right == 3)
+						{
+							zooki.zookiSprite.setTextureRect(zooki.zooki_run3_r);
+						}
+						if (zooki_texture_right>3)
+							zooki_texture_right = 0;
 					}
 				}
 

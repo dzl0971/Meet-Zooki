@@ -24,8 +24,7 @@ public:
 	sf::Sprite zookiSprite;
 	
 
-	int size_x; // width of Zooki
-	int size_y; // length of Zooki
+	
 	int pos_x;  // x position of Zooki (constant)
 	int pos_y;  // y position of Zooki
 	int startX; // start X position of Zooki
@@ -47,9 +46,8 @@ public:
 	void fall();
 	void jump();
 	void slide();
-	void gotCone();
-	void processMovement(float deltaTime);
 	void stop();
+	void processMovement(float deltaTime);
 	void upright();
 
 	void resetPos(int x, int y);  //move Zooki to some default position
