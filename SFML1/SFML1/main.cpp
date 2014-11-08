@@ -10,6 +10,7 @@
 #include "Zooki.h"
 #include "Igloo.h"
 #include "Cone.h"
+#include "Hud.h"
 #include "TitleScreen.h"
 #include "Editor.h"
 #include "Tile.h"
@@ -74,6 +75,9 @@ int main()
 
 	sf::Clock clock;
 	sf::Clock levelStart;
+
+	Hud HUD(&clock, &zooki, &edit.getAllTiles());
+
 	bool isPlaying = false;
 	while (window.isOpen())
 	{
@@ -296,6 +300,14 @@ int main()
 		{
 			window.clear();
 			window.draw(edit.getBackground());
+
+			// Draw HUD
+			for (int i = 0; i< HUD.getLives().size(); i++)
+			{
+				window.draw(HUD.getLives()[i]);
+			}
+
+			//draw tiles
 			for (int i = 0; i < edit.getSizeX(); i++)
 			{
 				for (int j = 0; j < edit.getSizeY(); j++)

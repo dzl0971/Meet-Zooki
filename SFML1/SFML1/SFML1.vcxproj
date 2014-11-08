@@ -87,6 +87,7 @@
   <ItemGroup>
     <ClCompile Include="Cone.cpp" />
     <ClCompile Include="editor.cpp" />
+    <ClCompile Include="Hud.cpp" />
     <ClCompile Include="Igloo.cpp" />
     <ClCompile Include="LoadSprites.cpp" />
     <ClCompile Include="main.cpp" />
@@ -98,6 +99,7 @@
   <ItemGroup>
     <ClInclude Include="Cone.h" />
     <ClInclude Include="editor.h" />
+    <ClInclude Include="Hud.h" />
     <ClInclude Include="Igloo.h" />
     <ClInclude Include="LoadSprites.h" />
     <ClInclude Include="Sound.h" />
