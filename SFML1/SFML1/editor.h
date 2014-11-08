@@ -33,6 +33,7 @@ public:
 
 	Tile* getLevelTile(int x, int y); // get tile pointer from level array
 	Tile* getTile(int x); // get tile from sprite array
+	std::vector<Tile> getAllTiles();
 	Tile* getCurrentTile(); // get current tile selected
 
 	int getSizeX();

@@ -32,6 +32,11 @@ Zooki::Zooki()
 	lives = 3;
 }
 
+int Zooki::getLivesLeft()
+{
+	return lives;
+}
+
 void Zooki::loadTexture()
 {
 	zooki_stay_l=sf::IntRect(0,32,texture_size_x,texture_size_y);

@@ -41,6 +41,8 @@ public:
 	int level;
 	int lives;
 
+	int getLivesLeft();
+
 	void loadTexture();
 	void moveLeft(float deltaTime, int runSpeed);  //move Zooki left
 	void moveRight(float deltaTime, int runSpeed);  // move Zooki right

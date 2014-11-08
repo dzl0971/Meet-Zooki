@@ -62,6 +62,11 @@ sf::Sprite Tile::getTileSprite()
 	return tileSprite;
 }
 
+std::string Tile::getName()
+{
+	return name;
+}
+
 void Tile::Delete()
 {
 	ID = -1;

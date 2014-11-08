@@ -100,6 +100,11 @@ std::vector<std::vector<Tile>> Editor::getLevel()
 	return level;
 }
 
+std::vector<Tile> Editor::getAllTiles()
+{
+	return tiles;
+}
+
 void Editor::setTileInLevel(Tile t, int x, int y)
 {
 	level[x][y] = t;
