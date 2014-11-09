@@ -33,11 +33,11 @@ Hud::Hud(sf::Clock* time, Zooki* zooki_ptr)
 	iceCreamCountText.setCharacterSize(20);
 	iceCreamCountText.setPosition(sf::Vector2f(1128, 20));
 
-	iceCreamCountText.setFont(font);
-	iceCreamCountText.setString("Time Left: " + std::to_string(time->getElapsedTime().asSeconds()));
-	iceCreamCountText.setColor(sf::Color::Black);
-	iceCreamCountText.setCharacterSize(20);
-	iceCreamCountText.setPosition(sf::Vector2f(600, 20));
+	timeText.setFont(font);
+	timeText.setString("Time Left: " + std::to_string(time->getElapsedTime().asSeconds()));
+	timeText.setColor(sf::Color::Black);
+	timeText.setCharacterSize(20);
+	timeText.setPosition(sf::Vector2f(560, 20));
 
 	lives.resize(zooki_ptr->getLivesLeft());
 	sf::Sprite sprite;
@@ -89,7 +89,7 @@ void Hud::Update()
 		iceCreamCountText.setString("x " + std::to_string(zooki->conesCollected));
 	}
 
-	iceCreamCountText.setString("Time Left: " + std::to_string(clock->getElapsedTime().asSeconds()));
+	timeText.setString("Time Left: " + std::to_string(clock->getElapsedTime().asSeconds()));
 }
 
 void Hud::setLives()
