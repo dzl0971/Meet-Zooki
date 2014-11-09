@@ -76,7 +76,7 @@ int main()
 	sf::Clock clock;
 	sf::Clock levelStart;
 
-	Hud HUD(&clock, &zooki, &edit.getAllTiles());
+	Hud HUD(&levelStart, &zooki);
 
 	bool isPlaying = false;
 	while (window.isOpen())
@@ -300,12 +300,16 @@ int main()
 		{
 			window.clear();
 			window.draw(edit.getBackground());
-
+			HUD.Update();
 			// Draw HUD
 			for (int i = 0; i< HUD.getLives().size(); i++)
 			{
 				window.draw(HUD.getLives()[i]);
 			}
+			window.draw(HUD.getLivesText());
+			window.draw(HUD.getIceCreamText());
+			window.draw(HUD.getIceCreamSprite());
+			window.draw(HUD.getTimeText());
 
 			//draw tiles
 			for (int i = 0; i < edit.getSizeX(); i++)

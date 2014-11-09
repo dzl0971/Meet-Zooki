@@ -22,6 +22,7 @@ Zooki::Zooki()
 
 	level = 0;
 	lives = 3;
+	conesCollected = 0;
 }
 
 int Zooki::getLivesLeft()

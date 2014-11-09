@@ -36,6 +36,7 @@ public:
 	bool has_cones;
 	bool onGround;
 	bool isSliding;
+	int conesCollected; // the number of cones zooki has collected
 	int conesRemaining;
 	int level;
 	int lives;

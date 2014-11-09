@@ -1,19 +1,12 @@
-﻿Build started 11/8/2014 3:26:05 PM.
+﻿Build started 11/9/2014 12:34:44 AM.
      1>Project "C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Meet-Zooki\SFML1\SFML1\SFML1.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt editor.cpp Hud.cpp main.cpp Zooki.cpp
-         editor.cpp
-     1>editor.cpp(132): warning C4018: '<' : signed/unsigned mismatch
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Hud.cpp main.cpp
          Hud.cpp
-     1>Hud.cpp(48): warning C4018: '<' : signed/unsigned mismatch
-     1>Hud.cpp(52): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>Hud.cpp(97): warning C4018: '<' : signed/unsigned mismatch
+     1>Hud.cpp(101): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
          main.cpp
      1>main.cpp(305): warning C4018: '<' : signed/unsigned mismatch
-         Zooki.cpp
-     1>Zooki.cpp(100): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>Zooki.cpp(101): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>Zooki.cpp(149): warning C4244: '/=' : conversion from 'double' to 'int', possible loss of data
-     1>Zooki.cpp(169): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Meet-Zooki\SFML1\Release\Zooki.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\SFML\lib "sfml-audio.lib" "sfml-graphics.lib" "sfml-network.lib" "sfml-window.lib" "sfml-system.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Meet-Zooki\SFML1\Release\Zooki.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Meet-Zooki\SFML1\Release\Zooki.lib" /MACHINE:X86 /SAFESEH Release\Cone.obj
          Release\editor.obj
@@ -32,4 +25,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.90
+Time Elapsed 00:00:01.71
