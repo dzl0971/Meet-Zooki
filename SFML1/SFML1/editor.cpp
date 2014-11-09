@@ -259,6 +259,11 @@ void Editor::LoadLevel(std::string filename)
 		LoadTiles(filename);
 	}
 
+	for (int i = 0; i < size_x; i++)
+	{
+		level[i].clear();
+	}
+
 	std::getline(levelFile, temp);
 	size_x = convertStringToInt(temp);
 
@@ -267,10 +272,7 @@ void Editor::LoadLevel(std::string filename)
 	std::getline(levelFile, temp);
 	tileSize = convertStringToInt(temp);
 
-	for (int i = 0; i < size_x; i++)
-	{
-		level[i].clear();
-	}
+	
 
 	level.resize(size_x);
 	for (int i = 0; i < size_x; i++)

@@ -152,7 +152,7 @@ int main()
 				zooki.upright();
 			}
 
-			if (!zooki.onGround){
+			if (!zooki.onGround && zooki.pos_y < gameHeight - zooki.texture_size_y){
 				zooki.fall();
 			}
 			
@@ -197,6 +197,7 @@ int main()
 									zooki.lives -= 1;
 									zooki.reset();
 									screenMessage = 3;
+									continue;
 								}
 								if (edit.getLevelTile(i, j)->getIsFinish() == true){
 									if (zooki.conesRemaining < 1){
@@ -205,12 +206,15 @@ int main()
 										zooki.level += 1;
 										zooki.reset();
 										screenMessage = 2;
+										continue;
 									}
 								}
 								if (edit.getLevelTile(i, j)->getIsCollectible() == true){
 									zooki.conesRemaining -= 1;
+									zooki.conesCollected += 1;
 									edit.removeTileInLevel(i, j);
 									sound.iglooSound.play();
+									continue;
 								}
 								// Verifying if we need to apply collision to the vertical axis, else we apply to horizontal axis
 

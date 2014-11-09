@@ -102,20 +102,24 @@ void Zooki::processMovement(float deltaTime)
 	if (pos_x < 0)
 	{
 		pos_x = 0;
+		x_velocity = 0;
 	}
 	else if (pos_x > 1280 - texture_size_x)
 	{
 		pos_x = 1280 - texture_size_x;
+		x_velocity = 0;
 	}
 
 	pos_y = pos_y + (deltaTime*y_velocity);
 	if (pos_y < 0)
 	{
 		pos_y = 0;
+		y_velocity = 0;
 	}
-	else if (pos_y > 1280 - texture_size_x)
+	else if (pos_y > 1280 - texture_size_y)
 	{
-		pos_y = 1280 - texture_size_y;
+		pos_y = 100 - texture_size_y;
+		y_velocity = 0;
 	}
 
 }
