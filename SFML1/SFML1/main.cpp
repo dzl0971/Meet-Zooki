@@ -35,6 +35,7 @@ int main()
 	const int gameWidth = 1280;
 	const int gameHeight = 768;
 	const int gravity = 200;
+	const int tileSize = 16;
 	
 	string levels[] = { "1.txt", "2.txt"};
 	const int cones[] = { 0, 2 };
@@ -43,7 +44,7 @@ int main()
 	int zooki_texture_right=0;
 	int zooki_texture_left=0;
 
-	Editor edit(gameWidth/16, gameHeight/16, 16);
+	Editor edit(gameWidth/tileSize, gameHeight/tileSize, tileSize);
 	edit.LoadTiles("Data/ZookieSpriteInfo.txt");
 
 
@@ -167,13 +168,14 @@ int main()
 
 			if (isPlaying)
 			{
+				/*
 				if (levelStart.getElapsedTime().asSeconds() > 10.f){
 					isPlaying = false;
 					zooki.lives -= 1;
 					zooki.reset();
 					screenMessage = 4;
 				}
-
+				*/
 				
 				zooki.onGround = false;
 				for (int i = 0; i < edit.getSizeX(); i++)
@@ -211,12 +213,15 @@ int main()
 									sound.iglooSound.play();
 								}
 								// Verifying if we need to apply collision to the vertical axis, else we apply to horizontal axis
+
+							
 								if (area.width > area.height)
 								{
-									if (area.contains(area.left, zooki.zookiSprite.getPosition().y ))
+									if (area.contains(area.left, zooki.zookiSprite.getPosition().y))
 									{
 										// Up side crash
 										zooki.zookiSprite.setPosition(zooki.zookiSprite.getPosition().x, zooki.zookiSprite.getPosition().y + area.height );
+										zooki.pos_y = zooki.pos_y + area.height;
 										zooki.y_velocity = 0;
 									}
 									else
@@ -224,25 +229,29 @@ int main()
 										// Down side crash
 										zooki.onGround = true;
 										zooki.zookiSprite.setPosition(zooki.zookiSprite.getPosition().x, zooki.zookiSprite.getPosition().y - area.height );
+										zooki.pos_y = zooki.pos_y - area.height;
 										zooki.y_velocity = 0;
 									}
 								}
 								
-								//else if (area.width < area.height)
-								//{
-								//	if (area.contains({ zooki.zookiSprite.getPosition().x + zooki.zookiSprite.getGlobalBounds().width - 1.f, area.top + 1.f }))
-								//	{
-								//		//Right side crash
-								//		zooki.zookiSprite.setPosition({ zooki.zookiSprite.getPosition().x - area.width, zooki.zookiSprite.getPosition().y });
-								//		zooki.x_velocity = 0;
-								//	}
-								//	else
-								//	{
-								//		//Left side crash
-								//		zooki.zookiSprite.setPosition({ zooki.zookiSprite.getPosition().x + area.width, zooki.zookiSprite.getPosition().y });
-								//		zooki.x_velocity = 0;
-								//	}
-								//}
+
+								else if (area.width < area.height && area.height != 2)
+								{
+									if (area.contains({ zooki.zookiSprite.getPosition().x + zooki.zookiSprite.getGlobalBounds().width - 1.f, area.top + 1.f }))
+									{
+										//Right side crash
+										zooki.zookiSprite.setPosition({ zooki.pos_x - area.width, zooki.zookiSprite.getPosition().y });
+										zooki.pos_x = zooki.pos_x - area.width;
+										zooki.x_velocity = 0;
+									}
+									else
+									{
+										//Left side crash
+										zooki.zookiSprite.setPosition({ zooki.zookiSprite.getPosition().x + area.width, zooki.zookiSprite.getPosition().y });
+										zooki.pos_x = zooki.pos_x + area.width;
+										zooki.x_velocity = 0;
+									}
+								}
 							}
 						}
 						

@@ -99,7 +99,24 @@ void Zooki::fall(){
 void Zooki::processMovement(float deltaTime)
 {
 	pos_x = pos_x + (deltaTime*x_velocity);
+	if (pos_x < 0)
+	{
+		pos_x = 0;
+	}
+	else if (pos_x > 1280 - texture_size_x)
+	{
+		pos_x = 1280 - texture_size_x;
+	}
+
 	pos_y = pos_y + (deltaTime*y_velocity);
+	if (pos_y < 0)
+	{
+		pos_y = 0;
+	}
+	else if (pos_y > 1280 - texture_size_x)
+	{
+		pos_y = 1280 - texture_size_y;
+	}
 
 }
 
