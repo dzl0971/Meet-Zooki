@@ -83,7 +83,7 @@ void Hud::Update()
 		setLives();
 	}
 
-	if (zooki->conesCollected > conesCollected)
+	if (zooki->conesCollected != conesCollected)
 	{
 		conesCollected = zooki->conesCollected;
 		iceCreamCountText.setString("x " + std::to_string(zooki->conesCollected));

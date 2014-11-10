@@ -121,6 +121,7 @@ int main()
 					zooki.onGround = false;	
 					zooki.isSliding = false;
 					zooki.conesRemaining = cones[zooki.level];
+					zooki.conesCollected = 0;
 				}
 			}
 			
