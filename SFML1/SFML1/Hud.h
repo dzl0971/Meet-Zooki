@@ -16,12 +16,14 @@ public:
 	sf::Text getTimeText();
 	sf::Text getIceCreamText();
 
-
+	void setMaxTime(int max);
 
 	void Update();
 
 private:
 	int conesCollected;
+	int maxTime;
+
 	sf::Clock* clock;
 	sf::Font font;
 	sf::Text livesText;

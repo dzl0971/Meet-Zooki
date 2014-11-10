@@ -112,6 +112,7 @@ int main()
 					//load first level
 					edit.clearLevel();
 					edit.LoadLevel("Data/"+levels[zooki.level]);
+					HUD.setMaxTime(10);
 					zooki.setStart(edit.getStartX(), edit.getStartY());
 
 
@@ -168,14 +169,14 @@ int main()
 
 			if (isPlaying)
 			{
-				/*
+				
 				if (levelStart.getElapsedTime().asSeconds() > 10.f){
 					isPlaying = false;
 					zooki.lives -= 1;
 					zooki.reset();
 					screenMessage = 4;
 				}
-				*/
+				
 				
 				zooki.onGround = false;
 				for (int i = 0; i < edit.getSizeX(); i++)

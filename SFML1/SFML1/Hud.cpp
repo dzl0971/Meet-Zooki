@@ -89,7 +89,7 @@ void Hud::Update()
 		iceCreamCountText.setString("x " + std::to_string(zooki->conesCollected));
 	}
 
-	timeText.setString("Time Left: " + std::to_string(clock->getElapsedTime().asSeconds()));
+	timeText.setString("Time Left: " + std::to_string((int)(maxTime - clock->getElapsedTime().asSeconds())));
 }
 
 void Hud::setLives()
@@ -100,4 +100,9 @@ void Hud::setLives()
 		lives[i].setTextureRect(sf::IntRect(32, 0, 32, 32));
 		lives[i].setPosition(sf::Vector2f((i * 34) + 80, 10));
 	}
+}
+
+void Hud::setMaxTime(int max)
+{
+	maxTime = max;
 }
