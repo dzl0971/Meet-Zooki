@@ -89,7 +89,7 @@ void Hud::Update()
 		iceCreamCountText.setString("x " + std::to_string(zooki->conesCollected));
 	}
 
-	timeText.setString("Time Left: " + std::to_string((int)(maxTime - clock->getElapsedTime().asSeconds())));
+	timeText.setString("Time Left: " + std::to_string((int)((maxTime + 1) - clock->getElapsedTime().asSeconds())));
 }
 
 void Hud::setLives()

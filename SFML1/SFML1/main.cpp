@@ -39,6 +39,7 @@ int main()
 	
 	string levels[] = { "1.txt", "2.txt"};
 	const int cones[] = { 0, 2 };
+	const int times[] = { 10, 15 };
 	int screenMessage = 1;
 
 	int zooki_texture_right=0;
@@ -112,7 +113,7 @@ int main()
 					//load first level
 					edit.clearLevel();
 					edit.LoadLevel("Data/"+levels[zooki.level]);
-					HUD.setMaxTime(10);
+					HUD.setMaxTime(times[zooki.level]);
 					zooki.setStart(edit.getStartX(), edit.getStartY());
 
 
@@ -171,7 +172,7 @@ int main()
 			if (isPlaying)
 			{
 				
-				if (levelStart.getElapsedTime().asSeconds() > 10.f){
+				if (levelStart.getElapsedTime().asSeconds() > times[zooki.level]){
 					isPlaying = false;
 					zooki.lives -= 1;
 					zooki.reset();

@@ -1,13 +1,16 @@
-﻿Build started 11/9/2014 7:50:57 PM.
-     1>Project "C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Meet-Zooki\SFML1\SFML1\SFML1.vcxproj" on node 2 (Build target(s)).
+﻿Build started 11/10/2014 9:23:47 PM.
+     1>Project "C:\Users\Benjamin\Desktop\Meet-Zooki\SFML1\SFML1\SFML1.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (SFML1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Hud.cpp
-         Hud.cpp
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\meet-zooki\sfml1\sfml1\hud.cpp(97): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\meet-zooki\sfml1\sfml1\hud.cpp(101): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\main.cpp(231): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\main.cpp(239): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\main.cpp(251): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\main.cpp(258): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\main.cpp(321): warning C4018: '<' : signed/unsigned mismatch
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Meet-Zooki\SFML1\Debug\Zooki.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\SFML\lib "sfml-audio-d.lib" "sfml-graphics-d.lib" "sfml-network-d.lib" "sfml-window-d.lib" "sfml-system-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Meet-Zooki\SFML1\Debug\Zooki.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Meet-Zooki\SFML1\Debug\Zooki.lib" /MACHINE:X86 Debug\Cone.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Benjamin\Desktop\Meet-Zooki\SFML1\Debug\Zooki.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\SFML\lib "sfml-audio-d.lib" "sfml-graphics-d.lib" "sfml-network-d.lib" "sfml-window-d.lib" "sfml-system-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Benjamin\Desktop\Meet-Zooki\SFML1\Debug\Zooki.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Benjamin\Desktop\Meet-Zooki\SFML1\Debug\Zooki.lib" /MACHINE:X86 Debug\Cone.obj
          Debug\editor.obj
          Debug\Hud.obj
          Debug\Igloo.obj
@@ -17,9 +20,9 @@
          Debug\Tile.obj
          Debug\TitleScreen.obj
          Debug\Zooki.obj
-         SFML1.vcxproj -> C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Meet-Zooki\SFML1\Debug\Zooki.exe
-     1>Done Building Project "C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Meet-Zooki\SFML1\SFML1\SFML1.vcxproj" (Build target(s)).
+         SFML1.vcxproj -> C:\Users\Benjamin\Desktop\Meet-Zooki\SFML1\Debug\Zooki.exe
+     1>Done Building Project "C:\Users\Benjamin\Desktop\Meet-Zooki\SFML1\SFML1\SFML1.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.69
+Time Elapsed 00:00:04.83
