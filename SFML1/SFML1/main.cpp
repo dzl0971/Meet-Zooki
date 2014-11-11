@@ -121,6 +121,8 @@ int main()
 						isPlaying = false;
 						screenMessage = 5;
 						zooki.level = 0;
+						zooki.reset();
+						zooki.lives = 3;
 						continue;
 					}
 					edit.LoadLevel("Data/"+levels[zooki.level]);
