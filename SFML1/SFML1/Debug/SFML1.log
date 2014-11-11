@@ -1,16 +1,21 @@
-﻿Build started 11/10/2014 10:10:48 PM.
-     1>Project "C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Meet-Zooki\SFML1\SFML1\SFML1.vcxproj" on node 2 (Build target(s)).
+﻿Build started 11/10/2014 11:11:33 PM.
+     1>Project "C:\Users\Brandon\Desktop\School\Fall 2014\CS 420\Zookie_v2\Meet-Zooki\SFML1\SFML1\SFML1.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (SFML1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+     1>InitializeBuildStatus:
+         Creating "Debug\Zooki.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt TitleScreen.cpp main.cpp
          main.cpp
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\meet-zooki\sfml1\sfml1\main.cpp(231): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\meet-zooki\sfml1\sfml1\main.cpp(239): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\meet-zooki\sfml1\sfml1\main.cpp(251): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\meet-zooki\sfml1\sfml1\main.cpp(258): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\meet-zooki\sfml1\sfml1\main.cpp(325): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\brandon\desktop\school\fall 2014\cs 420\zookie_v2\meet-zooki\sfml1\sfml1\main.cpp(119): warning C4018: '>=' : signed/unsigned mismatch
+     1>c:\users\brandon\desktop\school\fall 2014\cs 420\zookie_v2\meet-zooki\sfml1\sfml1\main.cpp(242): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\brandon\desktop\school\fall 2014\cs 420\zookie_v2\meet-zooki\sfml1\sfml1\main.cpp(250): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\brandon\desktop\school\fall 2014\cs 420\zookie_v2\meet-zooki\sfml1\sfml1\main.cpp(262): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\brandon\desktop\school\fall 2014\cs 420\zookie_v2\meet-zooki\sfml1\sfml1\main.cpp(269): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\brandon\desktop\school\fall 2014\cs 420\zookie_v2\meet-zooki\sfml1\sfml1\main.cpp(336): warning C4018: '<' : signed/unsigned mismatch
+         TitleScreen.cpp
+         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Meet-Zooki\SFML1\Debug\Zooki.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\SFML\lib "sfml-audio-d.lib" "sfml-graphics-d.lib" "sfml-network-d.lib" "sfml-window-d.lib" "sfml-system-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Meet-Zooki\SFML1\Debug\Zooki.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Meet-Zooki\SFML1\Debug\Zooki.lib" /MACHINE:X86 Debug\Cone.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Brandon\Desktop\School\Fall 2014\CS 420\Zookie_v2\Meet-Zooki\SFML1\Debug\Zooki.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\SFML\lib "sfml-audio-d.lib" "sfml-graphics-d.lib" "sfml-network-d.lib" "sfml-window-d.lib" "sfml-system-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Brandon\Desktop\School\Fall 2014\CS 420\Zookie_v2\Meet-Zooki\SFML1\Debug\Zooki.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Brandon\Desktop\School\Fall 2014\CS 420\Zookie_v2\Meet-Zooki\SFML1\Debug\Zooki.lib" /MACHINE:X86 Debug\Cone.obj
          Debug\editor.obj
          Debug\Hud.obj
          Debug\Igloo.obj
@@ -20,9 +25,12 @@
          Debug\Tile.obj
          Debug\TitleScreen.obj
          Debug\Zooki.obj
-         SFML1.vcxproj -> C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Meet-Zooki\SFML1\Debug\Zooki.exe
-     1>Done Building Project "C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Meet-Zooki\SFML1\SFML1\SFML1.vcxproj" (Build target(s)).
+         SFML1.vcxproj -> C:\Users\Brandon\Desktop\School\Fall 2014\CS 420\Zookie_v2\Meet-Zooki\SFML1\Debug\Zooki.exe
+       FinalizeBuildStatus:
+         Deleting file "Debug\Zooki.tlog\unsuccessfulbuild".
+         Touching "Debug\Zooki.tlog\Zooki.lastbuildstate".
+     1>Done Building Project "C:\Users\Brandon\Desktop\School\Fall 2014\CS 420\Zookie_v2\Meet-Zooki\SFML1\SFML1\SFML1.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.66
+Time Elapsed 00:00:01.80

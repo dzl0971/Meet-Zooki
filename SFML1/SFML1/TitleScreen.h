@@ -17,6 +17,7 @@ public:
 	string levelClear;
 	string lavaDeath;
 	string timerDeath;
+	string gameClear;
 
 	void setText(int message);
 

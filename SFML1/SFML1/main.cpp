@@ -17,6 +17,7 @@
 #include "Sound.h"
 #include <iostream>
 #include <cstring>
+#include <array>
 using namespace std;
 
 
@@ -37,9 +38,12 @@ int main()
 	const int gravity = 200;
 	const int tileSize = 16;
 	
-	string levels[] = { "1.txt", "2.txt"};
-	const int cones[] = { 0, 2 };
-	const int times[] = { 10, 15 };
+	const std::array<string, 2> levels = { "1.txt", "2.txt" };
+	//string levels[] = { "1.txt", "2.txt"};
+	const std::array<int, 2> cones = { 0, 2 };
+	//const int cones[] = { 0, 2 };
+	const std::array<int, 2> times = { 10, 15 };
+	//const int times[] = { 10, 15 };
 	int screenMessage = 1;
 
 	int zooki_texture_right=0;
@@ -112,6 +116,13 @@ int main()
 
 					//load first level
 					edit.clearLevel();
+					if (zooki.level >= levels.size())
+					{
+						isPlaying = false;
+						screenMessage = 5;
+						zooki.level = 0;
+						continue;
+					}
 					edit.LoadLevel("Data/"+levels[zooki.level]);
 					HUD.setMaxTime(times[zooki.level]);
 					zooki.setStart(edit.getStartX(), edit.getStartY());

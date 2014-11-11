@@ -8,6 +8,7 @@ TitleScreen::TitleScreen()
 	levelClear = "Level Clear! Press Space to Continue";
 	lavaDeath = "Don't Touch the Lava! Press Space to Retry";
 	timerDeath = "Out of Time! Press Space to Retry";
+	gameClear = "Congratulations!  You've Won!  Press Space to Restart";
 }
 
 void TitleScreen::setText(int message)
@@ -24,6 +25,10 @@ void TitleScreen::setText(int message)
 	}
 	else if (message == 4){
 		play.setString(timerDeath);
+	}
+	else if (message == 5)
+	{
+		play.setString(gameClear);
 	}
 	
 	play.setCharacterSize(25);
