@@ -76,7 +76,7 @@ sf::Text Hud::getIceCreamText()
 void Hud::Update()
 {
 
-	if (zooki->getLivesLeft() != lives.size())
+	if (zooki->getLivesLeft()!=0 && zooki->getLivesLeft() != lives.size())
 	{
 		lives.clear();
 		lives.resize(zooki->getLivesLeft());

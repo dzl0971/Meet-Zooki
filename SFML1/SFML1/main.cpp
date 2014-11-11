@@ -200,7 +200,7 @@ int main()
 									zooki.lives -= 1;
 									zooki.reset();
 									screenMessage = 3;
-									continue;
+									break;
 								}
 								if (edit.getLevelTile(i, j)->getIsFinish() == true){
 									if (zooki.conesRemaining < 1){
@@ -209,7 +209,7 @@ int main()
 										zooki.level += 1;
 										zooki.reset();
 										screenMessage = 2;
-										continue;
+										break;
 									}
 								}
 								if (edit.getLevelTile(i, j)->getIsCollectible() == true){
@@ -262,6 +262,10 @@ int main()
 							}
 						}
 						
+					}
+					if (!isPlaying)
+					{
+						break;
 					}
 					if (zooki.x_velocity < 0 && zooki.onGround)
 					{
