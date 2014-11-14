@@ -17,6 +17,9 @@ public:
 	sf::IntRect zooki_run1_l;
 	sf::IntRect zooki_run2_l;
 	sf::IntRect zooki_run3_l;
+	sf::IntRect zooki_run1_l_s; // for sliding
+	sf::IntRect zooki_run2_l_s; // for sliding
+	sf::IntRect zooki_run3_l_s; // for sliding
 	sf::IntRect zooki_jump_l;
 	sf::IntRect zooki_jump_r;
 	sf::IntRect zooki_down_l;

@@ -284,20 +284,45 @@ int main()
 					{
 						zooki_texture_left++;
 
-						if (zooki_texture_left == 1)
+						if (zooki.isSliding)
 						{
-							zooki.zookiSprite.setTextureRect(zooki.zooki_run1_l);
+							if (zooki_texture_left == 1)
+							{
+								zooki.zookiSprite.setTextureRect(zooki.zooki_run1_l_s);
+							}
+							if (zooki_texture_left == 2)
+							{
+								zooki.zookiSprite.setTextureRect(zooki.zooki_run2_l_s);
+							}
+							if (zooki_texture_left == 3)
+							{
+								zooki.zookiSprite.setTextureRect(zooki.zooki_run3_l_s);
+							}
+							if (zooki_texture_left > 3)
+							{
+								zooki_texture_left = 0;
+							}
 						}
-						if (zooki_texture_left == 2)
+						else
 						{
-							zooki.zookiSprite.setTextureRect(zooki.zooki_run2_l);
+
+							if (zooki_texture_left == 1)
+							{
+								zooki.zookiSprite.setTextureRect(zooki.zooki_run1_l);
+							}
+							if (zooki_texture_left == 2)
+							{
+								zooki.zookiSprite.setTextureRect(zooki.zooki_run2_l);
+							}
+							if (zooki_texture_left == 3)
+							{
+								zooki.zookiSprite.setTextureRect(zooki.zooki_run3_l);
+							}
+							if (zooki_texture_left > 3)
+							{
+								zooki_texture_left = 0;
+							}
 						}
-						if (zooki_texture_left == 3)
-						{
-							zooki.zookiSprite.setTextureRect(zooki.zooki_run3_l);
-						}
-						if (zooki_texture_left>3)
-							zooki_texture_left = 0;
 					}
 					if (zooki.x_velocity > 0 && zooki.onGround)
 					{
@@ -315,8 +340,10 @@ int main()
 						{
 							zooki.zookiSprite.setTextureRect(zooki.zooki_run3_r);
 						}
-						if (zooki_texture_right>3)
+						if (zooki_texture_right > 3)
+						{
 							zooki_texture_right = 0;
+						}
 					}
 				}
 

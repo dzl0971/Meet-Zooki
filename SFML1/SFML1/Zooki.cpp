@@ -32,21 +32,26 @@ int Zooki::getLivesLeft()
 
 void Zooki::loadTexture()
 {
-	zooki_stay_l=sf::IntRect(7,42,texture_size_x,texture_size_y);
+	zooki_stay_l = sf::IntRect(7, 42 + texture_size_y, texture_size_x, -texture_size_y);
 
-	zooki_run1_l=sf::IntRect(39,42,texture_size_x,texture_size_y);
-	zooki_run2_l=sf::IntRect(39,42,texture_size_x,texture_size_y);
-	zooki_run3_l=sf::IntRect(71,42,texture_size_x,texture_size_y);
+	zooki_run1_l = sf::IntRect(39, 42, texture_size_x, texture_size_y);
+	zooki_run2_l = sf::IntRect(39, 42, texture_size_x, texture_size_y);
+	zooki_run3_l = sf::IntRect(71, 42, texture_size_x, texture_size_y);
 
-	zooki_run1_r=sf::IntRect(39,74,texture_size_x,texture_size_y);
-	zooki_run2_r=sf::IntRect(39,74,texture_size_x,texture_size_y);
-	zooki_run3_r=sf::IntRect(71,74,texture_size_x,texture_size_y);
+	//mirrored for sliding
+	zooki_run1_l_s = sf::IntRect(39, 74 + texture_size_y, texture_size_x, -texture_size_y);
+	zooki_run2_l_s = sf::IntRect(39, 74 + texture_size_y, texture_size_x, -texture_size_y);
+	zooki_run3_l_s = sf::IntRect(71, 74 + texture_size_y, texture_size_x, -texture_size_y);
 
-	zooki_jump_l=sf::IntRect(7,42,texture_size_x,texture_size_y);
-	zooki_jump_r=sf::IntRect(7,74,texture_size_x,texture_size_y);
-	
-	zooki_down_l=sf::IntRect(39,42,texture_size_x,texture_size_y);
-	zooki_down_r=sf::IntRect(39,74,texture_size_x,texture_size_y);
+	zooki_run1_r = sf::IntRect(39, 74, texture_size_x, texture_size_y);
+	zooki_run2_r = sf::IntRect(39, 74, texture_size_x, texture_size_y);
+	zooki_run3_r = sf::IntRect(71, 74, texture_size_x, texture_size_y);
+
+	zooki_jump_l = sf::IntRect(7, 42, texture_size_x, texture_size_y);
+	zooki_jump_r = sf::IntRect(7, 74, texture_size_x, texture_size_y);
+
+	zooki_down_l = sf::IntRect(39, 74 + texture_size_y, texture_size_x, -texture_size_y);
+	zooki_down_r = sf::IntRect(39, 74, texture_size_x, texture_size_y);
 	
 }
 void Zooki::setStart(int x, int y)
@@ -138,31 +143,41 @@ void Zooki::slide()
 {
 
 	//zookiSprite.setTexture(zooki_texture);
-	if (x_velocity > 0) 
+	if (x_velocity > 0)
 	{
-		if (x_velocity > 0 && onGround){
+		if (x_velocity > 0 && onGround)
+		{
 			x_velocity = 350;
 		}
 		zookiSprite.setTextureRect(zooki_down_r);
 		zookiSprite.setRotation(90);
 	}
-	if (x_velocity < 0){
-		if (x_velocity < 0 && onGround){
+	if (x_velocity < 0)
+	{
+		if (x_velocity < 0 && onGround)
+		{
 			x_velocity = -350;
 		}
 		zookiSprite.setTextureRect(zooki_down_l);
-		zookiSprite.setRotation(270);
+
+		zookiSprite.setRotation(90);
 	}
+	isSliding = true;
 }
 
 
 void Zooki::upright(){
 	zookiSprite.setRotation(0);
 	zookiSprite.setTexture(zooki_texture);
-	if(x_velocity>=0)
+	if (x_velocity >= 0 && isSliding)
+	{
 		zookiSprite.setTextureRect(zooki_stay_r);
-	if(x_velocity<0)
+	}
+	if (x_velocity < 0 && isSliding)
+	{
 		zookiSprite.setTextureRect(zooki_stay_l);
+	}
+	isSliding = false;
 }
 
 void Zooki::stop()
