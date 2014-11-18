@@ -102,6 +102,16 @@ int Tile::getYOffset_R()
 	return yOffset_R;
 }
 
+int Tile::getWindow_x()
+{
+	return window_x;
+}
+
+int Tile::getWindow_y()
+{
+	return window_y;
+}
+
 bool Tile::getIsSolid()
 {
 	return isSolid;

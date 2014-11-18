@@ -28,6 +28,8 @@ public:
 	int getXOffset_R();
 	int getYOffset_L();
 	int getYOffset_R();
+	int getWindow_x();
+	int getWindow_y();
 
 	std::string getName();
 
@@ -62,7 +64,7 @@ private:
 	int xOffset_L; // distance sprite is from left of tile
 	int xOffset_R; // distance sprite is from right of tile
 	int yOffset_L; // distance from top of tile to first pixel of left edge.  used for slope
-	int yOffset_R; // distance from top of tile to first pixel of left edge.  used for slope
+	int yOffset_R; // distance from top of tile to first pixel of right edge.  used for slope
 
 	bool isSolid; // can player walk on tile
 	bool isDeadly; // does tile make you lose a life

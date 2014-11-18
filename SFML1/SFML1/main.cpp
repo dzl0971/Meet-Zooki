@@ -38,11 +38,11 @@ int main()
 	const int gravity = 200;
 	const int tileSize = 16;
 	
-	const std::array<string, 2> levels = { "1.txt", "2.txt" };
+	const std::array<string, 3> levels = { "1.txt", "2.txt","3.txt" };
 	//string levels[] = { "1.txt", "2.txt"};
-	const std::array<int, 2> cones = { 0, 2 };
+	const std::array<int, 3> cones = { 0, 2, 8 };
 	//const int cones[] = { 0, 2 };
-	const std::array<int, 2> times = { 10, 15 };
+	const std::array<int, 3> times = { 10, 15, 40};
 	//const int times[] = { 10, 15 };
 	int screenMessage = 1;
 
@@ -220,6 +220,7 @@ int main()
 										isPlaying = false;
 										//sound.deathSound.play();
 										zooki.level += 1;
+										zooki.lives+=1;
 										zooki.reset();
 										screenMessage = 2;
 										break;
@@ -257,17 +258,17 @@ int main()
 
 								else if (area.width < area.height && area.height != 2)
 								{
-									if (area.contains({ zooki.zookiSprite.getPosition().x + zooki.zookiSprite.getGlobalBounds().width - 1.f, area.top + 1.f }))
+									if (area.contains(zooki.zookiSprite.getPosition().x + zooki.zookiSprite.getGlobalBounds().width - 1.f, area.top + 1.f ))
 									{
 										//Right side crash
-										zooki.zookiSprite.setPosition({ zooki.pos_x - area.width, zooki.zookiSprite.getPosition().y });
+										zooki.zookiSprite.setPosition( zooki.pos_x - area.width, zooki.zookiSprite.getPosition().y );
 										zooki.pos_x = zooki.pos_x - area.width;
 										zooki.x_velocity = 0;
 									}
 									else
 									{
 										//Left side crash
-										zooki.zookiSprite.setPosition({ zooki.zookiSprite.getPosition().x + area.width, zooki.zookiSprite.getPosition().y });
+										zooki.zookiSprite.setPosition( zooki.zookiSprite.getPosition().x + area.width, zooki.zookiSprite.getPosition().y );
 										zooki.pos_x = zooki.pos_x + area.width;
 										zooki.x_velocity = 0;
 									}
@@ -377,7 +378,7 @@ int main()
 				for (int j = 0; j < edit.getSizeY(); j++)
 				{
 					if (edit.getLevelTile(i, j)->getID() != -1){
-						if (edit.getLevelTile(i, j)->getIsCollectible() && levelStart.getElapsedTime().asSeconds() > 7){
+						if (edit.getLevelTile(i, j)->getIsCollectible() && levelStart.getElapsedTime().asSeconds() > (int)times[zooki.level]*0.7){
 							if (levelStart.getElapsedTime().asMilliseconds() % 200 < 100){
 								xyz = edit.getLevelTile(i, j)->getTileSprite();
 								window.draw(xyz);

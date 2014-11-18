@@ -12,7 +12,7 @@ Editor::Editor()
 	size_y = 29;
 	tileSize = 32;
 	currentTile = 0;
-	background.loadFromFile("background1.png");
+	background.loadFromFile("Data/background1.png");
 	backgroundSprite.setTexture(background);
 	backgroundSprite.setTextureRect(sf::IntRect(0, 0, 800, 600));
 	backgroundSprite.setScale(sf::Vector2f(2, 2));
@@ -30,7 +30,7 @@ Editor::Editor(int x, int y, int tilesize)
 	size_y = y;
 	tileSize = tilesize;
 	currentTile = 0;
-	background.loadFromFile("background1.png");
+	background.loadFromFile("Data/background1.png");
 	backgroundSprite.setTexture(background);
 	backgroundSprite.setTextureRect(sf::IntRect(0, 0, 800, 600));
 	backgroundSprite.setScale(sf::Vector2f(2, 2));
@@ -41,7 +41,7 @@ Editor::Editor(std::string filename, int sizeX, int sizeY)
 	LoadLevel(filename);
 	
 	
-	background.loadFromFile("background1.png");
+	background.loadFromFile("Data/background1.png");
 	backgroundSprite.setTexture(background);
 	backgroundSprite.setTextureRect(sf::IntRect(0, 0, 800, 600));
 	backgroundSprite.setScale(sf::Vector2f(2, 2));
@@ -173,7 +173,7 @@ void Editor::LoadTiles(std::string filename)
 	std::filebuf infoFile;
 	spriteInfoSheetName = filename;
 
-	if (infoFile.open(filename, std::ios::in))
+	if (infoFile.open(filename.c_str(), std::ios::in))
 	{
 		std::istream stream(&infoFile);
 
@@ -251,7 +251,7 @@ void Editor::LoadLevel(std::string filename)
 	int tempX;
 	int tempY;
 
-	std::ifstream levelFile(filename);
+	std::ifstream levelFile(filename.c_str());
 
 	std::getline(levelFile, spriteInfoSheetName);
 	if (tiles.size() == 0)

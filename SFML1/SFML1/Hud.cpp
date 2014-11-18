@@ -1,10 +1,19 @@
 #include "Hud.h"
-
+#include <sstream>
+using namespace std;
 
 Hud::Hud()
 {
 }
+template <class T>
+string getString ( const T n)
 
+{
+	std::stringstream newstr;
+	newstr<<n;
+	return newstr.str();
+
+}
 Hud::Hud(sf::Clock* time, Zooki* zooki_ptr)
 {
 	zooki = zooki_ptr;
@@ -28,13 +37,13 @@ Hud::Hud(sf::Clock* time, Zooki* zooki_ptr)
 	iceCream.setPosition(sf::Vector2f(1100, 20));
 
 	iceCreamCountText.setFont(font);
-	iceCreamCountText.setString("x " + std::to_string(zooki_ptr->conesCollected));
+	iceCreamCountText.setString("x " + getString(zooki_ptr->conesCollected));
 	iceCreamCountText.setColor(sf::Color::Black);
 	iceCreamCountText.setCharacterSize(20);
 	iceCreamCountText.setPosition(sf::Vector2f(1128, 20));
 
 	timeText.setFont(font);
-	timeText.setString("Time Left: " + std::to_string(time->getElapsedTime().asSeconds()));
+	timeText.setString("Time Left: " + getString(time->getElapsedTime().asSeconds()));
 	timeText.setColor(sf::Color::Black);
 	timeText.setCharacterSize(20);
 	timeText.setPosition(sf::Vector2f(560, 20));
@@ -76,7 +85,7 @@ sf::Text Hud::getIceCreamText()
 void Hud::Update()
 {
 
-	if (zooki->getLivesLeft()!=0 && zooki->getLivesLeft() != lives.size())
+	if (zooki->getLivesLeft() != lives.size())
 	{
 		lives.clear();
 		lives.resize(zooki->getLivesLeft());
@@ -86,10 +95,10 @@ void Hud::Update()
 	if (zooki->conesCollected != conesCollected)
 	{
 		conesCollected = zooki->conesCollected;
-		iceCreamCountText.setString("x " + std::to_string(zooki->conesCollected));
+		iceCreamCountText.setString("x " + getString(zooki->conesCollected));
 	}
 
-	timeText.setString("Time Left: " + std::to_string((int)((maxTime + 1) - clock->getElapsedTime().asSeconds())));
+	timeText.setString("Time Left: " + getString((int)(maxTime - clock->getElapsedTime().asSeconds())));
 }
 
 void Hud::setLives()
