@@ -54,6 +54,7 @@ public:
 	void slide();
 	void stop();
 	void processMovement(float deltaTime);
+	void processMovement(float deltaTime, int rightBound, int leftBound, int upBound, int downBound);  // takes position of closest tile into account
 	void upright();
 
 	void resetPos(int x, int y);  //move Zooki to some default position

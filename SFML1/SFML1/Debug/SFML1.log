@@ -1,60 +1,18 @@
-﻿Build started 11/13/2014 11:19:50 PM.
-     1>Project "C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Zooki\Meet-Zooki\SFML1\SFML1\SFML1.vcxproj" on node 2 (Build target(s)).
+﻿Build started 11/19/2014 1:45:25 PM.
+     1>Project "C:\Users\Brandon\Desktop\School\Fall 2014\CS 420\Zooki_v3\Meet-Zooki\SFML1\SFML1\SFML1.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (SFML1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Cone.cpp editor.cpp Hud.cpp Igloo.cpp LoadSprites.cpp main.cpp Sound.cpp Tile.cpp TitleScreen.cpp Zooki.cpp
-         Zooki.cpp
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\zooki.cpp(106): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\zooki.cpp(118): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\zooki.cpp(186): warning C4244: '/=' : conversion from 'double' to 'int', possible loss of data
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\zooki.cpp(206): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-         TitleScreen.cpp
-         Tile.cpp
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\tile.cpp(37): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\tile.cpp(38): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\tile.cpp(39): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\tile.cpp(44): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\tile.cpp(45): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\tile.cpp(61): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-         Sound.cpp
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\sound.cpp(45): warning C4305: '+=' : truncation from 'double' to 'float'
-         main.cpp
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(119): warning C4018: '>=' : signed/unsigned mismatch
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(244): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(252): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(264): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(271): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(365): warning C4018: '<' : signed/unsigned mismatch
-         LoadSprites.cpp
-         Igloo.cpp
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\igloo.cpp(13): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\igloo.cpp(14): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\igloo.cpp(21): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-         Hud.cpp
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\hud.cpp(97): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\hud.cpp(101): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-         editor.cpp
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\editor.cpp(132): warning C4018: '<' : signed/unsigned mismatch
-         Cone.cpp
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\cone.cpp(14): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\cone.cpp(15): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\cone.cpp(22): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-         Generating Code...
+     1>InitializeBuildStatus:
+         Creating "Debug\Zooki.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Zooki\Meet-Zooki\SFML1\Debug\Zooki.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\SFML\lib "sfml-audio-d.lib" "sfml-graphics-d.lib" "sfml-network-d.lib" "sfml-window-d.lib" "sfml-system-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Zooki\Meet-Zooki\SFML1\Debug\Zooki.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Zooki\Meet-Zooki\SFML1\Debug\Zooki.lib" /MACHINE:X86 Debug\Cone.obj
-         Debug\editor.obj
-         Debug\Hud.obj
-         Debug\Igloo.obj
-         Debug\LoadSprites.obj
-         Debug\main.obj
-         Debug\Sound.obj
-         Debug\Tile.obj
-         Debug\TitleScreen.obj
-         Debug\Zooki.obj
-         LINK : C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Zooki\Meet-Zooki\SFML1\Debug\Zooki.exe not found or not built by the last incremental link; performing full link
-         SFML1.vcxproj -> C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Zooki\Meet-Zooki\SFML1\Debug\Zooki.exe
-     1>Done Building Project "C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Zooki\Meet-Zooki\SFML1\SFML1\SFML1.vcxproj" (Build target(s)).
+         All outputs are up-to-date.
+         SFML1.vcxproj -> C:\Users\Brandon\Desktop\School\Fall 2014\CS 420\Zooki_v3\Meet-Zooki\SFML1\Debug\Zooki.exe
+       FinalizeBuildStatus:
+         Deleting file "Debug\Zooki.tlog\unsuccessfulbuild".
+         Touching "Debug\Zooki.tlog\Zooki.lastbuildstate".
+     1>Done Building Project "C:\Users\Brandon\Desktop\School\Fall 2014\CS 420\Zooki_v3\Meet-Zooki\SFML1\SFML1\SFML1.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:06.05
+Time Elapsed 00:00:00.07
