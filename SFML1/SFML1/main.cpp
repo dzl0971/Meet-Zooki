@@ -40,7 +40,7 @@ int main()
 	
 	const std::array<string, 3> levels = { "1.txt","2.txt", "3.txt" };
 	//string levels[] = { "1.txt", "2.txt"};
-	const std::array<int, 3> cones = { 0, 2, 8 };
+	const std::array<int, 3> cones = { 0, 0, 8 };
 	//const int cones[] = { 0, 2 };
 	const std::array<int, 3> times = { 10, 15, 40};
 	//const int times[] = { 10, 15 };
@@ -177,28 +177,19 @@ int main()
 			}
 			
 
-			//zooki.processMovement(deltaTime);
-
-			//zooki.Update();
-
-
-
-
-
-
 			// collisions
 
 
 			if (isPlaying)
 			{
-				/*
+				
 				if (levelStart.getElapsedTime().asSeconds() > times[zooki.level]){
 					isPlaying = false;
 					zooki.lives -= 1;
 					zooki.reset();
 					screenMessage = 4;
 				}
-				*/
+				
 				
 				zooki.onGround = false;
 
@@ -325,6 +316,7 @@ int main()
 										screenMessage = 2;
 										break;
 									}
+									continue;
 								}
 								if (edit.getLevelTile(i, j)->getIsCollectible() == true)
 								{
@@ -363,7 +355,7 @@ int main()
 									{
 										//Right side crash
 										zooki.zookiSprite.setPosition( zooki.pos_x - area.width, zooki.zookiSprite.getPosition().y );
-										zooki.pos_x = zooki.pos_x - area.width;
+ 										zooki.pos_x = zooki.pos_x - area.width;
 										zooki.x_velocity = 0;
 									}
 									else

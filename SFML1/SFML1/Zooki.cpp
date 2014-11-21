@@ -151,7 +151,7 @@ void Zooki::processMovement(float deltaTime, int rightBound, int leftBound, int 
 		x_velocity = 0;
 
 	}
-	else if (pos_x > 1280 - texture_size_x)
+	else if (pos_x >= 1280 || (!isSliding && pos_x > 1280 - texture_size_x))
 	{
 		if (!isSliding)
 		{
@@ -159,7 +159,7 @@ void Zooki::processMovement(float deltaTime, int rightBound, int leftBound, int 
 		}
 		else
 		{
-			pos_x = 1280;
+			pos_x = 1280 - 1;
 		}
 		x_velocity = 0;
 	}
@@ -201,7 +201,7 @@ void Zooki::processMovement(float deltaTime, int rightBound, int leftBound, int 
 	}
 	else if (x_velocity < 0 && leftBound > 0)
 	{
-		if (pos_x - texture_size_y < leftBound)
+		if (pos_x < leftBound)
 		{
 			if (!isSliding)
 			{

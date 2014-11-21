@@ -5,6 +5,12 @@ Tile::Tile()
 {
 	ID = -1;
 	numberPlaced = 0;
+
+	isSolid = false; 
+	isDeadly = false;
+	isCollectible = false;
+	isStart = false;
+	isFinish = false;
 }
 
 Tile::Tile(int id, std::string tileName)
