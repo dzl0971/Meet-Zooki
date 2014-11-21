@@ -184,7 +184,7 @@ void Zooki::processMovement(float deltaTime, int rightBound, int leftBound, int 
 	}
 
 	//right and left collisions
-	if (x_velocity >= 0 && rightBound > 0)
+	if (x_velocity >= 0 && rightBound > 0 && rightBound < 1280) // changed this line on github please test
 	{
 		if (pos_x + texture_size_x > rightBound)
 		{
