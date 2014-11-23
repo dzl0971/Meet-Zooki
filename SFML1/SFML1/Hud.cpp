@@ -50,10 +50,10 @@ Hud::Hud(sf::Clock* time, Zooki* zooki_ptr)
 	timeText.setPosition(sf::Vector2f(560, 20));
 
 	remainingText.setFont(font);
-	remainingText.setString("Enough Igloo!");
+	remainingText.setString("Enough Cones Collected! Go To Your Igloo!");
 	remainingText.setColor(sf::Color::Red);
 	remainingText.setCharacterSize(20);
-	remainingText.setPosition(sf::Vector2f(540,50));
+	remainingText.setPosition(sf::Vector2f(400,50));
 
 	pauseText.setFont(font);
 	pauseText.setColor(sf::Color::Black);
@@ -112,7 +112,7 @@ void Hud::setRemainingText(float x, float y)
 void Hud::setPauseText(int x, int y, int coneRecord, int timeRecord)
 {
 	pauseText.setString("x " + getString(coneRecord)
-						+"\n"+"\n"+"\n"+"Time Cost: " + getString(timeRecord)
+		+ "\n" + "\n" + "\n" + "Time Taken: " + getString(timeRecord) + " seconds"
 						+"\n"+"\n"+"\n"+"x" + getString(lives.size()));
 	pauseText.setPosition(x+60,y);
 	iceCream.setPosition(x,y);

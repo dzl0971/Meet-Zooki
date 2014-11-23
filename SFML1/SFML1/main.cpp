@@ -498,7 +498,7 @@ int main()
 										
 										isPlaying = 2;
 										coneRecord = zooki.conesCollected;
-										timeRecord = levelStart.getElapsedTime().asSeconds();
+										timeRecord = levelStart.getElapsedTime().asSeconds() + 1;
 										cout<<timeRecord<<endl;
 										if (zooki.level < levels.size())
 											zooki.conesRemaining = cones[zooki.level];
