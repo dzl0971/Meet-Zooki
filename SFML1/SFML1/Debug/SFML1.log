@@ -1,4 +1,4 @@
-﻿Build started 11/23/2014 4:01:17 PM.
+﻿Build started 11/23/2014 5:10:25 PM.
      1>Project "C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Zooki\Meet-Zooki\SFML1\SFML1\SFML1.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (SFML1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
@@ -6,17 +6,17 @@
          main.cpp
      1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(39): warning C4305: 'initializing' : truncation from 'double' to 'const float'
      1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(108): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(236): warning C4018: '>=' : signed/unsigned mismatch
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(272): warning C4018: '>=' : signed/unsigned mismatch
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(469): warning C4018: '>' : signed/unsigned mismatch
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(480): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(482): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(507): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(509): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(541): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(549): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(561): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(568): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(240): warning C4018: '>=' : signed/unsigned mismatch
+     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(276): warning C4018: '>=' : signed/unsigned mismatch
+     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(473): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(484): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(486): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(511): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(513): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(545): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(553): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(565): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\admin\desktop\school\fall 2014\cs 420\zooki\meet-zooki\sfml1\sfml1\main.cpp(572): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Zooki\Meet-Zooki\SFML1\Debug\Zooki.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\SFML\lib "sfml-audio-d.lib" "sfml-graphics-d.lib" "sfml-network-d.lib" "sfml-window-d.lib" "sfml-system-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Zooki\Meet-Zooki\SFML1\Debug\Zooki.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Zooki\Meet-Zooki\SFML1\Debug\Zooki.lib" /MACHINE:X86 Debug\Cone.obj
          Debug\editor.obj
@@ -33,4 +33,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.75
+Time Elapsed 00:00:00.77

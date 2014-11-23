@@ -41,7 +41,7 @@ using namespace std;
 	
 	//filenames for levels
 	const std::array<string, levelNumber> levels = { "1.txt","2.txt","3.txt","4.txt","5.txt","6.txt","7a.txt","7b.txt"};
-	//const std::array<string, levelNumber> levels = { "6.txt","7a.txt","7b.txt","2.txt","2.txt","2.txt","7.txt","7b.txt"};//test
+	//const std::array<string, levelNumber> levels = { "level.txt","7a.txt","7b.txt","2.txt","2.txt","2.txt","7.txt","7b.txt"};//test
 	
 	//nnumber of cones per level
 	const std::array<int, levelNumber> cones = { 0, 2, 8, 16, 10, 2, 14, 0};
@@ -135,32 +135,36 @@ void render()
 							}
 						}
 							
-							if(edit.getLevelTile(i,j)->getID()==4)
+						if(edit.getLevelTile(i,j)->getID()==4)
+						{
+							if (levelStart.getElapsedTime().asMilliseconds() % 2000 < 1000)
 							{
-								if (levelStart.getElapsedTime().asMilliseconds() % 2000 < 1000)
-								{
-									xyz = edit.getLevelTile(i, j)->getTileSprite();
-									if(coneSum<=MAXCONES)
-										xyz.setScale(1,lavaScale);
-									window.draw(xyz);
-								}
-								else
-								{
-									xyz = edit.getLevelTile(i, j)->getTileSprite();
-									if(coneSum<=MAXCONES)
-										xyz.setScale(1,1/lavaScale);
-									window.draw(xyz);
-								}
-							}
-							else{
 								xyz = edit.getLevelTile(i, j)->getTileSprite();
+								if (coneSum <= MAXCONES)
+								{
+									xyz.scale(1,1);
+								}
 								window.draw(xyz);
+							}
+							else
+							{
+								xyz = edit.getLevelTile(i, j)->getTileSprite();
+								if (coneSum <= MAXCONES)
+								{
+									xyz.scale(1.0, lavaScale);
+								}
+								window.draw(xyz);
+							}
 						}
+						else{
+							xyz = edit.getLevelTile(i, j)->getTileSprite();
+							window.draw(xyz);
 					}
 				}
 			}
+		}
 
-			window.draw(zooki.zookiSprite);
+		window.draw(zooki.zookiSprite);
 			
 		}
 		
@@ -532,7 +536,7 @@ int main()
 								// Verifying if we need to apply collision to the vertical axis, else we apply to horizontal axis
 
 
-								if (area.width > area.height)
+								if (area.width > area.height && area.width != 2)
 								{
 									if (area.contains(area.left, zooki.zookiSprite.getPosition().y))
 									{

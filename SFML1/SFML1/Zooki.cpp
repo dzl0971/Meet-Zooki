@@ -260,7 +260,7 @@ void Zooki::jump(float deltaTime)
 	if(x_velocity<0)
 		zookiSprite.setTextureRect(zooki_jump_l);
 	onGround = false;
-	y_velocity -= 15000*deltaTime;
+	y_velocity -= 16000*deltaTime;
 }
 
 void Zooki::slide(float deltaTime)
