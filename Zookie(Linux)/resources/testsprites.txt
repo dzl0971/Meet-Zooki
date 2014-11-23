@@ -1,0 +1,1938 @@
+Simple plain text exporter for demo purposes
+
+See http://www.grantlee.org/apidox/for_themers.html for more information
+
+Texture data:
+    texture.width  = 138
+    texture.height = 36
+
+    texture.trimmedName = testsrpites
+    texture.fullName = testsrpites.png
+    texture.absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/testsrpites.png
+
+SmartUpdateHash: $TexturePacker:SmartUpdate:df4743c4fc64f733d806cf0521663a2c:8027df178c654df8f2129a3cc64748e5:5b7b2ca8e35cc62177713f9a573822ee$
+
+Settings:
+
+Access to all values in the settings (.tps file):
+
+settings.tpsName                = unsaved ("unsaved" if used from command line without .tps file)
+settings.allowRotation          = true
+settings.autoAliasEnabled       = true
+settings.flipPVR                = false
+settings.forceIdenticalLayout   = false
+settings.multiPack              = false
+settings.premultiplyAlpha       = false
+settings.shapeDebug             = false
+settings.trimSpriteNames        = false
+settings.fixedTextureSize       = -1 x -1
+settings.dataFormat             = plain
+settings.textureSubPath         = 
+settings.ditherType             = NearestNeighbour
+settings.outputFormat           = RGBA8888
+settings.textureFormat          = png
+settings.backgroundColor        = 0
+settings.borderPadding          = 2
+settings.shapePadding           = 2
+settings.commonDivisorX         = 1
+settings.commonDivisorY         = 1
+settings.dpi                    = 72
+settings.reduceBorderArtifacts  = false
+
+settings.contentProtection.key  = 
+
+Variants:
+
+---
+variant.scale = 1
+variant.extension = 
+variant.spriteFilter = 
+variant.acceptFractionalValues = false
+variant.maxTextureSize = -1 x -1
+
+
+
+Not yet available:
+
+settings.dataFileNames          = 
+settings.textureFileName        = 
+settings.algorithmSettings      = 
+settings.globalSpriteSettings   = 
+
+Adjusted values for the current autosd variant:
+
+variantParams.scale             = 1
+variantParams.shapePadding      = 2
+variantParams.borderPadding     = 2
+variantParams.commonDivisorX    = 1
+variantParams.commonDivisorY    = 1
+variantParams.extrude           = 0
+variantParams.baseFactor        = 1
+variantParams.maxTextureSize    = 2048 x 2048
+variantParams.fixedTextureSize  = -1 x -1
+
+Sprite data:
+
+There are 2 variants:
+- sprites - contains the sprites, aliases are available in the
+  aliasList property and are not added top level
+
+- allSprites - list of all sprites
+
+Load javascript filter plugin, must be located in the exporter's folder in a subfolder
+grantlee/0.2/makecssselector.qs
+
+
+// set width & height for calculations using the javascript filter
+
+
+
+
+    =========================================================================
+
+    Use the javascript filter plugin to replace -hover with :hover
+    Triangle.png
+
+    -- name without image type extension
+    sprite.trimmedName      = Triangle
+
+    -- name with image extension
+    sprite.fullName         = Triangle.png
+
+    -- offset of the center of the trimmed sprite from the
+    -- center of the original sprite (used by cocos2d)
+    sprite.centerOffset.x = 0
+    sprite.centerOffset.y = 0
+
+    -- list of alias sprites for this one
+    sprite.aliasList = 
+
+    --- frame rectangle with pixel coordinates
+    sprite.frameRect.x = 2
+    sprite.frameRect.y = 2
+    sprite.frameRect.width = 32
+    sprite.frameRect.height = 32
+
+    --- frame rectangle with uv coordinates (0..1)
+    sprite.frameRectRel.x = 0.0144927536231884
+    sprite.frameRectRel.y = 0.0555555555555556
+    sprite.frameRectRel.width = 0.231884057971014
+    sprite.frameRectRel.height = 0.888888888888889
+
+    --- frame rectangle with uv coordinates (0..1) calculated through JS
+    sprite.frameRectRel.x = 0.014492753623188406
+    sprite.frameRectRel.y = 0.014492753623188406
+    sprite.frameRectRel.width = 0.2318840579710145
+    sprite.frameRectRel.height = 0.2318840579710145
+
+    --- version of the frame rect with "original" width and height
+    sprite.frameRectWithoutRotation.x = 2
+    sprite.frameRectWithoutRotation.y = 2
+    sprite.frameRectWithoutRotation.width = 32
+    sprite.frameRectWithoutRotation.height = 32
+
+    -- true if the sprite was rotated
+    sprite.rotated        = false
+
+    -- true if the sprite does not contain any transparent pixels
+    sprite.isSolid        = true
+
+    -- true if the sprite was trimmed
+    sprite.trimmed        = false
+
+    sprite.sourceRect.x = 0
+    sprite.sourceRect.y = 0
+    sprite.sourceRect.width = 32
+    sprite.sourceRect.height = 32
+
+    sprite.cornerOffset.x = 0
+    sprite.cornerOffset.y = 0
+
+    sprite.untrimmedSize.width = 32
+    sprite.untrimmedSize.height = 32
+
+    -- the file absolute file name of the sprite
+    sprite.fileData.absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/Triangle.png
+
+    -- the modification date of the sprite
+    sprite.fileData.lastModified = 2014-10-19T18:24:22
+
+    -- the creation date of the sprite
+    sprite.fileData.created = 2014-10-19T18:24:22
+
+    -- the file size of the sprite
+    sprite.fileData.fileSize = 262
+
+
+    =========================================================================
+
+    Use the javascript filter plugin to replace -hover with :hover
+    circle.png
+
+    -- name without image type extension
+    sprite.trimmedName      = circle
+
+    -- name with image extension
+    sprite.fullName         = circle.png
+
+    -- offset of the center of the trimmed sprite from the
+    -- center of the original sprite (used by cocos2d)
+    sprite.centerOffset.x = 0
+    sprite.centerOffset.y = 0
+
+    -- list of alias sprites for this one
+    sprite.aliasList = 
+
+    --- frame rectangle with pixel coordinates
+    sprite.frameRect.x = 36
+    sprite.frameRect.y = 2
+    sprite.frameRect.width = 32
+    sprite.frameRect.height = 32
+
+    --- frame rectangle with uv coordinates (0..1)
+    sprite.frameRectRel.x = 0.260869565217391
+    sprite.frameRectRel.y = 0.0555555555555556
+    sprite.frameRectRel.width = 0.231884057971014
+    sprite.frameRectRel.height = 0.888888888888889
+
+    --- frame rectangle with uv coordinates (0..1) calculated through JS
+    sprite.frameRectRel.x = 0.2608695652173913
+    sprite.frameRectRel.y = 0.014492753623188406
+    sprite.frameRectRel.width = 0.2318840579710145
+    sprite.frameRectRel.height = 0.2318840579710145
+
+    --- version of the frame rect with "original" width and height
+    sprite.frameRectWithoutRotation.x = 36
+    sprite.frameRectWithoutRotation.y = 2
+    sprite.frameRectWithoutRotation.width = 32
+    sprite.frameRectWithoutRotation.height = 32
+
+    -- true if the sprite was rotated
+    sprite.rotated        = false
+
+    -- true if the sprite does not contain any transparent pixels
+    sprite.isSolid        = true
+
+    -- true if the sprite was trimmed
+    sprite.trimmed        = false
+
+    sprite.sourceRect.x = 0
+    sprite.sourceRect.y = 0
+    sprite.sourceRect.width = 32
+    sprite.sourceRect.height = 32
+
+    sprite.cornerOffset.x = 0
+    sprite.cornerOffset.y = 0
+
+    sprite.untrimmedSize.width = 32
+    sprite.untrimmedSize.height = 32
+
+    -- the file absolute file name of the sprite
+    sprite.fileData.absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/circle.png
+
+    -- the modification date of the sprite
+    sprite.fileData.lastModified = 2014-10-19T18:57:22
+
+    -- the creation date of the sprite
+    sprite.fileData.created = 2014-10-19T18:57:22
+
+    -- the file size of the sprite
+    sprite.fileData.fileSize = 273
+
+
+    =========================================================================
+
+    Use the javascript filter plugin to replace -hover with :hover
+    pentagon.png
+
+    -- name without image type extension
+    sprite.trimmedName      = pentagon
+
+    -- name with image extension
+    sprite.fullName         = pentagon.png
+
+    -- offset of the center of the trimmed sprite from the
+    -- center of the original sprite (used by cocos2d)
+    sprite.centerOffset.x = 0
+    sprite.centerOffset.y = 0
+
+    -- list of alias sprites for this one
+    sprite.aliasList = 
+
+    --- frame rectangle with pixel coordinates
+    sprite.frameRect.x = 70
+    sprite.frameRect.y = 2
+    sprite.frameRect.width = 32
+    sprite.frameRect.height = 32
+
+    --- frame rectangle with uv coordinates (0..1)
+    sprite.frameRectRel.x = 0.507246376811594
+    sprite.frameRectRel.y = 0.0555555555555556
+    sprite.frameRectRel.width = 0.231884057971014
+    sprite.frameRectRel.height = 0.888888888888889
+
+    --- frame rectangle with uv coordinates (0..1) calculated through JS
+    sprite.frameRectRel.x = 0.5072463768115942
+    sprite.frameRectRel.y = 0.014492753623188406
+    sprite.frameRectRel.width = 0.2318840579710145
+    sprite.frameRectRel.height = 0.2318840579710145
+
+    --- version of the frame rect with "original" width and height
+    sprite.frameRectWithoutRotation.x = 70
+    sprite.frameRectWithoutRotation.y = 2
+    sprite.frameRectWithoutRotation.width = 32
+    sprite.frameRectWithoutRotation.height = 32
+
+    -- true if the sprite was rotated
+    sprite.rotated        = false
+
+    -- true if the sprite does not contain any transparent pixels
+    sprite.isSolid        = true
+
+    -- true if the sprite was trimmed
+    sprite.trimmed        = false
+
+    sprite.sourceRect.x = 0
+    sprite.sourceRect.y = 0
+    sprite.sourceRect.width = 32
+    sprite.sourceRect.height = 32
+
+    sprite.cornerOffset.x = 0
+    sprite.cornerOffset.y = 0
+
+    sprite.untrimmedSize.width = 32
+    sprite.untrimmedSize.height = 32
+
+    -- the file absolute file name of the sprite
+    sprite.fileData.absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/pentagon.png
+
+    -- the modification date of the sprite
+    sprite.fileData.lastModified = 2014-10-19T18:58:17
+
+    -- the creation date of the sprite
+    sprite.fileData.created = 2014-10-19T18:58:17
+
+    -- the file size of the sprite
+    sprite.fileData.fileSize = 302
+
+
+    =========================================================================
+
+    Use the javascript filter plugin to replace -hover with :hover
+    square.png
+
+    -- name without image type extension
+    sprite.trimmedName      = square
+
+    -- name with image extension
+    sprite.fullName         = square.png
+
+    -- offset of the center of the trimmed sprite from the
+    -- center of the original sprite (used by cocos2d)
+    sprite.centerOffset.x = 0
+    sprite.centerOffset.y = 0
+
+    -- list of alias sprites for this one
+    sprite.aliasList = 
+
+    --- frame rectangle with pixel coordinates
+    sprite.frameRect.x = 104
+    sprite.frameRect.y = 2
+    sprite.frameRect.width = 32
+    sprite.frameRect.height = 32
+
+    --- frame rectangle with uv coordinates (0..1)
+    sprite.frameRectRel.x = 0.753623188405797
+    sprite.frameRectRel.y = 0.0555555555555556
+    sprite.frameRectRel.width = 0.231884057971014
+    sprite.frameRectRel.height = 0.888888888888889
+
+    --- frame rectangle with uv coordinates (0..1) calculated through JS
+    sprite.frameRectRel.x = 0.7536231884057971
+    sprite.frameRectRel.y = 0.014492753623188406
+    sprite.frameRectRel.width = 0.2318840579710145
+    sprite.frameRectRel.height = 0.2318840579710145
+
+    --- version of the frame rect with "original" width and height
+    sprite.frameRectWithoutRotation.x = 104
+    sprite.frameRectWithoutRotation.y = 2
+    sprite.frameRectWithoutRotation.width = 32
+    sprite.frameRectWithoutRotation.height = 32
+
+    -- true if the sprite was rotated
+    sprite.rotated        = false
+
+    -- true if the sprite does not contain any transparent pixels
+    sprite.isSolid        = true
+
+    -- true if the sprite was trimmed
+    sprite.trimmed        = false
+
+    sprite.sourceRect.x = 0
+    sprite.sourceRect.y = 0
+    sprite.sourceRect.width = 32
+    sprite.sourceRect.height = 32
+
+    sprite.cornerOffset.x = 0
+    sprite.cornerOffset.y = 0
+
+    sprite.untrimmedSize.width = 32
+    sprite.untrimmedSize.height = 32
+
+    -- the file absolute file name of the sprite
+    sprite.fileData.absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/square.png
+
+    -- the modification date of the sprite
+    sprite.fileData.lastModified = 2014-10-19T18:34:49
+
+    -- the creation date of the sprite
+    sprite.fileData.created = 2014-10-19T18:34:48
+
+    -- the file size of the sprite
+    sprite.fileData.fileSize = 168
+
+
+
+#### Complete dump of all available objects
+
+### Values for the current texture
+The following values are available inside templates that are written for each
+variant or multipack. They are not available in a file that has the following values set:
+<hasSeparateAutoSDFiles>all</hasSeparateAutoSDFiles>
+<hasSeparateMultiPackFiles>last</hasSeparateMultiPackFiles>
+
+## sprites
+Contains the sprite of the current file, aliases are available through the aliasList property
+Shortcut into texture.sprites
+
+## allSprites
+Contains all sprites of the current file including aliases.
+Shortcut into texture.allSprites
+
+## texture
+Contains information about the current texture, size, and other information.
+Shortcut into allResults[variantIndex].textures[multiPackIndex]
+
+## variantParams
+The data the current file was created with
+
+### Values for all files
+The following values are available for all templates
+
+## settings
+The main settigns the file was created with
+
+## smartUpdateKey
+The key for this file used to check file consistency and avoid re-calculating
+data that is already available
+
+## multiPackIndex
+The multipack index number the current file was created with
+
+## variantIndex
+The AutoSD variant index the file was created with
+
+## allResults
+All texture and sprite information in a big array
+
+smartUpdateKey = $TexturePacker:SmartUpdate:df4743c4fc64f733d806cf0521663a2c:8027df178c654df8f2129a3cc64748e5:5b7b2ca8e35cc62177713f9a573822ee$
+
+multiPackIndex = 0
+
+variantIndex = 0
+
+variantParams = {
+    scale = 1
+    shapePadding = 2
+    borderPadding = 2
+    commonDivisorX = 1
+    commonDivisorY = 1
+    extrude = 0
+    baseFactor = 1
+    maxTextureSize = {
+        width = 2048
+        height = 2048
+    }
+    fixedTextureSize = {
+        width = -1
+        height = -1
+    }
+}
+
+settings = {
+    ditherType = NearestNeighbour
+    textureFormat = png
+    outputFormat = RGBA8888
+    contentProtection = {
+        key = 
+    }
+    autoSDSettings = {
+        0 = {
+            scale = 1
+            extension = 
+            spriteFilter = 
+            acceptFractionalValues = false
+            maxTextureSize = {
+                width = -1
+                height = -1
+            }
+        }
+    }
+    tpsName = unsaved
+    allowRotation = true
+    flipPVR = false
+    forceIdenticalLayout = false
+    multiPack = false
+    shapeDebug = false
+    trimSpriteNames = false
+    autoAliasEnabled = true
+    premultiplyAlpha = false
+    reduceBorderArtifacts = false
+    fixedTextureSize = {
+        width = -1
+        height = -1
+    }
+    dataFormat = plain
+    textureSubPath = 
+    borderPadding = 2
+    shapePadding = 2
+    commonDivisorX = 1
+    commonDivisorY = 1
+    dpi = 72
+    backgroundColor = 0
+}
+
+allResults = {
+    0 = {
+        textures = {
+            0 = {
+                size = {
+                    width = 138
+                    height = 36
+                }
+                area = 4968
+                sprites = {
+                    0 = {
+                        size = {
+                            width = 32
+                            height = 32
+                        }
+                        frameRectWithoutRotation = {
+                            x = 2
+                            y = 2
+                            width = 32
+                            height = 32
+                        }
+                        frameRect = {
+                            x = 2
+                            y = 2
+                            width = 32
+                            height = 32
+                        }
+                        frameRectRel = {
+                            x = 0.014492753623188406
+                            y = 0.05555555555555555
+                            width = 0.2318840579710145
+                            height = 0.8888888888888888
+                        }
+                        sourceRect = {
+                            x = 0
+                            y = 0
+                            width = 32
+                            height = 32
+                        }
+                        cornerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        untrimmedSize = {
+                            width = 32
+                            height = 32
+                        }
+                        fileData = {
+                            absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/Triangle.png
+                            lastModified = {Sun Oct 19 2014 18:24:22 GMT-0400 (Eastern Daylight Time)}
+                            created = {Sun Oct 19 2014 18:24:22 GMT-0400 (Eastern Daylight Time)}
+                            fileSize = 262
+                        }
+                        trimmed = false
+                        rotated = false
+                        isSolid = true
+                        trimmedName = Triangle
+                        fullName = Triangle.png
+                        aliasList = {}
+                        centerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        pivotPoint = {
+                            x = 16
+                            y = 16
+                        }
+                    }
+                    1 = {
+                        size = {
+                            width = 32
+                            height = 32
+                        }
+                        frameRectWithoutRotation = {
+                            x = 36
+                            y = 2
+                            width = 32
+                            height = 32
+                        }
+                        frameRect = {
+                            x = 36
+                            y = 2
+                            width = 32
+                            height = 32
+                        }
+                        frameRectRel = {
+                            x = 0.2608695652173913
+                            y = 0.05555555555555555
+                            width = 0.2318840579710145
+                            height = 0.8888888888888888
+                        }
+                        sourceRect = {
+                            x = 0
+                            y = 0
+                            width = 32
+                            height = 32
+                        }
+                        cornerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        untrimmedSize = {
+                            width = 32
+                            height = 32
+                        }
+                        fileData = {
+                            absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/circle.png
+                            lastModified = {Sun Oct 19 2014 18:57:22 GMT-0400 (Eastern Daylight Time)}
+                            created = {Sun Oct 19 2014 18:57:22 GMT-0400 (Eastern Daylight Time)}
+                            fileSize = 273
+                        }
+                        trimmed = false
+                        rotated = false
+                        isSolid = true
+                        trimmedName = circle
+                        fullName = circle.png
+                        aliasList = {}
+                        centerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        pivotPoint = {
+                            x = 16
+                            y = 16
+                        }
+                    }
+                    2 = {
+                        size = {
+                            width = 32
+                            height = 32
+                        }
+                        frameRectWithoutRotation = {
+                            x = 70
+                            y = 2
+                            width = 32
+                            height = 32
+                        }
+                        frameRect = {
+                            x = 70
+                            y = 2
+                            width = 32
+                            height = 32
+                        }
+                        frameRectRel = {
+                            x = 0.5072463768115942
+                            y = 0.05555555555555555
+                            width = 0.2318840579710145
+                            height = 0.8888888888888888
+                        }
+                        sourceRect = {
+                            x = 0
+                            y = 0
+                            width = 32
+                            height = 32
+                        }
+                        cornerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        untrimmedSize = {
+                            width = 32
+                            height = 32
+                        }
+                        fileData = {
+                            absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/pentagon.png
+                            lastModified = {Sun Oct 19 2014 18:58:17 GMT-0400 (Eastern Daylight Time)}
+                            created = {Sun Oct 19 2014 18:58:17 GMT-0400 (Eastern Daylight Time)}
+                            fileSize = 302
+                        }
+                        trimmed = false
+                        rotated = false
+                        isSolid = true
+                        trimmedName = pentagon
+                        fullName = pentagon.png
+                        aliasList = {}
+                        centerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        pivotPoint = {
+                            x = 16
+                            y = 16
+                        }
+                    }
+                    3 = {
+                        size = {
+                            width = 32
+                            height = 32
+                        }
+                        frameRectWithoutRotation = {
+                            x = 104
+                            y = 2
+                            width = 32
+                            height = 32
+                        }
+                        frameRect = {
+                            x = 104
+                            y = 2
+                            width = 32
+                            height = 32
+                        }
+                        frameRectRel = {
+                            x = 0.7536231884057971
+                            y = 0.05555555555555555
+                            width = 0.2318840579710145
+                            height = 0.8888888888888888
+                        }
+                        sourceRect = {
+                            x = 0
+                            y = 0
+                            width = 32
+                            height = 32
+                        }
+                        cornerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        untrimmedSize = {
+                            width = 32
+                            height = 32
+                        }
+                        fileData = {
+                            absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/square.png
+                            lastModified = {Sun Oct 19 2014 18:34:49 GMT-0400 (Eastern Daylight Time)}
+                            created = {Sun Oct 19 2014 18:34:48 GMT-0400 (Eastern Daylight Time)}
+                            fileSize = 168
+                        }
+                        trimmed = false
+                        rotated = false
+                        isSolid = true
+                        trimmedName = square
+                        fullName = square.png
+                        aliasList = {}
+                        centerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        pivotPoint = {
+                            x = 16
+                            y = 16
+                        }
+                    }
+                }
+                allSprites = {
+                    0 = {
+                        size = {
+                            width = 32
+                            height = 32
+                        }
+                        frameRectWithoutRotation = {
+                            x = 2
+                            y = 2
+                            width = 32
+                            height = 32
+                        }
+                        frameRect = {
+                            x = 2
+                            y = 2
+                            width = 32
+                            height = 32
+                        }
+                        frameRectRel = {
+                            x = 0.014492753623188406
+                            y = 0.05555555555555555
+                            width = 0.2318840579710145
+                            height = 0.8888888888888888
+                        }
+                        sourceRect = {
+                            x = 0
+                            y = 0
+                            width = 32
+                            height = 32
+                        }
+                        cornerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        untrimmedSize = {
+                            width = 32
+                            height = 32
+                        }
+                        fileData = {
+                            absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/Triangle.png
+                            lastModified = {Sun Oct 19 2014 18:24:22 GMT-0400 (Eastern Daylight Time)}
+                            created = {Sun Oct 19 2014 18:24:22 GMT-0400 (Eastern Daylight Time)}
+                            fileSize = 262
+                        }
+                        trimmed = false
+                        rotated = false
+                        isSolid = true
+                        trimmedName = Triangle
+                        fullName = Triangle.png
+                        aliasList = {}
+                        centerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        pivotPoint = {
+                            x = 16
+                            y = 16
+                        }
+                    }
+                    1 = {
+                        size = {
+                            width = 32
+                            height = 32
+                        }
+                        frameRectWithoutRotation = {
+                            x = 36
+                            y = 2
+                            width = 32
+                            height = 32
+                        }
+                        frameRect = {
+                            x = 36
+                            y = 2
+                            width = 32
+                            height = 32
+                        }
+                        frameRectRel = {
+                            x = 0.2608695652173913
+                            y = 0.05555555555555555
+                            width = 0.2318840579710145
+                            height = 0.8888888888888888
+                        }
+                        sourceRect = {
+                            x = 0
+                            y = 0
+                            width = 32
+                            height = 32
+                        }
+                        cornerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        untrimmedSize = {
+                            width = 32
+                            height = 32
+                        }
+                        fileData = {
+                            absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/circle.png
+                            lastModified = {Sun Oct 19 2014 18:57:22 GMT-0400 (Eastern Daylight Time)}
+                            created = {Sun Oct 19 2014 18:57:22 GMT-0400 (Eastern Daylight Time)}
+                            fileSize = 273
+                        }
+                        trimmed = false
+                        rotated = false
+                        isSolid = true
+                        trimmedName = circle
+                        fullName = circle.png
+                        aliasList = {}
+                        centerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        pivotPoint = {
+                            x = 16
+                            y = 16
+                        }
+                    }
+                    2 = {
+                        size = {
+                            width = 32
+                            height = 32
+                        }
+                        frameRectWithoutRotation = {
+                            x = 70
+                            y = 2
+                            width = 32
+                            height = 32
+                        }
+                        frameRect = {
+                            x = 70
+                            y = 2
+                            width = 32
+                            height = 32
+                        }
+                        frameRectRel = {
+                            x = 0.5072463768115942
+                            y = 0.05555555555555555
+                            width = 0.2318840579710145
+                            height = 0.8888888888888888
+                        }
+                        sourceRect = {
+                            x = 0
+                            y = 0
+                            width = 32
+                            height = 32
+                        }
+                        cornerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        untrimmedSize = {
+                            width = 32
+                            height = 32
+                        }
+                        fileData = {
+                            absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/pentagon.png
+                            lastModified = {Sun Oct 19 2014 18:58:17 GMT-0400 (Eastern Daylight Time)}
+                            created = {Sun Oct 19 2014 18:58:17 GMT-0400 (Eastern Daylight Time)}
+                            fileSize = 302
+                        }
+                        trimmed = false
+                        rotated = false
+                        isSolid = true
+                        trimmedName = pentagon
+                        fullName = pentagon.png
+                        aliasList = {}
+                        centerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        pivotPoint = {
+                            x = 16
+                            y = 16
+                        }
+                    }
+                    3 = {
+                        size = {
+                            width = 32
+                            height = 32
+                        }
+                        frameRectWithoutRotation = {
+                            x = 104
+                            y = 2
+                            width = 32
+                            height = 32
+                        }
+                        frameRect = {
+                            x = 104
+                            y = 2
+                            width = 32
+                            height = 32
+                        }
+                        frameRectRel = {
+                            x = 0.7536231884057971
+                            y = 0.05555555555555555
+                            width = 0.2318840579710145
+                            height = 0.8888888888888888
+                        }
+                        sourceRect = {
+                            x = 0
+                            y = 0
+                            width = 32
+                            height = 32
+                        }
+                        cornerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        untrimmedSize = {
+                            width = 32
+                            height = 32
+                        }
+                        fileData = {
+                            absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/square.png
+                            lastModified = {Sun Oct 19 2014 18:34:49 GMT-0400 (Eastern Daylight Time)}
+                            created = {Sun Oct 19 2014 18:34:48 GMT-0400 (Eastern Daylight Time)}
+                            fileSize = 168
+                        }
+                        trimmed = false
+                        rotated = false
+                        isSolid = true
+                        trimmedName = square
+                        fullName = square.png
+                        aliasList = {}
+                        centerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        pivotPoint = {
+                            x = 16
+                            y = 16
+                        }
+                    }
+                }
+                absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/testsrpites.png
+                trimmedName = testsrpites
+                fullName = testsrpites.png
+            }
+        }
+        nonFittingSprites = {}
+    }
+}
+
+texture = {
+    size = {
+        width = 138
+        height = 36
+    }
+    area = 4968
+    sprites = {
+        0 = {
+            size = {
+                width = 32
+                height = 32
+            }
+            frameRectWithoutRotation = {
+                x = 2
+                y = 2
+                width = 32
+                height = 32
+            }
+            frameRect = {
+                x = 2
+                y = 2
+                width = 32
+                height = 32
+            }
+            frameRectRel = {
+                x = 0.014492753623188406
+                y = 0.05555555555555555
+                width = 0.2318840579710145
+                height = 0.8888888888888888
+            }
+            sourceRect = {
+                x = 0
+                y = 0
+                width = 32
+                height = 32
+            }
+            cornerOffset = {
+                x = 0
+                y = 0
+            }
+            untrimmedSize = {
+                width = 32
+                height = 32
+            }
+            fileData = {
+                absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/Triangle.png
+                lastModified = {Sun Oct 19 2014 18:24:22 GMT-0400 (Eastern Daylight Time)}
+                created = {Sun Oct 19 2014 18:24:22 GMT-0400 (Eastern Daylight Time)}
+                fileSize = 262
+            }
+            trimmed = false
+            rotated = false
+            isSolid = true
+            trimmedName = Triangle
+            fullName = Triangle.png
+            aliasList = {}
+            centerOffset = {
+                x = 0
+                y = 0
+            }
+            pivotPoint = {
+                x = 16
+                y = 16
+            }
+        }
+        1 = {
+            size = {
+                width = 32
+                height = 32
+            }
+            frameRectWithoutRotation = {
+                x = 36
+                y = 2
+                width = 32
+                height = 32
+            }
+            frameRect = {
+                x = 36
+                y = 2
+                width = 32
+                height = 32
+            }
+            frameRectRel = {
+                x = 0.2608695652173913
+                y = 0.05555555555555555
+                width = 0.2318840579710145
+                height = 0.8888888888888888
+            }
+            sourceRect = {
+                x = 0
+                y = 0
+                width = 32
+                height = 32
+            }
+            cornerOffset = {
+                x = 0
+                y = 0
+            }
+            untrimmedSize = {
+                width = 32
+                height = 32
+            }
+            fileData = {
+                absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/circle.png
+                lastModified = {Sun Oct 19 2014 18:57:22 GMT-0400 (Eastern Daylight Time)}
+                created = {Sun Oct 19 2014 18:57:22 GMT-0400 (Eastern Daylight Time)}
+                fileSize = 273
+            }
+            trimmed = false
+            rotated = false
+            isSolid = true
+            trimmedName = circle
+            fullName = circle.png
+            aliasList = {}
+            centerOffset = {
+                x = 0
+                y = 0
+            }
+            pivotPoint = {
+                x = 16
+                y = 16
+            }
+        }
+        2 = {
+            size = {
+                width = 32
+                height = 32
+            }
+            frameRectWithoutRotation = {
+                x = 70
+                y = 2
+                width = 32
+                height = 32
+            }
+            frameRect = {
+                x = 70
+                y = 2
+                width = 32
+                height = 32
+            }
+            frameRectRel = {
+                x = 0.5072463768115942
+                y = 0.05555555555555555
+                width = 0.2318840579710145
+                height = 0.8888888888888888
+            }
+            sourceRect = {
+                x = 0
+                y = 0
+                width = 32
+                height = 32
+            }
+            cornerOffset = {
+                x = 0
+                y = 0
+            }
+            untrimmedSize = {
+                width = 32
+                height = 32
+            }
+            fileData = {
+                absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/pentagon.png
+                lastModified = {Sun Oct 19 2014 18:58:17 GMT-0400 (Eastern Daylight Time)}
+                created = {Sun Oct 19 2014 18:58:17 GMT-0400 (Eastern Daylight Time)}
+                fileSize = 302
+            }
+            trimmed = false
+            rotated = false
+            isSolid = true
+            trimmedName = pentagon
+            fullName = pentagon.png
+            aliasList = {}
+            centerOffset = {
+                x = 0
+                y = 0
+            }
+            pivotPoint = {
+                x = 16
+                y = 16
+            }
+        }
+        3 = {
+            size = {
+                width = 32
+                height = 32
+            }
+            frameRectWithoutRotation = {
+                x = 104
+                y = 2
+                width = 32
+                height = 32
+            }
+            frameRect = {
+                x = 104
+                y = 2
+                width = 32
+                height = 32
+            }
+            frameRectRel = {
+                x = 0.7536231884057971
+                y = 0.05555555555555555
+                width = 0.2318840579710145
+                height = 0.8888888888888888
+            }
+            sourceRect = {
+                x = 0
+                y = 0
+                width = 32
+                height = 32
+            }
+            cornerOffset = {
+                x = 0
+                y = 0
+            }
+            untrimmedSize = {
+                width = 32
+                height = 32
+            }
+            fileData = {
+                absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/square.png
+                lastModified = {Sun Oct 19 2014 18:34:49 GMT-0400 (Eastern Daylight Time)}
+                created = {Sun Oct 19 2014 18:34:48 GMT-0400 (Eastern Daylight Time)}
+                fileSize = 168
+            }
+            trimmed = false
+            rotated = false
+            isSolid = true
+            trimmedName = square
+            fullName = square.png
+            aliasList = {}
+            centerOffset = {
+                x = 0
+                y = 0
+            }
+            pivotPoint = {
+                x = 16
+                y = 16
+            }
+        }
+    }
+    allSprites = {
+        0 = {
+            size = {
+                width = 32
+                height = 32
+            }
+            frameRectWithoutRotation = {
+                x = 2
+                y = 2
+                width = 32
+                height = 32
+            }
+            frameRect = {
+                x = 2
+                y = 2
+                width = 32
+                height = 32
+            }
+            frameRectRel = {
+                x = 0.014492753623188406
+                y = 0.05555555555555555
+                width = 0.2318840579710145
+                height = 0.8888888888888888
+            }
+            sourceRect = {
+                x = 0
+                y = 0
+                width = 32
+                height = 32
+            }
+            cornerOffset = {
+                x = 0
+                y = 0
+            }
+            untrimmedSize = {
+                width = 32
+                height = 32
+            }
+            fileData = {
+                absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/Triangle.png
+                lastModified = {Sun Oct 19 2014 18:24:22 GMT-0400 (Eastern Daylight Time)}
+                created = {Sun Oct 19 2014 18:24:22 GMT-0400 (Eastern Daylight Time)}
+                fileSize = 262
+            }
+            trimmed = false
+            rotated = false
+            isSolid = true
+            trimmedName = Triangle
+            fullName = Triangle.png
+            aliasList = {}
+            centerOffset = {
+                x = 0
+                y = 0
+            }
+            pivotPoint = {
+                x = 16
+                y = 16
+            }
+        }
+        1 = {
+            size = {
+                width = 32
+                height = 32
+            }
+            frameRectWithoutRotation = {
+                x = 36
+                y = 2
+                width = 32
+                height = 32
+            }
+            frameRect = {
+                x = 36
+                y = 2
+                width = 32
+                height = 32
+            }
+            frameRectRel = {
+                x = 0.2608695652173913
+                y = 0.05555555555555555
+                width = 0.2318840579710145
+                height = 0.8888888888888888
+            }
+            sourceRect = {
+                x = 0
+                y = 0
+                width = 32
+                height = 32
+            }
+            cornerOffset = {
+                x = 0
+                y = 0
+            }
+            untrimmedSize = {
+                width = 32
+                height = 32
+            }
+            fileData = {
+                absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/circle.png
+                lastModified = {Sun Oct 19 2014 18:57:22 GMT-0400 (Eastern Daylight Time)}
+                created = {Sun Oct 19 2014 18:57:22 GMT-0400 (Eastern Daylight Time)}
+                fileSize = 273
+            }
+            trimmed = false
+            rotated = false
+            isSolid = true
+            trimmedName = circle
+            fullName = circle.png
+            aliasList = {}
+            centerOffset = {
+                x = 0
+                y = 0
+            }
+            pivotPoint = {
+                x = 16
+                y = 16
+            }
+        }
+        2 = {
+            size = {
+                width = 32
+                height = 32
+            }
+            frameRectWithoutRotation = {
+                x = 70
+                y = 2
+                width = 32
+                height = 32
+            }
+            frameRect = {
+                x = 70
+                y = 2
+                width = 32
+                height = 32
+            }
+            frameRectRel = {
+                x = 0.5072463768115942
+                y = 0.05555555555555555
+                width = 0.2318840579710145
+                height = 0.8888888888888888
+            }
+            sourceRect = {
+                x = 0
+                y = 0
+                width = 32
+                height = 32
+            }
+            cornerOffset = {
+                x = 0
+                y = 0
+            }
+            untrimmedSize = {
+                width = 32
+                height = 32
+            }
+            fileData = {
+                absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/pentagon.png
+                lastModified = {Sun Oct 19 2014 18:58:17 GMT-0400 (Eastern Daylight Time)}
+                created = {Sun Oct 19 2014 18:58:17 GMT-0400 (Eastern Daylight Time)}
+                fileSize = 302
+            }
+            trimmed = false
+            rotated = false
+            isSolid = true
+            trimmedName = pentagon
+            fullName = pentagon.png
+            aliasList = {}
+            centerOffset = {
+                x = 0
+                y = 0
+            }
+            pivotPoint = {
+                x = 16
+                y = 16
+            }
+        }
+        3 = {
+            size = {
+                width = 32
+                height = 32
+            }
+            frameRectWithoutRotation = {
+                x = 104
+                y = 2
+                width = 32
+                height = 32
+            }
+            frameRect = {
+                x = 104
+                y = 2
+                width = 32
+                height = 32
+            }
+            frameRectRel = {
+                x = 0.7536231884057971
+                y = 0.05555555555555555
+                width = 0.2318840579710145
+                height = 0.8888888888888888
+            }
+            sourceRect = {
+                x = 0
+                y = 0
+                width = 32
+                height = 32
+            }
+            cornerOffset = {
+                x = 0
+                y = 0
+            }
+            untrimmedSize = {
+                width = 32
+                height = 32
+            }
+            fileData = {
+                absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/square.png
+                lastModified = {Sun Oct 19 2014 18:34:49 GMT-0400 (Eastern Daylight Time)}
+                created = {Sun Oct 19 2014 18:34:48 GMT-0400 (Eastern Daylight Time)}
+                fileSize = 168
+            }
+            trimmed = false
+            rotated = false
+            isSolid = true
+            trimmedName = square
+            fullName = square.png
+            aliasList = {}
+            centerOffset = {
+                x = 0
+                y = 0
+            }
+            pivotPoint = {
+                x = 16
+                y = 16
+            }
+        }
+    }
+    absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/testsrpites.png
+    trimmedName = testsrpites
+    fullName = testsrpites.png
+}
+
+allSprites = {
+    0 = {
+        size = {
+            width = 32
+            height = 32
+        }
+        frameRectWithoutRotation = {
+            x = 2
+            y = 2
+            width = 32
+            height = 32
+        }
+        frameRect = {
+            x = 2
+            y = 2
+            width = 32
+            height = 32
+        }
+        frameRectRel = {
+            x = 0.014492753623188406
+            y = 0.05555555555555555
+            width = 0.2318840579710145
+            height = 0.8888888888888888
+        }
+        sourceRect = {
+            x = 0
+            y = 0
+            width = 32
+            height = 32
+        }
+        cornerOffset = {
+            x = 0
+            y = 0
+        }
+        untrimmedSize = {
+            width = 32
+            height = 32
+        }
+        fileData = {
+            absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/Triangle.png
+            lastModified = {Sun Oct 19 2014 18:24:22 GMT-0400 (Eastern Daylight Time)}
+            created = {Sun Oct 19 2014 18:24:22 GMT-0400 (Eastern Daylight Time)}
+            fileSize = 262
+        }
+        trimmed = false
+        rotated = false
+        isSolid = true
+        trimmedName = Triangle
+        fullName = Triangle.png
+        aliasList = {}
+        centerOffset = {
+            x = 0
+            y = 0
+        }
+        pivotPoint = {
+            x = 16
+            y = 16
+        }
+    }
+    1 = {
+        size = {
+            width = 32
+            height = 32
+        }
+        frameRectWithoutRotation = {
+            x = 36
+            y = 2
+            width = 32
+            height = 32
+        }
+        frameRect = {
+            x = 36
+            y = 2
+            width = 32
+            height = 32
+        }
+        frameRectRel = {
+            x = 0.2608695652173913
+            y = 0.05555555555555555
+            width = 0.2318840579710145
+            height = 0.8888888888888888
+        }
+        sourceRect = {
+            x = 0
+            y = 0
+            width = 32
+            height = 32
+        }
+        cornerOffset = {
+            x = 0
+            y = 0
+        }
+        untrimmedSize = {
+            width = 32
+            height = 32
+        }
+        fileData = {
+            absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/circle.png
+            lastModified = {Sun Oct 19 2014 18:57:22 GMT-0400 (Eastern Daylight Time)}
+            created = {Sun Oct 19 2014 18:57:22 GMT-0400 (Eastern Daylight Time)}
+            fileSize = 273
+        }
+        trimmed = false
+        rotated = false
+        isSolid = true
+        trimmedName = circle
+        fullName = circle.png
+        aliasList = {}
+        centerOffset = {
+            x = 0
+            y = 0
+        }
+        pivotPoint = {
+            x = 16
+            y = 16
+        }
+    }
+    2 = {
+        size = {
+            width = 32
+            height = 32
+        }
+        frameRectWithoutRotation = {
+            x = 70
+            y = 2
+            width = 32
+            height = 32
+        }
+        frameRect = {
+            x = 70
+            y = 2
+            width = 32
+            height = 32
+        }
+        frameRectRel = {
+            x = 0.5072463768115942
+            y = 0.05555555555555555
+            width = 0.2318840579710145
+            height = 0.8888888888888888
+        }
+        sourceRect = {
+            x = 0
+            y = 0
+            width = 32
+            height = 32
+        }
+        cornerOffset = {
+            x = 0
+            y = 0
+        }
+        untrimmedSize = {
+            width = 32
+            height = 32
+        }
+        fileData = {
+            absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/pentagon.png
+            lastModified = {Sun Oct 19 2014 18:58:17 GMT-0400 (Eastern Daylight Time)}
+            created = {Sun Oct 19 2014 18:58:17 GMT-0400 (Eastern Daylight Time)}
+            fileSize = 302
+        }
+        trimmed = false
+        rotated = false
+        isSolid = true
+        trimmedName = pentagon
+        fullName = pentagon.png
+        aliasList = {}
+        centerOffset = {
+            x = 0
+            y = 0
+        }
+        pivotPoint = {
+            x = 16
+            y = 16
+        }
+    }
+    3 = {
+        size = {
+            width = 32
+            height = 32
+        }
+        frameRectWithoutRotation = {
+            x = 104
+            y = 2
+            width = 32
+            height = 32
+        }
+        frameRect = {
+            x = 104
+            y = 2
+            width = 32
+            height = 32
+        }
+        frameRectRel = {
+            x = 0.7536231884057971
+            y = 0.05555555555555555
+            width = 0.2318840579710145
+            height = 0.8888888888888888
+        }
+        sourceRect = {
+            x = 0
+            y = 0
+            width = 32
+            height = 32
+        }
+        cornerOffset = {
+            x = 0
+            y = 0
+        }
+        untrimmedSize = {
+            width = 32
+            height = 32
+        }
+        fileData = {
+            absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/square.png
+            lastModified = {Sun Oct 19 2014 18:34:49 GMT-0400 (Eastern Daylight Time)}
+            created = {Sun Oct 19 2014 18:34:48 GMT-0400 (Eastern Daylight Time)}
+            fileSize = 168
+        }
+        trimmed = false
+        rotated = false
+        isSolid = true
+        trimmedName = square
+        fullName = square.png
+        aliasList = {}
+        centerOffset = {
+            x = 0
+            y = 0
+        }
+        pivotPoint = {
+            x = 16
+            y = 16
+        }
+    }
+}
+
+sprites = {
+    0 = {
+        size = {
+            width = 32
+            height = 32
+        }
+        frameRectWithoutRotation = {
+            x = 2
+            y = 2
+            width = 32
+            height = 32
+        }
+        frameRect = {
+            x = 2
+            y = 2
+            width = 32
+            height = 32
+        }
+        frameRectRel = {
+            x = 0.014492753623188406
+            y = 0.05555555555555555
+            width = 0.2318840579710145
+            height = 0.8888888888888888
+        }
+        sourceRect = {
+            x = 0
+            y = 0
+            width = 32
+            height = 32
+        }
+        cornerOffset = {
+            x = 0
+            y = 0
+        }
+        untrimmedSize = {
+            width = 32
+            height = 32
+        }
+        fileData = {
+            absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/Triangle.png
+            lastModified = {Sun Oct 19 2014 18:24:22 GMT-0400 (Eastern Daylight Time)}
+            created = {Sun Oct 19 2014 18:24:22 GMT-0400 (Eastern Daylight Time)}
+            fileSize = 262
+        }
+        trimmed = false
+        rotated = false
+        isSolid = true
+        trimmedName = Triangle
+        fullName = Triangle.png
+        aliasList = {}
+        centerOffset = {
+            x = 0
+            y = 0
+        }
+        pivotPoint = {
+            x = 16
+            y = 16
+        }
+    }
+    1 = {
+        size = {
+            width = 32
+            height = 32
+        }
+        frameRectWithoutRotation = {
+            x = 36
+            y = 2
+            width = 32
+            height = 32
+        }
+        frameRect = {
+            x = 36
+            y = 2
+            width = 32
+            height = 32
+        }
+        frameRectRel = {
+            x = 0.2608695652173913
+            y = 0.05555555555555555
+            width = 0.2318840579710145
+            height = 0.8888888888888888
+        }
+        sourceRect = {
+            x = 0
+            y = 0
+            width = 32
+            height = 32
+        }
+        cornerOffset = {
+            x = 0
+            y = 0
+        }
+        untrimmedSize = {
+            width = 32
+            height = 32
+        }
+        fileData = {
+            absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/circle.png
+            lastModified = {Sun Oct 19 2014 18:57:22 GMT-0400 (Eastern Daylight Time)}
+            created = {Sun Oct 19 2014 18:57:22 GMT-0400 (Eastern Daylight Time)}
+            fileSize = 273
+        }
+        trimmed = false
+        rotated = false
+        isSolid = true
+        trimmedName = circle
+        fullName = circle.png
+        aliasList = {}
+        centerOffset = {
+            x = 0
+            y = 0
+        }
+        pivotPoint = {
+            x = 16
+            y = 16
+        }
+    }
+    2 = {
+        size = {
+            width = 32
+            height = 32
+        }
+        frameRectWithoutRotation = {
+            x = 70
+            y = 2
+            width = 32
+            height = 32
+        }
+        frameRect = {
+            x = 70
+            y = 2
+            width = 32
+            height = 32
+        }
+        frameRectRel = {
+            x = 0.5072463768115942
+            y = 0.05555555555555555
+            width = 0.2318840579710145
+            height = 0.8888888888888888
+        }
+        sourceRect = {
+            x = 0
+            y = 0
+            width = 32
+            height = 32
+        }
+        cornerOffset = {
+            x = 0
+            y = 0
+        }
+        untrimmedSize = {
+            width = 32
+            height = 32
+        }
+        fileData = {
+            absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/pentagon.png
+            lastModified = {Sun Oct 19 2014 18:58:17 GMT-0400 (Eastern Daylight Time)}
+            created = {Sun Oct 19 2014 18:58:17 GMT-0400 (Eastern Daylight Time)}
+            fileSize = 302
+        }
+        trimmed = false
+        rotated = false
+        isSolid = true
+        trimmedName = pentagon
+        fullName = pentagon.png
+        aliasList = {}
+        centerOffset = {
+            x = 0
+            y = 0
+        }
+        pivotPoint = {
+            x = 16
+            y = 16
+        }
+    }
+    3 = {
+        size = {
+            width = 32
+            height = 32
+        }
+        frameRectWithoutRotation = {
+            x = 104
+            y = 2
+            width = 32
+            height = 32
+        }
+        frameRect = {
+            x = 104
+            y = 2
+            width = 32
+            height = 32
+        }
+        frameRectRel = {
+            x = 0.7536231884057971
+            y = 0.05555555555555555
+            width = 0.2318840579710145
+            height = 0.8888888888888888
+        }
+        sourceRect = {
+            x = 0
+            y = 0
+            width = 32
+            height = 32
+        }
+        cornerOffset = {
+            x = 0
+            y = 0
+        }
+        untrimmedSize = {
+            width = 32
+            height = 32
+        }
+        fileData = {
+            absoluteFileName = C:/Users/Admin/Desktop/School/Fall 2014/CS 420/Test Sprites/square.png
+            lastModified = {Sun Oct 19 2014 18:34:49 GMT-0400 (Eastern Daylight Time)}
+            created = {Sun Oct 19 2014 18:34:48 GMT-0400 (Eastern Daylight Time)}
+            fileSize = 168
+        }
+        trimmed = false
+        rotated = false
+        isSolid = true
+        trimmedName = square
+        fullName = square.png
+        aliasList = {}
+        centerOffset = {
+            x = 0
+            y = 0
+        }
+        pivotPoint = {
+            x = 16
+            y = 16
+        }
+    }
+}

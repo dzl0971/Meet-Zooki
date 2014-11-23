@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/pongMain.dir/bin/pongMain.cpp.o  -o pongMain -rdynamic /home/f85/zduancs/local/lib/libsfml-graphics.so /home/f85/zduancs/local/lib/libsfml-window.so /home/f85/zduancs/local/lib/libsfml-system.so /home/f85/zduancs/local/lib/libsfml-audio.so /home/f85/zduancs/local/lib/libsfml-network.so -Wl,-rpath,/home/f85/zduancs/local/lib 
