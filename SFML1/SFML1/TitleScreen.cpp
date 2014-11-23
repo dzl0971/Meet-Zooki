@@ -31,9 +31,10 @@ void TitleScreen::setText(int message)
 		play.setString(gameClear);
 	}
 	
-	play.setCharacterSize(25);
-	play.setColor(sf::Color(223, 116, 1));
-	play.setPosition(275, 500);
+	play.setCharacterSize(40);
+	play.setStyle(sf::Text::Bold);
+	play.setColor(sf::Color(255, 165, 0 ));
+	play.setPosition(385, 450);
 }
 
 void TitleScreen::setImage()

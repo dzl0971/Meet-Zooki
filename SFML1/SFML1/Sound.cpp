@@ -27,6 +27,15 @@ void Sound::loadSounds()
 	if(death_buffer.loadFromFile("Data/Sounds/Death.wav")==true)
 		cout<<"Death.wav loaded"<<endl;
 	deathSound.setBuffer(death_buffer);
+
+	if(congratulation_buffer.loadFromFile("Data/Sounds/congratulation.wav")==true)
+		cout<<"congratulation.wav loaded"<<endl;
+	congratulationSound.setBuffer(congratulation_buffer);
+
+	if(background_buffer.loadFromFile("Data/Sounds/background2.wav")==true)
+		cout<<"background.wav loaded"<<endl;
+	backgroundSound.setBuffer(background_buffer);
+
 	time_till_end=0;
 }
 
@@ -38,7 +47,6 @@ void Sound::playSound(const char* sound){
 	  iglooSound.play();
 	   if(sound=="walk")
 	   {
-		 cout<<time_till_end<<endl;
 		 if(time_till_end==0){
 	       walkSound.play();
          }

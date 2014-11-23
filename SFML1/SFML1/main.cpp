@@ -17,82 +17,183 @@
 #include "Sound.h"
 #include <iostream>
 #include <cstring>
+#include <sstream>
 #include <array>
 using namespace std;
-
-
+#define LEVEL 8
+#define LIVES 3
+#define MAXLIVENUM 7
+//the MAXCONES depend on the summer of array cones(2+8+16+10+2)+levelNumer(6)=44
+#define MAXCONES 44
+#define SECRETLEVEL 4
 ////////////////////////////////////////////////////////////
 /// Entry point of application
 ///
 /// \return Application exit code
 ///
 ////////////////////////////////////////////////////////////
-int main()
-{
-	std::srand(static_cast<unsigned int>(std::time(NULL)));
-
-	// Define some constants
-
 	const int gameWidth = 1280;
 	const int gameHeight = 768;
 	const int gravity = 200;
 	const int tileSize = 16;
+	const float lavaScale = 1.1;
+	const int levelNumber = LEVEL;
 	
-	const std::array<string, 3> levels = { "1.txt","2.txt", "3.txt" };
-	//string levels[] = { "1.txt", "2.txt"};
-	const std::array<int, 3> cones = { 0, 0, 8 };
-	//const int cones[] = { 0, 2 };
-	const std::array<int, 3> times = { 10, 15, 40};
-	//const int times[] = { 10, 15 };
+	const std::array<string, levelNumber> levels = { "1.txt","2.txt","3.txt","4.txt","5.txt","6.txt","7a.txt","7b.txt"};
+	//const std::array<string, levelNumber> levels = { "2.txt","2.txt","2.txt","2.txt","2.txt","2.txt","7.txt","7b.txt"};//test
+	
+	const std::array<int, levelNumber> cones = { 0, 2, 8, 16, 10, 2, 14, 0};
+	//const std::array<int, levelNumber> cones = { 0, 0, 0, 0, 0,0,0,4};//test
+	
+	const std::array<int, levelNumber> times = { 10, 15, 40, 30, 70, 15, 100,300};
+	
 	int screenMessage = 1;
+	int coneRecord= 0;
+	int timeRecord= 0;
+	int coneSum = 0;
+	float deltaTime=0;
 
 	int zooki_texture_right=0;
 	int zooki_texture_left=0;
+	sf::Sprite xyz;
+	// Handle events
+	sf::Event event;
 
-	Editor edit(gameWidth/tileSize, gameHeight/tileSize, tileSize);
-	edit.LoadTiles("Data/ZookieSpriteInfo.txt");
-
-
+	// Create items
+	Zooki zooki;
+	Sound sound;
+	TitleScreen titleScreen;
+	
+	sf::Clock levelStart;
+	int isPlaying = 0;
 	// For collisions
 	int rightCollisionBound = NULL;
 	int leftCollisionBound = NULL;
 	int upCollisionBound = NULL;
 	int downCollisionBound = NULL;
 
-
+	Editor edit(gameWidth/tileSize, gameHeight/tileSize, tileSize);
+	Hud HUD(&levelStart, &zooki);
+	
 	// Create the window of the application
 	sf::RenderWindow window(sf::VideoMode(gameWidth, gameHeight, 32), "Zooki");
+	
+	sf::Clock mainClock;
+	sf::Clock AITimer;
+	const sf::Time AITime = sf::seconds(0.1f);
+
+void render()
+{
+	if(isPlaying ==0)//
+		{
+			window.clear(sf::Color(164, 250, 200));
+			window.draw(edit.getBackground());
+			titleScreen.setText(screenMessage);
+			window.draw(titleScreen.zookieLogo);
+			window.draw(titleScreen.play);
+			
+
+		}
+
+	if (isPlaying==1)//play state
+		{
+			window.clear();
+			window.draw(edit.getBackground());
+			HUD.Update();
+			// Draw HUD
+			for (int i = 0; i< HUD.getLives().size(); i++)
+			{
+				window.draw(HUD.getLives()[i]);
+			}
+			window.draw(HUD.getTimerSprite());
+			window.draw(HUD.getLivesText());
+			window.draw(HUD.getIceCreamText());
+			window.draw(HUD.getIceCreamSprite());
+			window.draw(HUD.getTimeText());
+			
+			if(zooki.conesRemaining < 1)
+			{
+				
+				window.draw(HUD.getRemainingText());
+				
+			}
+			//draw tiles
+			for (int i = 0; i < edit.getSizeX(); i++)
+			{
+				for (int j = 0; j < edit.getSizeY(); j++)
+				{
+					if (edit.getLevelTile(i, j)->getID() != -1){
+						if (edit.getLevelTile(i, j)->getIsCollectible() && levelStart.getElapsedTime().asSeconds() > (int)times[zooki.level]*0.7){
+							if (levelStart.getElapsedTime().asMilliseconds() % 200 < 100){
+								xyz = edit.getLevelTile(i, j)->getTileSprite();
+								window.draw(xyz);
+							}
+						}
+							
+							if(edit.getLevelTile(i,j)->getID()==4)
+							{
+								if (levelStart.getElapsedTime().asMilliseconds() % 2000 < 1000)
+								{
+									xyz = edit.getLevelTile(i, j)->getTileSprite();
+									if(coneSum<=MAXCONES)
+										xyz.setScale(1,lavaScale);
+									window.draw(xyz);
+								}
+								else
+								{
+									xyz = edit.getLevelTile(i, j)->getTileSprite();
+									if(coneSum<=MAXCONES)
+										xyz.setScale(1,1/lavaScale);
+									window.draw(xyz);
+								}
+							}
+							else{
+								xyz = edit.getLevelTile(i, j)->getTileSprite();
+								window.draw(xyz);
+						}
+					}
+				}
+			}
+
+			window.draw(zooki.zookiSprite);
+			
+		}
+		
+		if(isPlaying == 2)//pause state
+		{
+			window.clear();
+			window.draw(edit.getBackground());
+			titleScreen.setText(screenMessage);
+			window.draw(titleScreen.play);
+			HUD.Update();
+			// Draw HUD
+			
+			HUD.setPauseText(500,200,coneRecord,timeRecord);
+			
+			window.draw(HUD.getLives()[0]);
+			window.draw(HUD.getIceCreamSprite());
+			window.draw(HUD.getTimerSprite());
+			window.draw(HUD.getPauseText());
+			
+		}
+}
+int main()
+{
+	std::srand(static_cast<unsigned int>(std::time(NULL)));
+	edit.LoadTiles("Data/ZookieSpriteInfo.txt");
 	window.setVerticalSyncEnabled(true);
-
-
-	// Create items
-	Zooki zooki;
-	Sound sound;
-
+	// Define some constants
+	
 	sound.loadSounds();
 	zooki.loadTexture();
-	TitleScreen titleScreen;
+	
 
 	titleScreen.setText(1);
 	titleScreen.setImage();
-
-
-	// Define the paddles properties
-	sf::Clock AITimer;
-	const sf::Time AITime = sf::seconds(0.1f);
-	
-
-
-	sf::Clock clock;
-	sf::Clock levelStart;
-
-	Hud HUD(&levelStart, &zooki);
-
-	bool isPlaying = false;
+		
 	while (window.isOpen())
 	{
-		// Handle events
-		sf::Event event;
+		
 		while (window.pollEvent(event))
 		{
 			// Window closed or escape key pressed: exit
@@ -106,27 +207,70 @@ int main()
 			// Space key pressed: play
 			if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Space))
 			{
-				if (!isPlaying)
+				
+				if (isPlaying==0)
 				{
+					sound.backgroundSound.play();
 					if (zooki.lives == 0){
 						zooki.level = 0;
-						zooki.lives = 3;
+						zooki.lives = LIVES;
 						screenMessage = 1;
 					}
 					// (re)start the game
-					isPlaying = true;
-					clock.restart();
+					isPlaying = 1;
+					mainClock.restart();
 					levelStart.restart();
-
+					HUD.resetTextPosition();
+					//sound stop
+					sound.jumpSound.stop();
+					sound.walkSound.stop();
+					sound.congratulationSound.stop();
+					sound.deathSound.stop();
 					//load first level
 					edit.clearLevel();
 					if (zooki.level >= levels.size())
 					{
-						isPlaying = false;
+						isPlaying = 0;
 						screenMessage = 5;
 						zooki.level = 0;
 						zooki.reset();
-						zooki.lives = 3;
+						zooki.lives = LIVES;
+						continue;
+					}
+					edit.LoadLevel("Data/"+levels[zooki.level]);
+					HUD.setMaxTime(times[zooki.level]);
+					zooki.setStart(edit.getStartX(), edit.getStartY());
+
+
+					zooki.Update();
+					zooki.has_cones = false;
+					zooki.onGround = false;	
+					zooki.isSliding = false;
+					zooki.conesRemaining = cones[zooki.level];
+					zooki.conesCollected = 0;
+				}
+				if(isPlaying ==2)
+				{
+					sound.backgroundSound.play();
+					isPlaying = 1;
+					mainClock.restart();
+					levelStart.restart();
+					HUD.resetTextPosition();
+					//load first level
+					edit.clearLevel();
+					//sound stop
+					sound.jumpSound.stop();
+					sound.walkSound.stop();
+					sound.congratulationSound.stop();
+					sound.deathSound.stop();
+
+					if (zooki.level >= levels.size())
+					{
+						isPlaying = 0;
+						screenMessage = 5;
+						zooki.level = 0;
+						zooki.reset();
+						zooki.lives = LIVES;
 						continue;
 					}
 					edit.LoadLevel("Data/"+levels[zooki.level]);
@@ -145,27 +289,31 @@ int main()
 			
 		}
 
-		if (isPlaying)
+		if (isPlaying==1)
 		{
-			float deltaTime = clock.restart().asSeconds();
-
+			deltaTime = mainClock.restart().asSeconds();
+			
 			// get movement input
 
-			
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
 				zooki.moveLeft(deltaTime, gravity);
+				
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
 				zooki.moveRight(deltaTime, gravity);
+				
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && zooki.onGround){
-				zooki.jump();
+				zooki.jump(deltaTime);
+				sound.jumpSound.play();
 			}
 			if (!(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) && !(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))){
-				zooki.stop();				
+				zooki.stop();	
+				sound.jumpSound.stop();
+				sound.walkSound.stop();
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
-				zooki.slide();
+				zooki.slide(deltaTime);
 				//zooki.onGround = false;
 			}
 			if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
@@ -173,24 +321,19 @@ int main()
 			}
 
 			if (!zooki.onGround && zooki.pos_y < gameHeight - zooki.texture_size_y){
-				zooki.fall();
+				zooki.fall(deltaTime);
 			}
 			
-
 			// collisions
 
-
-			if (isPlaying)
+			if (isPlaying==1)
 			{
-				
 				if (levelStart.getElapsedTime().asSeconds() > times[zooki.level]){
-					isPlaying = false;
+					isPlaying = 0;
 					zooki.lives -= 1;
 					zooki.reset();
 					screenMessage = 4;
 				}
-				
-				
 				zooki.onGround = false;
 
 				rightCollisionBound = NULL;
@@ -198,6 +341,7 @@ int main()
 				upCollisionBound = NULL;
 				downCollisionBound = NULL;
 
+				//sound.backgroundSound.play();
 				// position of first rightbound collision
 				if (zooki.pos_x < gameWidth - tileSize)
 				{
@@ -297,7 +441,7 @@ int main()
 							{
 								if (edit.getLevelTile(i, j)->getIsDeadly() == true)
 								{
-									isPlaying = false;
+									isPlaying = 0;
 									sound.deathSound.play();
 									zooki.lives -= 1;
 									zooki.reset();
@@ -306,20 +450,73 @@ int main()
 								}
 								if (edit.getLevelTile(i, j)->getIsFinish() == true)
 								{
+									sound.backgroundSound.stop();
+									
 									if (zooki.conesRemaining < 1)
 									{
-										isPlaying = false;
+										coneSum += zooki.conesCollected;
+																					
+										if(zooki.level>=SECRETLEVEL)
+										{
+											if(coneSum>=MAXCONES)
+											{
+												if (zooki.level > levels.size())
+												{
+													isPlaying = 0;
+													screenMessage = 5;
+													zooki.level = 0;
+													zooki.reset();
+													zooki.lives = LIVES;
+													continue;
+												}
+												isPlaying = 2;
+												coneRecord = zooki.conesCollected;
+												timeRecord = levelStart.getElapsedTime().asSeconds();
+										
+												if (zooki.level < levels.size())
+													zooki.conesRemaining = cones[zooki.level];
+												//sound.deathSound.play();
+												zooki.level += 1;
+												if(zooki.lives<MAXLIVENUM)
+													zooki.lives+=1;
+												zooki.reset();
+												screenMessage = 2;
+										
+												sound.congratulationSound.play();
+												break;
+											}
+											else
+											{
+												isPlaying = 0;
+												screenMessage = 5;
+												zooki.level = 0;
+												zooki.reset();
+												zooki.lives = LIVES;
+												continue;
+											}
+										}
+										
+										isPlaying = 2;
+										coneRecord = zooki.conesCollected;
+										timeRecord = levelStart.getElapsedTime().asSeconds();
+										cout<<timeRecord<<endl;
+										if (zooki.level < levels.size())
+											zooki.conesRemaining = cones[zooki.level];
 										//sound.deathSound.play();
 										zooki.level += 1;
-										zooki.lives+=1;
+										if(zooki.lives<MAXLIVENUM)
+											zooki.lives+=1;
 										zooki.reset();
 										screenMessage = 2;
+										
+										sound.congratulationSound.play();
 										break;
 									}
 									continue;
 								}
 								if (edit.getLevelTile(i, j)->getIsCollectible() == true)
 								{
+									
 									zooki.conesRemaining -= 1;
 									zooki.conesCollected += 1;
 									edit.removeTileInLevel(i, j);
@@ -355,7 +552,7 @@ int main()
 									{
 										//Right side crash
 										zooki.zookiSprite.setPosition( zooki.pos_x - area.width, zooki.zookiSprite.getPosition().y );
- 										zooki.pos_x = zooki.pos_x - area.width;
+										zooki.pos_x = zooki.pos_x - area.width;
 										zooki.x_velocity = 0;
 									}
 									else
@@ -370,7 +567,7 @@ int main()
 						}
 
 					}
-					if (!isPlaying)
+					if (isPlaying==0)
 					{
 						break;
 					}
@@ -385,12 +582,14 @@ int main()
 			if (zooki.x_velocity < 0 && zooki.onGround)
 				{
 					zooki_texture_left++;
-
+					
 					if (zooki.isSliding)
 					{
+						
 						if (zooki_texture_left == 1)
 						{
 							zooki.zookiSprite.setTextureRect(zooki.zooki_run1_l_s);
+
 						}
 						if (zooki_texture_left == 2)
 						{
@@ -407,10 +606,13 @@ int main()
 					}
 					else
 					{
+						
 
 						if (zooki_texture_left == 1)
 						{
 							zooki.zookiSprite.setTextureRect(zooki.zooki_run1_l);
+							sound.walkSound.play();
+							
 						}
 						if (zooki_texture_left == 2)
 						{
@@ -419,6 +621,7 @@ int main()
 						if (zooki_texture_left == 3)
 						{
 							zooki.zookiSprite.setTextureRect(zooki.zooki_run3_l);
+							
 						}
 						if (zooki_texture_left > 3)
 						{
@@ -433,6 +636,7 @@ int main()
 					if (zooki_texture_right == 1)
 					{
 						zooki.zookiSprite.setTextureRect(zooki.zooki_run1_r);
+						sound.walkSound.play();
 					}
 					if (zooki_texture_right == 2)
 					{
@@ -452,54 +656,9 @@ int main()
 
 		}
 
-		sf::Sprite xyz;
-		if (isPlaying)
-		{
-			window.clear();
-			window.draw(edit.getBackground());
-			HUD.Update();
-			// Draw HUD
-			for (int i = 0; i< HUD.getLives().size(); i++)
-			{
-				window.draw(HUD.getLives()[i]);
-			}
-			window.draw(HUD.getLivesText());
-			window.draw(HUD.getIceCreamText());
-			window.draw(HUD.getIceCreamSprite());
-			window.draw(HUD.getTimeText());
-
-			//draw tiles
-			for (int i = 0; i < edit.getSizeX(); i++)
-			{
-				for (int j = 0; j < edit.getSizeY(); j++)
-				{
-					if (edit.getLevelTile(i, j)->getID() != -1){
-						if (edit.getLevelTile(i, j)->getIsCollectible() && levelStart.getElapsedTime().asSeconds() > (int)times[zooki.level]*0.7){
-							if (levelStart.getElapsedTime().asMilliseconds() % 200 < 100){
-								xyz = edit.getLevelTile(i, j)->getTileSprite();
-								window.draw(xyz);
-							}
-						}
-						else{
-							xyz = edit.getLevelTile(i, j)->getTileSprite();
-							window.draw(xyz);
-						}
-					}
-				}
-			}
-
-			window.draw(zooki.zookiSprite);
-			
-		}
-		else{
-			window.clear(sf::Color(164, 250, 200));
-			titleScreen.setText(screenMessage);
-			window.draw(titleScreen.zookieLogo);
-			window.draw(titleScreen.play);
-
-
-		}
-
+		
+		//render windows
+		render();
 		// Display things on screen
 		window.display();
 

@@ -12,7 +12,7 @@ Editor::Editor()
 	size_y = 29;
 	tileSize = 32;
 	currentTile = 0;
-	background.loadFromFile("Data/background1.png");
+	background.loadFromFile("Data/background.png");
 	backgroundSprite.setTexture(background);
 	backgroundSprite.setTextureRect(sf::IntRect(0, 0, 800, 600));
 	backgroundSprite.setScale(sf::Vector2f(2, 2));
@@ -30,7 +30,7 @@ Editor::Editor(int x, int y, int tilesize)
 	size_y = y;
 	tileSize = tilesize;
 	currentTile = 0;
-	background.loadFromFile("Data/background1.png");
+	background.loadFromFile("Data/background.png");
 	backgroundSprite.setTexture(background);
 	backgroundSprite.setTextureRect(sf::IntRect(0, 0, 800, 600));
 	backgroundSprite.setScale(sf::Vector2f(2, 2));
@@ -41,7 +41,7 @@ Editor::Editor(std::string filename, int sizeX, int sizeY)
 	LoadLevel(filename);
 	
 	
-	background.loadFromFile("Data/background1.png");
+	background.loadFromFile("Data/background.png");
 	backgroundSprite.setTexture(background);
 	backgroundSprite.setTextureRect(sf::IntRect(0, 0, 800, 600));
 	backgroundSprite.setScale(sf::Vector2f(2, 2));

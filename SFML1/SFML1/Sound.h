@@ -9,12 +9,16 @@ class Sound{
 	sf::SoundBuffer walk_buffer;
 	sf::SoundBuffer hit_buffer;
 	sf::SoundBuffer death_buffer;
+	sf::SoundBuffer congratulation_buffer;
+	sf::SoundBuffer background_buffer;
 
 	sf::Sound jumpSound;
 	sf::Sound iglooSound;
 	sf::Sound walkSound;
 	sf::Sound hitSound;
 	sf::Sound deathSound;
+	sf::Sound congratulationSound;
+	sf::Sound backgroundSound;
 
 	void loadSounds();
 

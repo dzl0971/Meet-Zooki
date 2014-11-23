@@ -28,13 +28,14 @@ Hud::Hud(sf::Clock* time, Zooki* zooki_ptr)
 	livesText.setCharacterSize(20);
 	livesText.setPosition(sf::Vector2f(20, 20));
 
-	
-
 	iceCreamTex.loadFromFile("Data/cone.png");
-
 	iceCream.setTexture(iceCreamTex);
 	iceCream.setTextureRect(sf::IntRect(0, 0, 30, 27));
 	iceCream.setPosition(sf::Vector2f(1100, 20));
+
+	timerTex.loadFromFile("Data/timer.png");
+	timer.setTexture(timerTex);
+	timer.setPosition(sf::Vector2f(520,20));
 
 	iceCreamCountText.setFont(font);
 	iceCreamCountText.setString("x " + getString(zooki_ptr->conesCollected));
@@ -48,6 +49,17 @@ Hud::Hud(sf::Clock* time, Zooki* zooki_ptr)
 	timeText.setCharacterSize(20);
 	timeText.setPosition(sf::Vector2f(560, 20));
 
+	remainingText.setFont(font);
+	remainingText.setString("Enough Igloo!");
+	remainingText.setColor(sf::Color::Red);
+	remainingText.setCharacterSize(20);
+	remainingText.setPosition(sf::Vector2f(540,50));
+
+	pauseText.setFont(font);
+	pauseText.setColor(sf::Color::Black);
+	pauseText.setCharacterSize(20);
+	
+	
 	lives.resize(zooki_ptr->getLivesLeft());
 	sf::Sprite sprite;
 	
@@ -63,7 +75,10 @@ sf::Sprite Hud::getIceCreamSprite()
 {
 	return iceCream;
 }
-
+sf::Sprite Hud::getTimerSprite()
+{
+	return timer;
+}
 std::vector<sf::Sprite> Hud::getLives()
 {
 	return lives;
@@ -81,7 +96,36 @@ sf::Text Hud::getIceCreamText()
 {
 	return iceCreamCountText;
 }
-
+sf::Text Hud::getRemainingText()
+{
+	return remainingText;
+}
+sf::Text Hud::getPauseText()
+{
+	return pauseText;
+}
+void Hud::setRemainingText(float x, float y)
+{
+	//remainingText.setScale(x,y);
+	remainingText.setColor(sf::Color::Blue);
+}
+void Hud::setPauseText(int x, int y, int coneRecord, int timeRecord)
+{
+	pauseText.setString("x " + getString(coneRecord)
+						+"\n"+"\n"+"\n"+"Time Cost: " + getString(timeRecord)
+						+"\n"+"\n"+"\n"+"x" + getString(lives.size()));
+	pauseText.setPosition(x+60,y);
+	iceCream.setPosition(x,y);
+	timer.setPosition(x,y+70);
+	lives[0].setPosition(x,y+130);
+	
+}
+void Hud::resetTextPosition()
+{
+	iceCream.setPosition(sf::Vector2f(1100, 20));
+	lives[0].setPosition(sf::Vector2f(80,10));
+	timer.setPosition(sf::Vector2f(520,20));
+}
 void Hud::Update()
 {
 

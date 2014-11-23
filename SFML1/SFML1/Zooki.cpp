@@ -1,6 +1,10 @@
 #include "Zooki.h"
 #include<iostream>
 using namespace std;
+#define WALKSPEED  1250
+#define SLIDESPEED 13.2*WALKSPEED
+#define LEVEL 5
+#define LIVES 3
 Zooki::Zooki()
 {
 	texture_size_x=18;
@@ -21,7 +25,7 @@ Zooki::Zooki()
 	y_velocity = 0;
 
 	level = 0;
-	lives = 3;
+	lives = LIVES;
 	conesCollected = 0;
 }
 
@@ -81,7 +85,7 @@ void Zooki::reset(){
 void Zooki::moveRight(float deltaTime, int runSpeed)
 {
 	zookiSprite.setTextureRect(zooki_run1_r);
-	x_velocity += 25;
+	x_velocity += WALKSPEED*deltaTime;
 	if (x_velocity > runSpeed){
 		x_velocity = runSpeed;
 	}
@@ -90,16 +94,16 @@ void Zooki::moveRight(float deltaTime, int runSpeed)
 void Zooki::moveLeft(float deltaTime, int runSpeed)
 {
 	zookiSprite.setTextureRect(zooki_run1_l);
-	x_velocity -= 25;
+	x_velocity -= WALKSPEED*deltaTime;
 	if (x_velocity < -runSpeed){
 		x_velocity = -runSpeed;
 	}
 
 }
 
-void Zooki::fall(){
+void Zooki::fall(float deltaTime){
 
-	y_velocity += 15;
+	y_velocity += 750*deltaTime;
 }
 
 void Zooki::processMovement(float deltaTime)
@@ -151,7 +155,7 @@ void Zooki::processMovement(float deltaTime, int rightBound, int leftBound, int 
 		x_velocity = 0;
 
 	}
-	else if (pos_x >= 1280 || (!isSliding && pos_x > 1280 - texture_size_x))
+	else if(pos_x >= 1280 || (!isSliding && pos_x > 1280 - texture_size_x))
 	{
 		if (!isSliding)
 		{
@@ -159,7 +163,7 @@ void Zooki::processMovement(float deltaTime, int rightBound, int leftBound, int 
 		}
 		else
 		{
-			pos_x = 1280 - 1;
+			pos_x = 1280-1;
 		}
 		x_velocity = 0;
 	}
@@ -216,6 +220,7 @@ void Zooki::processMovement(float deltaTime, int rightBound, int leftBound, int 
 		}
 	}
 
+
 	//up and down collisions
 	if (y_velocity < 0 && upBound > 0)
 	{
@@ -248,17 +253,17 @@ void Zooki::processMovement(float deltaTime, int rightBound, int leftBound, int 
 
 }
 
-void Zooki::jump()
+void Zooki::jump(float deltaTime)
 {
 	if(x_velocity>0)
 		zookiSprite.setTextureRect(zooki_jump_r);
 	if(x_velocity<0)
 		zookiSprite.setTextureRect(zooki_jump_l);
 	onGround = false;
-	y_velocity -= 300;
+	y_velocity -= 15000*deltaTime;
 }
 
-void Zooki::slide()
+void Zooki::slide(float deltaTime)
 {
 
 	//zookiSprite.setTexture(zooki_texture);
@@ -268,7 +273,7 @@ void Zooki::slide()
 		isSliding = true;
 		if (x_velocity > 0 && onGround)
 		{
-			x_velocity = 350;
+			x_velocity = SLIDESPEED*deltaTime;
 		}
 		zookiSprite.setTextureRect(zooki_down_r);
 		zookiSprite.setRotation(90);
@@ -278,7 +283,7 @@ void Zooki::slide()
 		isSliding = true;
 		if (x_velocity < 0 && onGround)
 		{
-			x_velocity = -350;
+			x_velocity = -SLIDESPEED*deltaTime;
 		}
 		zookiSprite.setTextureRect(zooki_down_l);
 

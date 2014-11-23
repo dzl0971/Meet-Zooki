@@ -5,7 +5,6 @@ Tile::Tile()
 {
 	ID = -1;
 	numberPlaced = 0;
-
 	isSolid = false; 
 	isDeadly = false;
 	isCollectible = false;

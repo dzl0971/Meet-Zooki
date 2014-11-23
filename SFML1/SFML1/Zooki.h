@@ -49,9 +49,10 @@ public:
 	void loadTexture();
 	void moveLeft(float deltaTime, int runSpeed);  //move Zooki left
 	void moveRight(float deltaTime, int runSpeed);  // move Zooki right
-	void fall();
-	void jump();
-	void slide();
+	void fall(float deltaTime);
+	void jump(float deltaTime);
+	void slide(float deltaTime);
+
 	void stop();
 	void processMovement(float deltaTime);
 	void processMovement(float deltaTime, int rightBound, int leftBound, int upBound, int downBound);  // takes position of closest tile into account
