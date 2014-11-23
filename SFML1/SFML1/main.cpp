@@ -39,14 +39,18 @@ using namespace std;
 	const float lavaScale = 1.1;
 	const int levelNumber = LEVEL;
 	
+	//filenames for levels
 	const std::array<string, levelNumber> levels = { "1.txt","2.txt","3.txt","4.txt","5.txt","6.txt","7a.txt","7b.txt"};
-	//const std::array<string, levelNumber> levels = { "2.txt","2.txt","2.txt","2.txt","2.txt","2.txt","7.txt","7b.txt"};//test
+	//const std::array<string, levelNumber> levels = { "6.txt","7a.txt","7b.txt","2.txt","2.txt","2.txt","7.txt","7b.txt"};//test
 	
+	//nnumber of cones per level
 	const std::array<int, levelNumber> cones = { 0, 2, 8, 16, 10, 2, 14, 0};
 	//const std::array<int, levelNumber> cones = { 0, 0, 0, 0, 0,0,0,4};//test
 	
+	//time limit for each level
 	const std::array<int, levelNumber> times = { 10, 15, 40, 30, 70, 15, 100,300};
-	
+	//const std::array<int, levelNumber> times = { 100, 150, 400, 300, 700, 150, 1000, 300 };//test
+
 	int screenMessage = 1;
 	int coneRecord= 0;
 	int timeRecord= 0;
@@ -123,6 +127,7 @@ void render()
 				for (int j = 0; j < edit.getSizeY(); j++)
 				{
 					if (edit.getLevelTile(i, j)->getID() != -1){
+						//makes cones flash when time is running low
 						if (edit.getLevelTile(i, j)->getIsCollectible() && levelStart.getElapsedTime().asSeconds() > (int)times[zooki.level]*0.7){
 							if (levelStart.getElapsedTime().asMilliseconds() % 200 < 100){
 								xyz = edit.getLevelTile(i, j)->getTileSprite();
@@ -309,7 +314,7 @@ int main()
 			}
 			if (!(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) && !(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))){
 				zooki.stop();	
-				sound.jumpSound.stop();
+				//sound.jumpSound.stop();
 				sound.walkSound.stop();
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
@@ -450,10 +455,11 @@ int main()
 								}
 								if (edit.getLevelTile(i, j)->getIsFinish() == true)
 								{
-									sound.backgroundSound.stop();
+									
 									
 									if (zooki.conesRemaining < 1)
 									{
+										sound.backgroundSound.stop();
 										coneSum += zooki.conesCollected;
 																					
 										if(zooki.level>=SECRETLEVEL)
@@ -498,7 +504,7 @@ int main()
 										
 										isPlaying = 2;
 										coneRecord = zooki.conesCollected;
-										timeRecord = levelStart.getElapsedTime().asSeconds() + 1;
+										timeRecord = levelStart.getElapsedTime().asSeconds();
 										cout<<timeRecord<<endl;
 										if (zooki.level < levels.size())
 											zooki.conesRemaining = cones[zooki.level];
@@ -611,7 +617,10 @@ int main()
 						if (zooki_texture_left == 1)
 						{
 							zooki.zookiSprite.setTextureRect(zooki.zooki_run1_l);
-							sound.walkSound.play();
+							if (!zooki.isSliding)
+							{
+								sound.walkSound.play();
+							}
 							
 						}
 						if (zooki_texture_left == 2)
@@ -636,7 +645,10 @@ int main()
 					if (zooki_texture_right == 1)
 					{
 						zooki.zookiSprite.setTextureRect(zooki.zooki_run1_r);
-						sound.walkSound.play();
+						if (!zooki.isSliding)
+						{
+							sound.walkSound.play();
+						}
 					}
 					if (zooki_texture_right == 2)
 					{

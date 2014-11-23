@@ -142,7 +142,7 @@ void Hud::Update()
 		iceCreamCountText.setString("x " + getString(zooki->conesCollected));
 	}
 
-	timeText.setString("Time Left: " + getString((int)(maxTime - clock->getElapsedTime().asSeconds())));
+	timeText.setString("Time Left: " + getString((int)(maxTime - clock->getElapsedTime().asSeconds()) + 1));
 }
 
 void Hud::setLives()

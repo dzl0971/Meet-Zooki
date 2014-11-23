@@ -35,6 +35,7 @@ void Sound::loadSounds()
 	if(background_buffer.loadFromFile("Data/Sounds/background2.wav")==true)
 		cout<<"background.wav loaded"<<endl;
 	backgroundSound.setBuffer(background_buffer);
+	backgroundSound.setLoop(true);
 
 	time_till_end=0;
 }
