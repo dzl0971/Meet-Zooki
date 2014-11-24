@@ -1,0 +1,15 @@
+*.tlog
+*.obj
+*.exe
+*.pdb
+SFML1/Debug/Zooki.exe
+*.ilk
+*.pdb
+*.sdf
+*.suo
+*.obj
+*.log
+*.idb
+*.pdb
+*.tlog
+*.lastbuildstate

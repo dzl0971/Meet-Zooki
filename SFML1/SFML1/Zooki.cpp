@@ -2,7 +2,7 @@
 #include<iostream>
 using namespace std;
 #define WALKSPEED  1250
-#define SLIDESPEED 13.2*WALKSPEED
+#define SLIDESPEED 20.0*WALKSPEED
 #define LEVEL 5
 #define LIVES 3
 Zooki::Zooki()
