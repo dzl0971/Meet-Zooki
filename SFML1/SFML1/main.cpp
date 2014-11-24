@@ -327,15 +327,15 @@ int main()
 			{
 				// get movement input
 
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
 					zooki.moveLeft(dt, gravity);
 
 				}
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
 					zooki.moveRight(dt, gravity);
 
 				}
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && zooki.onGround){
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && zooki.onGround ){
 					zooki.jump(dt);
 					sound.jumpSound.play();
 				}
