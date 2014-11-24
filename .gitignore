@@ -13,3 +13,8 @@ SFML1/Debug/Zooki.exe
 *.pdb
 *.tlog
 *.lastbuildstate
+*.sdf
+*.suo
+*.log
+*.tlog
+*.tlog
