@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////
 	const int gameWidth = 1280;
 	const int gameHeight = 768;
-	const int gravity = 200;
+	const int gravity = 250;
 	const int tileSize = 16;
 	const float lavaScale = 1.1;
 	const int levelNumber = LEVEL;
@@ -201,7 +201,7 @@ int main()
 
 	titleScreen.setText(1);
 	titleScreen.setImage();
-	window.setFramerateLimit(40);
+	window.setFramerateLimit(30);
 
 
 	while (window.isOpen())
