@@ -24,8 +24,8 @@ using namespace std;
 #define LIVES 3
 #define MAXLIVENUM 7
 //the MAXCONES depend on the summer of array cones(2+8+16+10+2)+levelNumer(6)=44
-#define MAXCONES 44
-#define SECRETLEVEL 4
+#define MAXCONES 70
+#define SECRETLEVEL 7
 ////////////////////////////////////////////////////////////
 /// Entry point of application
 ///
@@ -40,7 +40,7 @@ using namespace std;
 	const int levelNumber = LEVEL;
 	
 	//filenames for levels
-	const std::array<string, levelNumber> levels = { "1.txt","2.txt","3.txt","4.txt","5.txt","6.txt","7a.txt","7b.txt"};
+	const std::array<string, levelNumber> levels = { "level.txt","2.txt","3.txt","4.txt","5.txt","6.txt","7a.txt","7b.txt"};
 	//const std::array<string, levelNumber> levels = { "5.txt","7a.txt","7b.txt","2.txt","2.txt","2.txt","7.txt","7b.txt"};//test
 	
 	//nnumber of cones per level
@@ -149,24 +149,19 @@ void render()
 						}
 					}
 
+					//animate lava blocks
 					if (edit.getLevelTile(i, j)->getID() == 4)
 					{
 						if (levelStart.getElapsedTime().asMilliseconds() % 2000 < 1000)
 						{
 							xyz = edit.getLevelTile(i, j)->getTileSprite();
-							if (coneSum <= MAXCONES)
-							{
-								xyz.scale(1, 1);
-							}
+							xyz.scale(1, 1);
 							window.draw(xyz);
 						}
 						else
 						{
 							xyz = edit.getLevelTile(i, j)->getTileSprite();
-							if (coneSum <= MAXCONES)
-							{
-								xyz.scale(1.0, lavaScale);
-							}
+							xyz.scale(1.0, lavaScale);
 							window.draw(xyz);
 						}
 					}
@@ -371,6 +366,8 @@ int main()
 						zooki.lives -= 1;
 						zooki.reset();
 						screenMessage = 4;
+						t = 0;
+						dt = 0.1;
 					}
 					zooki.onGround = false;
 
