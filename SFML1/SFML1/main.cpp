@@ -40,7 +40,7 @@ using namespace std;
 	const int levelNumber = LEVEL;
 	
 	//filenames for levels
-	const std::array<string, levelNumber> levels = { "level.txt","2.txt","3.txt","4.txt","5.txt","6.txt","7a.txt","7b.txt"};
+	const std::array<string, levelNumber> levels = { "1.txt","2.txt","3.txt","4.txt","5.txt","6.txt","7a.txt","7b.txt"};
 	//const std::array<string, levelNumber> levels = { "5.txt","7a.txt","7b.txt","2.txt","2.txt","2.txt","7.txt","7b.txt"};//test
 	
 	//nnumber of cones per level
