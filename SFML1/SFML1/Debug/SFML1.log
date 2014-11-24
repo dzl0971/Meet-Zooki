@@ -1,10 +1,42 @@
-﻿Build started 11/23/2014 11:20:06 PM.
+﻿Build started 11/24/2014 10:34:12 AM.
      1>Project "C:\Users\Benjamin\Desktop\Meet-Zooki\SFML1\SFML1\SFML1.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (SFML1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-     1>Link:
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Zooki.cpp
+         Zooki.cpp
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(88): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(97): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(106): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(111): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(123): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(141): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(145): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(173): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(177): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(263): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(276): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(286): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(292): warning C4244: '=' : conversion from 'const float' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(293): warning C4244: '=' : conversion from 'const float' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(301): warning C4244: '=' : conversion from 'const float' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(302): warning C4244: '=' : conversion from 'const float' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(320): warning C4244: '/=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(324): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(346): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Benjamin\Desktop\Meet-Zooki\SFML1\Debug\Zooki.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\SFML\lib "sfml-audio-d.lib" "sfml-graphics-d.lib" "sfml-network-d.lib" "sfml-window-d.lib" "sfml-system-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Benjamin\Desktop\Meet-Zooki\SFML1\Debug\Zooki.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Benjamin\Desktop\Meet-Zooki\SFML1\Debug\Zooki.lib" /MACHINE:X86 Debug\Cone.obj
+         Debug\editor.obj
+         Debug\Hud.obj
+         Debug\Igloo.obj
+         Debug\LoadSprites.obj
+         Debug\main.obj
+         Debug\Sound.obj
+         Debug\Tile.obj
+         Debug\TitleScreen.obj
+         Debug\Zooki.obj
          SFML1.vcxproj -> C:\Users\Benjamin\Desktop\Meet-Zooki\SFML1\Debug\Zooki.exe
      1>Done Building Project "C:\Users\Benjamin\Desktop\Meet-Zooki\SFML1\SFML1\SFML1.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.18
+Time Elapsed 00:00:01.18

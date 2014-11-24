@@ -2,7 +2,7 @@
 #include<iostream>
 using namespace std;
 #define WALKSPEED  1250
-#define SLIDESPEED 20.0*WALKSPEED
+#define SLIDESPEED 12.0*WALKSPEED
 #define LEVEL 5
 #define LIVES 3
 Zooki::Zooki()
@@ -103,7 +103,7 @@ void Zooki::moveLeft(float deltaTime, int runSpeed)
 
 void Zooki::fall(float deltaTime){
 
-	y_velocity += 750*deltaTime;
+	y_velocity += 1250*deltaTime;
 }
 
 void Zooki::processMovement(float deltaTime)

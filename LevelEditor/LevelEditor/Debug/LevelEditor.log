@@ -1,9 +1,9 @@
-﻿Build started 11/23/2014 4:17:47 PM.
-     1>Project "C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Zooki\Meet-Zooki\LevelEditor\LevelEditor\LevelEditor.vcxproj" on node 2 (Build target(s)).
+﻿Build started 11/24/2014 10:11:58 AM.
+     1>Project "C:\Users\Benjamin\Desktop\Meet-Zooki\LevelEditor\LevelEditor\LevelEditor.vcxproj" on node 2 (Build target(s)).
      1>Link:
-         LevelEditor.vcxproj -> C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Zooki\Meet-Zooki\LevelEditor\Debug\LevelEditor.exe
-     1>Done Building Project "C:\Users\Admin\Desktop\School\Fall 2014\CS 420\Zooki\Meet-Zooki\LevelEditor\LevelEditor\LevelEditor.vcxproj" (Build target(s)).
+         LevelEditor.vcxproj -> C:\Users\Benjamin\Desktop\Meet-Zooki\LevelEditor\Debug\LevelEditor.exe
+     1>Done Building Project "C:\Users\Benjamin\Desktop\Meet-Zooki\LevelEditor\LevelEditor\LevelEditor.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.03
+Time Elapsed 00:00:00.17

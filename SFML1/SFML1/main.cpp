@@ -81,6 +81,8 @@ using namespace std;
 	
 	// Create the window of the application
 	sf::RenderWindow window(sf::VideoMode(gameWidth, gameHeight, 32), "Zooki");
+
+	
 	
 	sf::Clock mainClock;
 	sf::Clock AITimer;
@@ -199,7 +201,9 @@ int main()
 
 	titleScreen.setText(1);
 	titleScreen.setImage();
-		
+	window.setFramerateLimit(40);
+
+
 	while (window.isOpen())
 	{
 		
@@ -677,6 +681,8 @@ int main()
 		render();
 		// Display things on screen
 		window.display();
+
+
 
 	}
 
