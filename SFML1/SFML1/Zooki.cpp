@@ -2,7 +2,7 @@
 #include<iostream>
 using namespace std;
 #define WALKSPEED  1500
-#define SLIDESPEED 12.0*WALKSPEED
+#define SLIDESPEED 25.0*WALKSPEED
 #define LEVEL 5
 #define LIVES 3
 Zooki::Zooki()
@@ -103,7 +103,7 @@ void Zooki::moveLeft(float deltaTime, int runSpeed)
 
 void Zooki::fall(float deltaTime){
 
-	y_velocity += 1500*deltaTime;
+	y_velocity += 750*deltaTime;
 }
 
 void Zooki::processMovement(float deltaTime)
@@ -260,7 +260,7 @@ void Zooki::jump(float deltaTime)
 	if(x_velocity<0)
 		zookiSprite.setTextureRect(zooki_jump_l);
 	onGround = false;
-	y_velocity -= 16000*deltaTime;
+	y_velocity -= 32000*deltaTime;
 }
 
 void Zooki::slide(float deltaTime)
@@ -273,7 +273,7 @@ void Zooki::slide(float deltaTime)
 		isSliding = true;
 		if (x_velocity > 0 && onGround)
 		{
-			x_velocity = SLIDESPEED*deltaTime;
+			x_velocity += SLIDESPEED*deltaTime;
 		}
 		zookiSprite.setTextureRect(zooki_down_r);
 		zookiSprite.setRotation(90);
@@ -283,7 +283,7 @@ void Zooki::slide(float deltaTime)
 		isSliding = true;
 		if (x_velocity < 0 && onGround)
 		{
-			x_velocity = -SLIDESPEED*deltaTime;
+			x_velocity -= SLIDESPEED*deltaTime;
 		}
 		zookiSprite.setTextureRect(zooki_down_l);
 
