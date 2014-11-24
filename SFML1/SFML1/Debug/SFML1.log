@@ -1,4 +1,4 @@
-﻿Build started 11/24/2014 4:50:36 PM.
+﻿Build started 11/24/2014 5:30:24 PM.
      1>Project "C:\Users\Benjamin\Desktop\Meet-Zooki\SFML1\SFML1\SFML1.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (SFML1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
@@ -20,7 +20,7 @@
      1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(293): warning C4244: '=' : conversion from 'const float' to 'int', possible loss of data
      1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(301): warning C4244: '=' : conversion from 'const float' to 'int', possible loss of data
      1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(302): warning C4244: '=' : conversion from 'const float' to 'int', possible loss of data
-     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(320): warning C4244: '/=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(320): warning C4244: '*=' : conversion from 'double' to 'int', possible loss of data
      1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(324): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
      1>c:\users\benjamin\desktop\meet-zooki\sfml1\sfml1\zooki.cpp(346): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
        Link:
@@ -39,4 +39,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.08
+Time Elapsed 00:00:01.07

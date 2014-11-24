@@ -2,7 +2,7 @@
 #include<iostream>
 using namespace std;
 #define WALKSPEED  1500
-#define SLIDESPEED 25.0*WALKSPEED
+#define SLIDESPEED 15.0*WALKSPEED
 #define LEVEL 5
 #define LIVES 3
 Zooki::Zooki()
@@ -103,7 +103,7 @@ void Zooki::moveLeft(float deltaTime, int runSpeed)
 
 void Zooki::fall(float deltaTime){
 
-	y_velocity += 750*deltaTime;
+	y_velocity += 1000*deltaTime;
 }
 
 void Zooki::processMovement(float deltaTime)
@@ -317,11 +317,11 @@ void Zooki::stop()
 	if (onGround){
 		if (x_velocity > 0)
 		{
-			x_velocity /= 1.1;
+			x_velocity *= .98;
 		}
 		else if (x_velocity < 0)
 		{
-			x_velocity = -((-x_velocity)/ 1.1);
+			x_velocity = -((-x_velocity)*.98);
 			//x_velocity *= -1;
 		}
 	}

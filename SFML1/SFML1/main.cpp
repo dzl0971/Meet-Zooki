@@ -41,7 +41,7 @@ using namespace std;
 	
 	//filenames for levels
 	const std::array<string, levelNumber> levels = { "1.txt","2.txt","3.txt","4.txt","5.txt","6.txt","7a.txt","7b.txt"};
-	//const std::array<string, levelNumber> levels = { "level.txt","7a.txt","7b.txt","2.txt","2.txt","2.txt","7.txt","7b.txt"};//test
+	//const std::array<string, levelNumber> levels = { "5.txt","7a.txt","7b.txt","2.txt","2.txt","2.txt","7.txt","7b.txt"};//test
 	
 	//nnumber of cones per level
 	const std::array<int, levelNumber> cones = { 0, 2, 8, 16, 10, 2, 14, 0};
@@ -457,60 +457,90 @@ int main()
 					zooki.processMovement(dt, rightCollisionBound, leftCollisionBound, upCollisionBound, downCollisionBound);
 					zooki.Update();
 
-					for (int i = 0; i < edit.getSizeX(); i++)
+					for (int i = (zooki.pos_x / tileSize) - 7; i < (zooki.pos_x / tileSize) + 7; i++)
 					{
-						for (int j = 0; j < edit.getSizeY(); j++)
+						if (i >= 0 && i <= edit.getSizeX() - 1)
 						{
-
-							if ((edit.getLevelTile(i, j)->getID() != -1))
+							for (int j = (zooki.pos_y / tileSize) - 7; j < (zooki.pos_y / tileSize) + 7; j++)
 							{
-
-
-								// Affected area
-
-								sf::FloatRect area;
-								if (zooki.zookiSprite.getGlobalBounds().intersects(edit.getLevelTile(i, j)->getTileSprite().getGlobalBounds(), area))
+								if (j >= 0 && j <= edit.getSizeY() - 1)
 								{
-									if (edit.getLevelTile(i, j)->getIsDeadly() == true)
-									{
-										isPlaying = 0;
-										sound.deathSound.play();
-										zooki.lives -= 1;
-										zooki.reset();
-										screenMessage = 3;
-										break;
-									}
-									if (edit.getLevelTile(i, j)->getIsFinish() == true)
+									if ((edit.getLevelTile(i, j)->getID() != -1))
 									{
 
 
-										if (zooki.conesRemaining < 1)
+										// Affected area
+
+										sf::FloatRect area;
+										if (zooki.zookiSprite.getGlobalBounds().intersects(edit.getLevelTile(i, j)->getTileSprite().getGlobalBounds(), area))
 										{
-											sound.backgroundSound.stop();
-											coneSum += zooki.conesCollected;
-
-											if (zooki.level >= SECRETLEVEL)
+											if (edit.getLevelTile(i, j)->getIsDeadly() == true)
 											{
-												if (coneSum >= MAXCONES)
+												isPlaying = 0;
+												sound.deathSound.play();
+												zooki.lives -= 1;
+												zooki.reset();
+												screenMessage = 3;
+												break;
+											}
+											if (edit.getLevelTile(i, j)->getIsFinish() == true)
+											{
+
+
+												if (zooki.conesRemaining < 1)
 												{
-													if (zooki.level > levels.size())
+													sound.backgroundSound.stop();
+													coneSum += zooki.conesCollected;
+
+													if (zooki.level >= SECRETLEVEL)
 													{
-														isPlaying = 0;
-														screenMessage = 5;
-														zooki.level = 0;
-														zooki.reset();
-														zooki.lives = LIVES;
-														continue;
+														if (coneSum >= MAXCONES)
+														{
+															if (zooki.level > levels.size())
+															{
+																isPlaying = 0;
+																screenMessage = 5;
+																zooki.level = 0;
+																zooki.reset();
+																zooki.lives = LIVES;
+																continue;
+															}
+															isPlaying = 2;
+															coneRecord = zooki.conesCollected;
+															timeRecord = levelStart.getElapsedTime().asSeconds();
+
+															if (zooki.level < levels.size())
+																zooki.conesRemaining = cones[zooki.level];
+															//sound.deathSound.play();
+															zooki.level += 1;
+															if (zooki.lives < MAXLIVENUM)
+																zooki.lives += 1;
+															zooki.reset();
+															screenMessage = 2;
+
+															sound.congratulationSound.play();
+															break;
+														}
+														else
+														{
+															isPlaying = 0;
+															screenMessage = 5;
+															zooki.level = 0;
+															zooki.reset();
+															zooki.lives = LIVES;
+															continue;
+														}
 													}
+
 													isPlaying = 2;
 													coneRecord = zooki.conesCollected;
 													timeRecord = levelStart.getElapsedTime().asSeconds();
-
+													cout << timeRecord << endl;
 													if (zooki.level < levels.size())
 														zooki.conesRemaining = cones[zooki.level];
 													//sound.deathSound.play();
 													zooki.level += 1;
-													if (zooki.lives<MAXLIVENUM)
+													if (zooki.lives < MAXLIVENUM)
 														zooki.lives += 1;
 													zooki.reset();
 													screenMessage = 2;
@@ -518,87 +548,62 @@ int main()
 													sound.congratulationSound.play();
 													break;
 												}
+												continue;
+											}
+											if (edit.getLevelTile(i, j)->getIsCollectible() == true)
+											{
+
+												zooki.conesRemaining -= 1;
+												zooki.conesCollected += 1;
+												edit.removeTileInLevel(i, j);
+												sound.iglooSound.play();
+												continue;
+											}
+											// Verifying if we need to apply collision to the vertical axis, else we apply to horizontal axis
+
+
+											if (area.width > area.height && area.width != 2)
+											{
+												if (area.contains(area.left, zooki.zookiSprite.getPosition().y))
+												{
+													// Up side crash
+													zooki.zookiSprite.setPosition(zooki.zookiSprite.getPosition().x, zooki.zookiSprite.getPosition().y + area.height);
+													zooki.pos_y = zooki.pos_y + area.height;
+													zooki.y_velocity = 0;
+												}
 												else
 												{
-													isPlaying = 0;
-													screenMessage = 5;
-													zooki.level = 0;
-													zooki.reset();
-													zooki.lives = LIVES;
-													continue;
+													// Down side crash
+													zooki.onGround = true;
+													zooki.zookiSprite.setPosition(zooki.zookiSprite.getPosition().x, zooki.zookiSprite.getPosition().y - area.height);
+													zooki.pos_y = zooki.pos_y - area.height;
+													zooki.y_velocity = 0;
 												}
 											}
 
-											isPlaying = 2;
-											coneRecord = zooki.conesCollected;
-											timeRecord = levelStart.getElapsedTime().asSeconds();
-											cout << timeRecord << endl;
-											if (zooki.level < levels.size())
-												zooki.conesRemaining = cones[zooki.level];
-											//sound.deathSound.play();
-											zooki.level += 1;
-											if (zooki.lives<MAXLIVENUM)
-												zooki.lives += 1;
-											zooki.reset();
-											screenMessage = 2;
 
-											sound.congratulationSound.play();
-											break;
-										}
-										continue;
-									}
-									if (edit.getLevelTile(i, j)->getIsCollectible() == true)
-									{
-
-										zooki.conesRemaining -= 1;
-										zooki.conesCollected += 1;
-										edit.removeTileInLevel(i, j);
-										sound.iglooSound.play();
-										continue;
-									}
-									// Verifying if we need to apply collision to the vertical axis, else we apply to horizontal axis
-
-
-									if (area.width > area.height && area.width != 2)
-									{
-										if (area.contains(area.left, zooki.zookiSprite.getPosition().y))
-										{
-											// Up side crash
-											zooki.zookiSprite.setPosition(zooki.zookiSprite.getPosition().x, zooki.zookiSprite.getPosition().y + area.height);
-											zooki.pos_y = zooki.pos_y + area.height;
-											zooki.y_velocity = 0;
-										}
-										else
-										{
-											// Down side crash
-											zooki.onGround = true;
-											zooki.zookiSprite.setPosition(zooki.zookiSprite.getPosition().x, zooki.zookiSprite.getPosition().y - area.height);
-											zooki.pos_y = zooki.pos_y - area.height;
-											zooki.y_velocity = 0;
+											else if (area.width < area.height && area.height != 2)
+											{
+												if (area.contains(zooki.zookiSprite.getPosition().x + zooki.zookiSprite.getGlobalBounds().width - 1.f, area.top + 1.f))
+												{
+													//Right side crash
+													zooki.zookiSprite.setPosition(zooki.pos_x - area.width, zooki.zookiSprite.getPosition().y);
+													zooki.pos_x = zooki.pos_x - area.width;
+													zooki.x_velocity = 0;
+												}
+												else
+												{
+													//Left side crash
+													zooki.zookiSprite.setPosition(zooki.zookiSprite.getPosition().x + area.width, zooki.zookiSprite.getPosition().y);
+													zooki.pos_x = zooki.pos_x + area.width;
+													zooki.x_velocity = 0;
+												}
+											}
 										}
 									}
 
-
-									else if (area.width < area.height && area.height != 2)
-									{
-										if (area.contains(zooki.zookiSprite.getPosition().x + zooki.zookiSprite.getGlobalBounds().width - 1.f, area.top + 1.f))
-										{
-											//Right side crash
-											zooki.zookiSprite.setPosition(zooki.pos_x - area.width, zooki.zookiSprite.getPosition().y);
-											zooki.pos_x = zooki.pos_x - area.width;
-											zooki.x_velocity = 0;
-										}
-										else
-										{
-											//Left side crash
-											zooki.zookiSprite.setPosition(zooki.zookiSprite.getPosition().x + area.width, zooki.zookiSprite.getPosition().y);
-											zooki.pos_x = zooki.pos_x + area.width;
-											zooki.x_velocity = 0;
-										}
-									}
 								}
 							}
-
 						}
 						if (isPlaying == 0)
 						{
