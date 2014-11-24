@@ -99,103 +99,107 @@ using namespace std;
 
 void render()
 {
-	if(isPlaying ==0)//
+	if (isPlaying == 0)//
+	{
+		window.clear(sf::Color(164, 250, 200));
+		window.draw(edit.getBackground());
+		titleScreen.setText(screenMessage);
+		window.draw(titleScreen.zookieLogo);
+		window.draw(titleScreen.play);
+
+
+	}
+
+	if (isPlaying == 1)//play state
+	{
+		window.clear();
+		window.draw(edit.getBackground());
+		HUD.Update(t);
+		// Draw HUD
+		for (int i = 0; i< HUD.getLives().size(); i++)
 		{
-			window.clear(sf::Color(164, 250, 200));
-			window.draw(edit.getBackground());
-			titleScreen.setText(screenMessage);
-			window.draw(titleScreen.zookieLogo);
-			window.draw(titleScreen.play);
-			
+			window.draw(HUD.getLives()[i]);
+		}
+		window.draw(HUD.getTimerSprite());
+		window.draw(HUD.getLivesText());
+		window.draw(HUD.getIceCreamText());
+		window.draw(HUD.getIceCreamSprite());
+		window.draw(HUD.getTimeText());
+
+		if (zooki.conesRemaining < 1)
+		{
+
+			window.draw(HUD.getRemainingText());
 
 		}
-
-	if (isPlaying==1)//play state
+		//draw tiles
+		for (int i = 0; i < edit.getSizeX(); i++)
 		{
-			window.clear();
-			window.draw(edit.getBackground());
-			HUD.Update();
-			// Draw HUD
-			for (int i = 0; i< HUD.getLives().size(); i++)
+			for (int j = 0; j < edit.getSizeY(); j++)
 			{
-				window.draw(HUD.getLives()[i]);
-			}
-			window.draw(HUD.getTimerSprite());
-			window.draw(HUD.getLivesText());
-			window.draw(HUD.getIceCreamText());
-			window.draw(HUD.getIceCreamSprite());
-			window.draw(HUD.getTimeText());
-			
-			if(zooki.conesRemaining < 1)
-			{
-				
-				window.draw(HUD.getRemainingText());
-				
-			}
-			//draw tiles
-			for (int i = 0; i < edit.getSizeX(); i++)
-			{
-				for (int j = 0; j < edit.getSizeY(); j++)
+				if (edit.getLevelTile(i, j)->getID() != -1)
 				{
-					if (edit.getLevelTile(i, j)->getID() != -1){
-						//makes cones flash when time is running low
-						if (edit.getLevelTile(i, j)->getIsCollectible() && levelStart.getElapsedTime().asSeconds() > (int)times[zooki.level]*0.7){
-							if (levelStart.getElapsedTime().asMilliseconds() % 200 < 100){
-								xyz = edit.getLevelTile(i, j)->getTileSprite();
-								window.draw(xyz);
-							}
-						}
-							
-						if(edit.getLevelTile(i,j)->getID()==4)
+					//makes cones flash when time is running low
+					if (edit.getLevelTile(i, j)->getIsCollectible() && levelStart.getElapsedTime().asSeconds() >(int)times[zooki.level] * 0.7)
+					{
+						if (levelStart.getElapsedTime().asMilliseconds() % 200 < 100)
 						{
-							if (levelStart.getElapsedTime().asMilliseconds() % 2000 < 1000)
-							{
-								xyz = edit.getLevelTile(i, j)->getTileSprite();
-								if (coneSum <= MAXCONES)
-								{
-									xyz.scale(1,1);
-								}
-								window.draw(xyz);
-							}
-							else
-							{
-								xyz = edit.getLevelTile(i, j)->getTileSprite();
-								if (coneSum <= MAXCONES)
-								{
-									xyz.scale(1.0, lavaScale);
-								}
-								window.draw(xyz);
-							}
-						}
-						else{
 							xyz = edit.getLevelTile(i, j)->getTileSprite();
 							window.draw(xyz);
+						}
+					}
+
+					if (edit.getLevelTile(i, j)->getID() == 4)
+					{
+						if (levelStart.getElapsedTime().asMilliseconds() % 2000 < 1000)
+						{
+							xyz = edit.getLevelTile(i, j)->getTileSprite();
+							if (coneSum <= MAXCONES)
+							{
+								xyz.scale(1, 1);
+							}
+							window.draw(xyz);
+						}
+						else
+						{
+							xyz = edit.getLevelTile(i, j)->getTileSprite();
+							if (coneSum <= MAXCONES)
+							{
+								xyz.scale(1.0, lavaScale);
+							}
+							window.draw(xyz);
+						}
+					}
+					else
+					{
+						xyz = edit.getLevelTile(i, j)->getTileSprite();
+						window.draw(xyz);
 					}
 				}
 			}
 		}
 
 		window.draw(zooki.zookiSprite);
-			
-		}
-		
-		if(isPlaying == 2)//pause state
-		{
-			window.clear();
-			window.draw(edit.getBackground());
-			titleScreen.setText(screenMessage);
-			window.draw(titleScreen.play);
-			HUD.Update();
-			// Draw HUD
-			
-			HUD.setPauseText(500,200,coneRecord,timeRecord);
-			
-			window.draw(HUD.getLives()[0]);
-			window.draw(HUD.getIceCreamSprite());
-			window.draw(HUD.getTimerSprite());
-			window.draw(HUD.getPauseText());
-			
-		}
+
+	}
+
+	if (isPlaying == 2)//pause state
+	{
+		window.clear();
+		window.draw(edit.getBackground());
+		titleScreen.setText(screenMessage);
+		window.draw(titleScreen.play);
+		HUD.Update(t);
+		// Draw HUD
+
+		HUD.setPauseText(500, 200, coneRecord, timeRecord);
+
+		window.draw(HUD.getLives()[0]);
+		window.draw(HUD.getIceCreamSprite());
+		window.draw(HUD.getTimerSprite());
+		window.draw(HUD.getPauseText());
+
+	}
 }
 int main()
 {
@@ -299,6 +303,8 @@ int main()
 						zooki.lives = LIVES;
 						continue;
 					}
+					t = 0;
+					dt = 0.01;
 					edit.LoadLevel("Data/"+levels[zooki.level]);
 					HUD.setMaxTime(times[zooki.level]);
 					zooki.setStart(edit.getStartX(), edit.getStartY());
@@ -481,6 +487,8 @@ int main()
 												zooki.lives -= 1;
 												zooki.reset();
 												screenMessage = 3;
+												t = 0;
+												dt = 0.01;
 												break;
 											}
 											if (edit.getLevelTile(i, j)->getIsFinish() == true)
@@ -491,6 +499,8 @@ int main()
 												{
 													sound.backgroundSound.stop();
 													coneSum += zooki.conesCollected;
+													t = 0;
+													dt = 0.01;
 
 													if (zooki.level >= SECRETLEVEL)
 													{

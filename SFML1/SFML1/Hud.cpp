@@ -112,7 +112,7 @@ void Hud::setRemainingText(float x, float y)
 void Hud::setPauseText(int x, int y, int coneRecord, int timeRecord)
 {
 	pauseText.setString("x " + getString(coneRecord)
-		+ "\n" + "\n" + "\n" + "Time Taken: " + getString(timeRecord) + " seconds"
+		+ "\n" + "\n" + "\n" + "Time Taken: " + getString(timeRecord + 1) + " seconds"
 						+"\n"+"\n"+"\n"+"x" + getString(lives.size()));
 	pauseText.setPosition(x+60,y);
 	iceCream.setPosition(x,y);
@@ -126,7 +126,7 @@ void Hud::resetTextPosition()
 	lives[0].setPosition(sf::Vector2f(80,10));
 	timer.setPosition(sf::Vector2f(520,20));
 }
-void Hud::Update()
+void Hud::Update(double time)
 {
 
 	if (zooki->getLivesLeft() != lives.size())
@@ -142,7 +142,7 @@ void Hud::Update()
 		iceCreamCountText.setString("x " + getString(zooki->conesCollected));
 	}
 
-	timeText.setString("Time Left: " + getString((int)(maxTime - clock->getElapsedTime().asSeconds()) + 1));
+	timeText.setString("Time Left: " + getString((int)((maxTime - time) + 1)));
 }
 
 void Hud::setLives()
