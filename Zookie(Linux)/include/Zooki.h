@@ -51,7 +51,7 @@ public:
 	void moveRight(float deltaTime, int runSpeed);  // move Zooki right
 	void fall(float deltaTime);
 	void jump(float deltaTime);
-	void slide(float deltaTime);
+	void slide(float deltaTime, int slideSpeed);
 
 	void stop();
 	void processMovement(float deltaTime);
