@@ -199,7 +199,7 @@ void render()
 int main()
 {
 	std::srand(static_cast<unsigned int>(std::time(NULL)));
-	edit.LoadTiles("Data/ZookieSpriteInfo.txt");
+	edit.LoadTiles("resources/ZookieSpriteInfo.txt");
 	window.setVerticalSyncEnabled(true);
 	// Define some constants
 	
@@ -262,7 +262,7 @@ int main()
 						zooki.lives = LIVES;
 						continue;
 					}
-					edit.LoadLevel("Data/"+levels[zooki.level]);
+					edit.LoadLevel("resources/"+levels[zooki.level]);
 					HUD.setMaxTime(times[zooki.level]);
 					zooki.setStart(edit.getStartX(), edit.getStartY());
 
@@ -300,7 +300,7 @@ int main()
 					}
 					t = 0;
 					//dt = 0.01;
-					edit.LoadLevel("Data/"+levels[zooki.level]);
+					edit.LoadLevel("resources/"+levels[zooki.level]);
 					HUD.setMaxTime(times[zooki.level]);
 					zooki.setStart(edit.getStartX(), edit.getStartY());
 
