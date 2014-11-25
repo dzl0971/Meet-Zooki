@@ -24,7 +24,7 @@ public:
 	void setMaxTime(int max);
 	void setPauseText(int x, int y, int coneRecord, int timeRecord);
 	void resetTextPosition();
-	void Update();
+	void Update(double time);
 
 private:
 	int conesCollected;

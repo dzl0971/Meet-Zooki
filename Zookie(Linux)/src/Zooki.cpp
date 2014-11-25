@@ -1,15 +1,15 @@
 #include "Zooki.h"
 #include<iostream>
 using namespace std;
-#define WALKSPEED  1250
-#define SLIDESPEED 13.2*WALKSPEED
+#define WALKSPEED  1500
+#define SLIDESPEED 1.2*WALKSPEED
 #define LEVEL 5
 #define LIVES 3
 Zooki::Zooki()
 {
 	texture_size_x=18;
 	texture_size_y=22;
-	if(zooki_texture.loadFromFile("resources/penguin.png")==false){
+	if(zooki_texture.loadFromFile("Data/penguin.png")==false){
 		   cout<<"Texture failed to initialize"<<endl;
 	   }
 	
@@ -103,7 +103,7 @@ void Zooki::moveLeft(float deltaTime, int runSpeed)
 
 void Zooki::fall(float deltaTime){
 
-	y_velocity += 750*deltaTime;
+	y_velocity += 1000*deltaTime;
 }
 
 void Zooki::processMovement(float deltaTime)
@@ -260,7 +260,7 @@ void Zooki::jump(float deltaTime)
 	if(x_velocity<0)
 		zookiSprite.setTextureRect(zooki_jump_l);
 	onGround = false;
-	y_velocity -= 15000*deltaTime;
+	y_velocity -= 32000*deltaTime;
 }
 
 void Zooki::slide(float deltaTime)
@@ -273,17 +273,23 @@ void Zooki::slide(float deltaTime)
 		isSliding = true;
 		if (x_velocity > 0 && onGround)
 		{
-			x_velocity = SLIDESPEED*deltaTime;
+			x_velocity += SLIDESPEED*deltaTime;
+		}
+		if (x_velocity > SLIDESPEED){
+			x_velocity = SLIDESPEED;
 		}
 		zookiSprite.setTextureRect(zooki_down_r);
 		zookiSprite.setRotation(90);
 	}
-	if (x_velocity < 0)
+	else if (x_velocity < 0)
 	{
 		isSliding = true;
 		if (x_velocity < 0 && onGround)
 		{
-			x_velocity = -SLIDESPEED*deltaTime;
+			x_velocity -= SLIDESPEED*deltaTime;
+		}
+		if (x_velocity < -SLIDESPEED){
+			x_velocity = -SLIDESPEED;
 		}
 		zookiSprite.setTextureRect(zooki_down_l);
 
@@ -317,11 +323,11 @@ void Zooki::stop()
 	if (onGround){
 		if (x_velocity > 0)
 		{
-			x_velocity /= 1.1;
+			x_velocity *= .98;
 		}
 		else if (x_velocity < 0)
 		{
-			x_velocity = -((-x_velocity)/ 1.1);
+			x_velocity = -((-x_velocity)*.98);
 			//x_velocity *= -1;
 		}
 	}
