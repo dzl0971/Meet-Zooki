@@ -299,7 +299,7 @@ int main()
 						continue;
 					}
 					t = 0;
-					dt = 0.01;
+					//dt = 0.01;
 					edit.LoadLevel("Data/"+levels[zooki.level]);
 					HUD.setMaxTime(times[zooki.level]);
 					zooki.setStart(edit.getStartX(), edit.getStartY());
@@ -367,7 +367,8 @@ int main()
 						zooki.reset();
 						screenMessage = 4;
 						t = 0;
-						dt = 0.1;
+						//dt = 0.1;
+						levelStart.restart();
 					}
 					zooki.onGround = false;
 
@@ -485,7 +486,7 @@ int main()
 												zooki.reset();
 												screenMessage = 3;
 												t = 0;
-												dt = 0.01;
+												//dt = 0.01;
 												break;
 											}
 											if (edit.getLevelTile(i, j)->getIsFinish() == true)
@@ -497,7 +498,7 @@ int main()
 													sound.backgroundSound.stop();
 													coneSum += zooki.conesCollected;
 													t = 0;
-													dt = 0.01;
+													//dt = 0.01;
 
 													if (zooki.level >= SECRETLEVEL)
 													{
@@ -569,7 +570,7 @@ int main()
 											// Verifying if we need to apply collision to the vertical axis, else we apply to horizontal axis
 
 
-											if (area.width > area.height && area.width != 2)
+											if (area.width > area.height && (area.width != 2 || (zooki.isSliding && area.height!=2)))
 											{
 												if (area.contains(area.left, zooki.zookiSprite.getPosition().y))
 												{
