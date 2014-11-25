@@ -20,7 +20,7 @@ Hud::Hud(sf::Clock* time, Zooki* zooki_ptr)
 	clock = time;
 	conesCollected = zooki_ptr->conesCollected;
 
-	font.loadFromFile("Data/arial.ttf");
+	font.loadFromFile("resources/arial.ttf");
 	
 	livesText.setFont(font);
 	livesText.setString("Lives:");
@@ -28,12 +28,12 @@ Hud::Hud(sf::Clock* time, Zooki* zooki_ptr)
 	livesText.setCharacterSize(20);
 	livesText.setPosition(sf::Vector2f(20, 20));
 
-	iceCreamTex.loadFromFile("Data/cone.png");
+	iceCreamTex.loadFromFile("resources/cone.png");
 	iceCream.setTexture(iceCreamTex);
 	iceCream.setTextureRect(sf::IntRect(0, 0, 30, 27));
 	iceCream.setPosition(sf::Vector2f(1100, 20));
 
-	timerTex.loadFromFile("Data/timer.png");
+	timerTex.loadFromFile("resources/timer.png");
 	timer.setTexture(timerTex);
 	timer.setPosition(sf::Vector2f(520,20));
 

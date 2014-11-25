@@ -9,7 +9,7 @@ Zooki::Zooki()
 {
 	texture_size_x=18;
 	texture_size_y=22;
-	if(zooki_texture.loadFromFile("Data/penguin.png")==false){
+	if(zooki_texture.loadFromFile("resources/penguin.png")==false){
 		   cout<<"Texture failed to initialize"<<endl;
 	   }
 	
