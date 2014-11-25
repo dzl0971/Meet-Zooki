@@ -346,7 +346,7 @@ int main()
 					sound.walkSound.stop();
 				}
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
-					zooki.slide(dt);
+					zooki.slide(dt,gravity);
 					//zooki.onGround = false;
 				}
 				if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
